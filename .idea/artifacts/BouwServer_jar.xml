@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BouwServer:jar">
+    <output-path>C:/Data ROC/OneDrive - ROC van Twente/Data ROC/Prive Project/Server/plugins</output-path>
+    <root id="archive" name="BouwServer.jar">
+      <element id="module-output" name="BouwServer" />
+    </root>
+  </artifact>
+</component>
