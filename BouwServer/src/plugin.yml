@@ -3,3 +3,7 @@ description: Plugin voor de bouwserver van Onameril
 author: Hotseflots
 version: 1.0
 main: com.hotseflots.bouwserver.Main
+commands:
+    usermanager:
+      description: Admin tools om de server te beheren!
+      aliases: us
