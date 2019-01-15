@@ -1,10 +1,9 @@
 package com.hotseflots.bouwserver.events;
 
 import com.hotseflots.bouwserver.Main;
-import com.hotseflots.bouwserver.UserManagerSystem;
+import com.hotseflots.bouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -25,7 +24,6 @@ public class PlayerJoin implements Listener {
         Send a message on player join.
          */
         event.setJoinMessage("");
-
         Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable() {
             @Override
             public void run() {
@@ -60,9 +58,18 @@ public class PlayerJoin implements Listener {
             Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".bans.amount", 0);
             Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".mutes", "");
             Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".mutes.amount", 0);
-            Main.plugin.saveConfig();
         }
 
+        //Update last joined
+        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".last-login", dateFormat.format(date));
+        //Update name
+        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".name", event.getPlayer().getName());
+        //Update last ip and notify if logged on with another one.
+        if (Main.plugin.config.getString("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress") != event.getPlayer().getAddress().getHostString()) {
+            Bukkit.broadcastMessage(Messages.SERVER_TAG + " Speler " + event.getPlayer().getName() + " is met een ander ip dan zijn laatste sessie gejoined!");
+        }
+        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress", event.getPlayer().getAddress().getHostString());
+        Main.plugin.saveConfig();
         /*
         Check if player is banned.
          */

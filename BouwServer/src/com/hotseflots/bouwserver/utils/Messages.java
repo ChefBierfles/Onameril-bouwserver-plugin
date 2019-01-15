@@ -1,4 +1,4 @@
-package com.hotseflots.bouwserver;
+package com.hotseflots.bouwserver.utils;
 
 import org.bukkit.ChatColor;
 
@@ -15,8 +15,8 @@ public class Messages {
         return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is van de server gekickt door '" + ChatColor.GOLD + executor + ChatColor.WHITE + "' \nReden: \"" + ChatColor.GOLD + reason + ChatColor.WHITE + "\".";
     }
 
-    public static String MUTE_MSG(String executor, String target, String reason) {
-        return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is gemute door '" + ChatColor.GOLD + executor + ChatColor.WHITE + "' \nReden: \"" + ChatColor.GOLD + reason + ChatColor.WHITE + "\".";
+    public static String MUTE_MSG(String executor, String target, String expireDate,String reason) {
+        return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is gemute door '" + ChatColor.GOLD + executor + ChatColor.WHITE + "' \nReden: \"" + ChatColor.GOLD + reason + ChatColor.WHITE + "\".\nVerloopt op: " + expireDate;
     }
 
     public static String UNMUTE_MSG(String target) {
