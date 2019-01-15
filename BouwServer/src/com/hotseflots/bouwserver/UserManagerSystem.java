@@ -153,7 +153,7 @@ public class UserManagerSystem implements CommandExecutor {
         String date = getCurrentDate();
 
         //Get kickamount from the cfg and increase it by one
-        int kickAmount = Integer.parseInt(ConfigPaths.amountPath(target.getUniqueId().toString(), "kicks")) + 1;
+        int kickAmount = Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(target.getUniqueId().toString(), "kicks"))) + 1;
 
         //Increase kick amount
         Main.plugin.config.set(ConfigPaths.amountPath(target.getUniqueId().toString(), "kicks"), kickAmount);
@@ -181,7 +181,7 @@ public class UserManagerSystem implements CommandExecutor {
         String date = getCurrentDate();
 
         //Get muteAmount from the cfg and increase it by one
-        int muteAmount = Integer.parseInt(ConfigPaths.amountPath(target.getUniqueId().toString(), "mutes")) + 1;
+        int muteAmount = Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(target.getUniqueId().toString(), "mutes"))) + 1;
 
         //Increase kick amount
         Main.plugin.config.set(ConfigPaths.amountPath(target.getUniqueId().toString(), "mutes"), muteAmount);
