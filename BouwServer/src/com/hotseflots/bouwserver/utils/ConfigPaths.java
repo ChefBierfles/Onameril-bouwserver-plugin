@@ -27,4 +27,16 @@ public class ConfigPaths {
     public static String GetDetailPath(String PlayerUUID, String punishment, int punishmentID, String detail) {
         return "players-history." + PlayerUUID + "." + punishment + "." + punishmentID + "." + detail;
     }
+
+    public static String bannedPlayers() {
+        return "banned-players";
+    }
+
+    public static String mutedPlayers() {
+        return "muted-players";
+    }
+
+    public static String frozenPlayers() {
+        return "frozen-players";
+    }
 }

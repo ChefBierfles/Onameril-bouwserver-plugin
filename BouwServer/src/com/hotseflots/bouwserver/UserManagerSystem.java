@@ -1,5 +1,6 @@
 package com.hotseflots.bouwserver;
 
+import com.hotseflots.bouwserver.events.PlayerChat;
 import com.hotseflots.bouwserver.utils.ConfigPaths;
 import com.hotseflots.bouwserver.utils.Messages;
 import org.bukkit.Bukkit;
@@ -8,6 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitScheduler;
 
 import java.rmi.ConnectIOException;
 import java.text.DateFormat;
@@ -23,11 +25,17 @@ public class UserManagerSystem implements CommandExecutor {
         - Mute them
         - Freeze them (Completly disabling movement + interaction).
      */
+    public static String[] lastCommandArgs;
+
+    public static boolean getDuration;
+
     @Override
     public boolean onCommand(CommandSender cmdSender, Command cmd, String alias, String[] args) {
         /*
         Enkel spelers kunnen gebruik maken van User-Manager en niet de console.
          */
+        getDuration = false;
+
         if (!(cmdSender instanceof Player)) {
             cmdSender.sendMessage(Messages.USERMANAGER_TAG + " Je moet wel ingelogd zijn om deze command uit te kunnen voeren!");
             return false;
@@ -35,8 +43,8 @@ public class UserManagerSystem implements CommandExecutor {
 
         /*
         Command Layout
-            /usermanager ban player time reason
-                          0     1     2    3
+            /usermanager ban player reason
+                          0     1     2
          */
 
 
@@ -59,17 +67,10 @@ public class UserManagerSystem implements CommandExecutor {
                 return false;
             }
 
-            String expireDate;
-
-            if (args[2].equalsIgnoreCase("perm")) {
-                expireDate = args[2];
-            } else {
-                expireDate = getExpireDate(args[2]);
-            }
-
             switch (args[0].toLowerCase()) {
                 case "ban":
-                    banPlayer((Player) cmdSender, target, expireDate, getReason(args));
+                    askDuration((Player) cmdSender);
+                    lastCommandArgs = args;
                     break;
                 case "unban":
                     unbanPlayer((Player) cmdSender, target, getReason(args));
@@ -78,7 +79,8 @@ public class UserManagerSystem implements CommandExecutor {
                     kickPlayer((Player) cmdSender, target, getReason(args));
                     break;
                 case "mute":
-                    mutePlayer((Player) cmdSender, target, expireDate, getReason(args));
+                    askDuration((Player) cmdSender);
+                    lastCommandArgs = args;
                     break;
                 case "unmute":
                     unmutePlayer((Player) cmdSender, target, getReason(args));
@@ -134,7 +136,6 @@ public class UserManagerSystem implements CommandExecutor {
             expireDate = "Permanent";
         }
         Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "bans", banAmount, "expires"), expireDate);
-
         Main.plugin.saveConfig();
     }
 
@@ -219,11 +220,27 @@ public class UserManagerSystem implements CommandExecutor {
 
     }
 
+    public static void askDuration(Player executor) {
+        getDuration = true;
+        executor.sendMessage(Messages.SERVER_TAG + " hoelang moet deze straf duren?");
+    }
+
+    public static void peformTask(String task, Player executor, Player target, String durationString, String reason) {
+        switch (task) {
+            case "ban":
+                banPlayer(executor, target, durationString, reason);
+                break;
+            case "mute":
+                mutePlayer(executor, target, durationString, reason);
+                break;
+        }
+    }
+
     public static String getReason(String[] strings) {
         String reason;
 
         StringBuilder sb = new StringBuilder();
-        for (int i = 3; i < strings.length; i++) {
+        for (int i = 2; i < strings.length; i++) {
             sb.append(strings[i]).append(" ");
         }
         reason = sb.toString().trim();
