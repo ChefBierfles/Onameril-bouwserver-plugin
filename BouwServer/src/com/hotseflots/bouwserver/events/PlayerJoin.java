@@ -51,7 +51,7 @@ public class PlayerJoin implements Listener {
             Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString(), "");
             Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".name", event.getPlayer().getName());
             Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".last-login", dateFormat.format(date));
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress", event.getPlayer().getAddress().getHostString());
+            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress", event.getPlayer().getAddress().toString());
             Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".kicks", "");
             Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".kicks.amount", 0);
             Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".bans", "");

@@ -15,7 +15,7 @@ public class Messages {
         return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is van de server gekickt door '" + ChatColor.GOLD + executor + ChatColor.WHITE + "' \nReden: \"" + ChatColor.GOLD + reason + ChatColor.WHITE + "\".";
     }
 
-    public static String MUTE_MSG(String executor, String target, String expireDate,String reason) {
+    public static String MUTE_MSG(String executor, String target, String reason ,String expireDate) {
         return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is gemute door '" + ChatColor.GOLD + executor + ChatColor.WHITE + "' \nReden: \"" + ChatColor.GOLD + reason + ChatColor.WHITE + "\".\nVerloopt op: " + expireDate;
     }
 
@@ -32,13 +32,11 @@ public class Messages {
     }
 
     public static String BANNED_MSG(String executor, String reason, String timeString) {
-        timeString = "NIET TOEGEVOEGD";
-        return ChatColor.WHITE + "U bent van de server verbannen door " + ChatColor.GOLD + executor + ChatColor.WHITE + " met als reden:\n" + "\"" + ChatColor.GOLD + reason + ChatColor.WHITE +"\". Deze ban verloopt in: " + ChatColor.GOLD + timeString + ChatColor.WHITE + ".";
+        return ChatColor.WHITE + "U bent van de server verbannen door " + ChatColor.GOLD + executor + ChatColor.WHITE + " met als reden:\n" + "\"" + ChatColor.GOLD + reason + ChatColor.WHITE +"\". Deze ban verloopt op: " + ChatColor.GOLD + timeString + ChatColor.WHITE + ".";
     }
 
     public static String BAN_MSG(String executor, String target, String reason, String timeString) {
-        timeString = "NIET TOEGEVOEGD";
-        return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is van de server verbannen door '" + ChatColor.GOLD + executor + ChatColor.WHITE + "' \nReden: \"" + ChatColor.GOLD + reason + ChatColor.WHITE + "\".\nTijd: " + ChatColor.GOLD + timeString + ChatColor.WHITE + ".";
+        return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is van de server verbannen door '" + ChatColor.GOLD + executor + ChatColor.WHITE + "' \nReden: \"" + ChatColor.GOLD + reason + ChatColor.WHITE + "\".\nVerloopt op: " + ChatColor.GOLD + timeString + ChatColor.WHITE + ".";
     }
 
     public static String UNBAN_MSG(String target) {

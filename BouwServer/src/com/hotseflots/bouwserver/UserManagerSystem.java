@@ -26,6 +26,8 @@ public class UserManagerSystem implements CommandExecutor {
         - Freeze them (Completly disabling movement + interaction).
      */
     public static String[] lastCommandArgs;
+    public static Player lastCommandExecutor;
+    public static Player lastCommandTarget;
 
     public static boolean getDuration;
 
@@ -47,7 +49,6 @@ public class UserManagerSystem implements CommandExecutor {
                           0     1     2
          */
 
-
         if (cmd.getName().equalsIgnoreCase("usermanager")) {
             if (args.length < 1) {
                 cmdSender.sendMessage(Messages.USERMANAGER_TAG);
@@ -67,10 +68,13 @@ public class UserManagerSystem implements CommandExecutor {
                 return false;
             }
 
+            lastCommandTarget = target;
+
             switch (args[0].toLowerCase()) {
                 case "ban":
                     askDuration((Player) cmdSender);
                     lastCommandArgs = args;
+                    lastCommandExecutor = (Player) cmdSender;
                     break;
                 case "unban":
                     unbanPlayer((Player) cmdSender, target, getReason(args));
@@ -81,6 +85,7 @@ public class UserManagerSystem implements CommandExecutor {
                 case "mute":
                     askDuration((Player) cmdSender);
                     lastCommandArgs = args;
+                    lastCommandExecutor = (Player) cmdSender;
                     break;
                 case "unmute":
                     unmutePlayer((Player) cmdSender, target, getReason(args));
@@ -102,13 +107,21 @@ public class UserManagerSystem implements CommandExecutor {
         return false;
     }
 
+    public static void banPlayer(Player executor, UUID targetUUID, String expireDate, String reason) {
 
-    public static void banPlayer(Player executor, Player target, String expireDate, String reason) {
+        Player target = Bukkit.getPlayer(Main.plugin.config.getString(ConfigPaths.namePath(targetUUID.toString())));
+
         //Broadcast message
-        Bukkit.broadcastMessage(Messages.BAN_MSG(executor.getName(), target.getName(), expireDate, reason));
+        Bukkit.broadcastMessage(Messages.BAN_MSG(executor.getName(), target.getName(), reason, expireDate));
 
         //Target message
-        target.kickPlayer(Messages.BANNED_MSG(executor.getName(), reason, expireDate));
+        if (target.isOnline()) {
+            Bukkit.getScheduler().runTask(Main.plugin, new Runnable() {
+                public void run() {
+                    target.kickPlayer(Messages.BANNED_MSG(executor.getName(), reason, expireDate));
+                }
+            });
+        }
 
         //Get current date in format : dd/MM/yyyy HH:mm:ss
         String date = getCurrentDate();
@@ -132,9 +145,6 @@ public class UserManagerSystem implements CommandExecutor {
         Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "bans", banAmount, "date"), date);
 
         //Add expiredate
-        if (expireDate.equalsIgnoreCase("perm")) {
-            expireDate = "Permanent";
-        }
         Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "bans", banAmount, "expires"), expireDate);
         Main.plugin.saveConfig();
     }
@@ -174,9 +184,10 @@ public class UserManagerSystem implements CommandExecutor {
         Main.plugin.saveConfig();
     }
 
-    public static void mutePlayer(Player executor, Player target, String expireDate ,String reason) {
+    public static void mutePlayer(Player executor, UUID targetUUID, String expireDate ,String reason) {
+        Player target = Bukkit.getPlayer(targetUUID);
         //Broadcast message
-        Bukkit.broadcastMessage(Messages.MUTE_MSG(executor.getName(), target.getName(), expireDate, reason));
+        Bukkit.broadcastMessage(Messages.MUTE_MSG(executor.getName(), target.getName(), reason, expireDate));
 
         //Get current date in format : dd/MM/yyyy HH:mm:ss
         String date = getCurrentDate();
@@ -200,9 +211,6 @@ public class UserManagerSystem implements CommandExecutor {
         Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "mutes", muteAmount, "date"), date);
 
         //Add expiredate
-        if (expireDate.equalsIgnoreCase("perm")) {
-            expireDate = "Permanent";
-        }
         Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "mutes", muteAmount, "expires"), expireDate);
 
         Main.plugin.saveConfig();
@@ -225,7 +233,19 @@ public class UserManagerSystem implements CommandExecutor {
         executor.sendMessage(Messages.SERVER_TAG + " hoelang moet deze straf duren?");
     }
 
-    public static void peformTask(String task, Player executor, Player target, String durationString, String reason) {
+    public static void peformTask(String durationString) {
+
+        String task = lastCommandArgs[0];
+        Player executor = lastCommandExecutor;
+        UUID target = lastCommandTarget.getUniqueId();
+        String reason = getReason(lastCommandArgs);
+        durationString = getExpireDate(durationString);
+
+        if (target == null) {
+            executor.sendMessage("Erorr when peforming task, cant find player!");
+            return;
+        }
+
         switch (task) {
             case "ban":
                 banPlayer(executor, target, durationString, reason);
@@ -259,7 +279,22 @@ public class UserManagerSystem implements CommandExecutor {
     }
 
     public static String getExpireDate(String durationString) {
-        Duration duration = Duration.parse("PT" + durationString);
+        if (durationString.equalsIgnoreCase("perm")) {
+            durationString = "Nooit";
+            return durationString;
+        }
+
+        durationString = durationString.toLowerCase();
+        Duration duration;
+
+        if (durationString.contains("d")) {
+            //3d5m3s
+            String[] spliter = durationString.split("d");
+            duration = Duration.parse("P" + spliter[0] + "d" + "T" + spliter[1]);
+        } else {
+            duration = Duration.parse("PT" + durationString);
+        }
+
         long timesToSeconds = (duration.toMillis() / 1000);
 
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");

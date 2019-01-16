@@ -7,13 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29ca54f0-cb11-4422-b752-9ff68a500545" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/UserManagerSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/UserManagerSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/ConfigPaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/ConfigPaths.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/Messages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/UserManagerSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/UserManagerSystem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/events/PlayerChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/events/PlayerChat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/utils/ConfigPaths.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/utils/ConfigPaths.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/utils/Messages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/utils/Messages.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="301">
               <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -47,32 +47,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/UserManagerSystem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="227" column="118" selection-start-line="227" selection-start-column="118" selection-end-line="227" selection-end-column="118" />
+            <state relative-caret-position="1479">
+              <caret line="120" column="99" lean-forward="true" selection-start-line="120" selection-start-column="99" selection-end-line="120" selection-end-column="99" />
               <folding>
+                <element signature="e#4706#4707#0" expanded="true" />
+                <element signature="e#4824#4825#0" expanded="true" />
                 <element signature="method#unbanPlayer#0;class#UserManagerSystem#0" />
                 <element signature="method#kickPlayer#0;class#UserManagerSystem#0" />
                 <element signature="method#mutePlayer#0;class#UserManagerSystem#0" />
                 <element signature="method#unmutePlayer#0;class#UserManagerSystem#0" />
+                <element signature="method#freezePlayer#0;class#UserManagerSystem#0" />
+                <element signature="method#unfreezePlayer#0;class#UserManagerSystem#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="17" column="10" lean-forward="true" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+            <state relative-caret-position="323">
+              <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+            <state relative-caret-position="301">
+              <caret line="53" column="156" selection-start-line="53" selection-start-column="156" selection-end-line="53" selection-end-column="156" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,16 +111,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/Messages.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="357">
+              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
               <folding>
                 <element signature="method#KICKED_MSG#0;class#Messages#0" />
                 <element signature="method#KICK_MSG#0;class#Messages#0" />
                 <element signature="method#UNMUTE_MSG#0;class#Messages#0" />
                 <element signature="method#FREEZED_MSG#0;class#Messages#0" />
                 <element signature="method#UNFREEZED_MSG#0;class#Messages#0" />
-                <element signature="method#BANNED_MSG#0;class#Messages#0" />
-                <element signature="method#BAN_MSG#0;class#Messages#0" />
                 <element signature="method#UNBAN_MSG#0;class#Messages#0" />
               </folding>
             </state>
@@ -182,12 +184,13 @@
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerInteract.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/ServerTick.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/Messages.java" />
-        <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/ConfigOptions.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/ConfigPaths.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/Main.java" />
-        <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/UserManagerSystem.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/UserManagerSystem.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/Messages.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java" />
       </list>
     </option>
   </component>
@@ -250,7 +253,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547588336242" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547638420454" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -301,12 +304,12 @@
       <workItem from="1547537804934" duration="937000" />
       <workItem from="1547557528500" duration="596000" />
       <workItem from="1547564242115" duration="1001000" />
-      <workItem from="1547578761216" duration="9556000" />
+      <workItem from="1547578761216" duration="15079000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69460000" />
+    <option name="totallyTimeSpent" value="74983000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -321,8 +324,8 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47679326" visible="true" weight="0.29932886" />
-      <window_info id="Structure" order="1" sideWeight="0.5232068" side_tool="true" visible="true" weight="0.29932886" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.47733712" visible="true" weight="0.29932886" />
+      <window_info id="Structure" order="1" sideWeight="0.5226629" side_tool="true" visible="true" weight="0.29932886" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -340,7 +343,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.51073825" side_tool="true" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.48926175" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.48926175" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -389,33 +392,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/Messages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="method#KICKED_MSG#0;class#Messages#0" />
-            <element signature="method#KICK_MSG#0;class#Messages#0" />
-            <element signature="method#UNMUTE_MSG#0;class#Messages#0" />
-            <element signature="method#FREEZED_MSG#0;class#Messages#0" />
-            <element signature="method#UNFREEZED_MSG#0;class#Messages#0" />
-            <element signature="method#BANNED_MSG#0;class#Messages#0" />
-            <element signature="method#BAN_MSG#0;class#Messages#0" />
-            <element signature="method#UNBAN_MSG#0;class#Messages#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/ConfigPaths.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -440,9 +416,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/Messages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding>
+            <element signature="method#KICKED_MSG#0;class#Messages#0" />
+            <element signature="method#KICK_MSG#0;class#Messages#0" />
+            <element signature="method#UNMUTE_MSG#0;class#Messages#0" />
+            <element signature="method#FREEZED_MSG#0;class#Messages#0" />
+            <element signature="method#UNFREEZED_MSG#0;class#Messages#0" />
+            <element signature="method#UNBAN_MSG#0;class#Messages#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="301">
           <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -452,21 +443,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/UserManagerSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="227" column="118" selection-start-line="227" selection-start-column="118" selection-end-line="227" selection-end-column="118" />
+        <state relative-caret-position="1479">
+          <caret line="120" column="99" lean-forward="true" selection-start-line="120" selection-start-column="99" selection-end-line="120" selection-end-column="99" />
           <folding>
+            <element signature="e#4706#4707#0" expanded="true" />
+            <element signature="e#4824#4825#0" expanded="true" />
             <element signature="method#unbanPlayer#0;class#UserManagerSystem#0" />
             <element signature="method#kickPlayer#0;class#UserManagerSystem#0" />
             <element signature="method#mutePlayer#0;class#UserManagerSystem#0" />
             <element signature="method#unmutePlayer#0;class#UserManagerSystem#0" />
+            <element signature="method#freezePlayer#0;class#UserManagerSystem#0" />
+            <element signature="method#unfreezePlayer#0;class#UserManagerSystem#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="10" lean-forward="true" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+        <state relative-caret-position="323">
+          <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="53" column="156" selection-start-line="53" selection-start-column="156" selection-end-line="53" selection-end-column="156" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

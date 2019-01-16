@@ -21,7 +21,8 @@ public class PlayerChat implements Listener {
         if (UserManagerSystem.getDuration) {
             event.setCancelled(true);
             UserManagerSystem.getDuration = false;
-            UserManagerSystem.peformTask(UserManagerSystem.lastCommandArgs[0], event.getPlayer(), Bukkit.getPlayer(UserManagerSystem.lastCommandArgs[1]), event.getMessage(), UserManagerSystem.getReason(UserManagerSystem.lastCommandArgs));
+            String durationString = event.getMessage();
+            UserManagerSystem.peformTask(durationString);
         }
     }
 }
