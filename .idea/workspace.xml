@@ -7,13 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29ca54f0-cb11-4422-b752-9ff68a500545" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/UserManagerSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/UserManagerSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/UserManagerSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/UserManagerSystem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/events/PlayerChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/events/PlayerChat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/utils/Messages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/com/hotseflots/bouwserver/utils/Messages.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/UserManagerSystem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1479">
-              <caret line="120" column="99" lean-forward="true" selection-start-line="120" selection-start-column="99" selection-end-line="120" selection-end-column="99" />
+            <state relative-caret-position="454">
+              <caret line="299" selection-start-line="299" selection-end-line="300" selection-end-column="31" />
               <folding>
                 <element signature="e#4706#4707#0" expanded="true" />
                 <element signature="e#4824#4825#0" expanded="true" />
@@ -63,32 +58,33 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+            <state relative-caret-position="102">
+              <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/ConfigPaths.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="53" column="156" selection-start-line="53" selection-start-column="156" selection-end-line="53" selection-end-column="156" />
+            <state relative-caret-position="374">
+              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#163#164#0" expanded="true" />
+                <element signature="e#227#228#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerMove.java">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="41" selection-start-column="41" selection-end-column="41" />
+            <state relative-caret-position="284">
+              <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,25 +130,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/ConfigPaths.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-              <folding>
-                <element signature="e#163#164#0" expanded="true" />
-                <element signature="e#227#228#0" expanded="true" />
-                <element signature="e#1114#1115#0" expanded="true" />
-                <element signature="e#1153#1154#0" expanded="true" />
-                <element signature="e#1201#1202#0" expanded="true" />
-                <element signature="e#1225#1226#0" expanded="true" />
-                <element signature="e#1286#1287#0" expanded="true" />
-                <element signature="e#1310#1311#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -187,10 +164,10 @@
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/ConfigOptions.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/ConfigPaths.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/Main.java" />
-        <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/UserManagerSystem.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/Messages.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java" />
       </list>
     </option>
   </component>
@@ -253,7 +230,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547638420454" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547643587249" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -304,12 +281,12 @@
       <workItem from="1547537804934" duration="937000" />
       <workItem from="1547557528500" duration="596000" />
       <workItem from="1547564242115" duration="1001000" />
-      <workItem from="1547578761216" duration="15079000" />
+      <workItem from="1547578761216" duration="18800000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74983000" />
+    <option name="totallyTimeSpent" value="78704000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -324,7 +301,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.47733712" visible="true" weight="0.29932886" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47733712" visible="true" weight="0.29932886" />
       <window_info id="Structure" order="1" sideWeight="0.5226629" side_tool="true" visible="true" weight="0.29932886" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -375,37 +352,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerInteract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/plugin.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/ConfigPaths.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-          <folding>
-            <element signature="e#163#164#0" expanded="true" />
-            <element signature="e#227#228#0" expanded="true" />
-            <element signature="e#1114#1115#0" expanded="true" />
-            <element signature="e#1153#1154#0" expanded="true" />
-            <element signature="e#1201#1202#0" expanded="true" />
-            <element signature="e#1225#1226#0" expanded="true" />
-            <element signature="e#1286#1287#0" expanded="true" />
-            <element signature="e#1310#1311#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -441,10 +391,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerInteract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/UserManagerSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="120" column="99" lean-forward="true" selection-start-line="120" selection-start-column="99" selection-end-line="120" selection-end-column="99" />
+        <state relative-caret-position="454">
+          <caret line="299" selection-start-line="299" selection-end-line="300" selection-end-column="31" />
           <folding>
             <element signature="e#4706#4707#0" expanded="true" />
             <element signature="e#4824#4825#0" expanded="true" />
@@ -458,20 +428,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java">
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/utils/ConfigPaths.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+        <state relative-caret-position="374">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding>
+            <element signature="e#163#164#0" expanded="true" />
+            <element signature="e#227#228#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerJoin.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/text/DateFormat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="53" column="156" selection-start-line="53" selection-start-column="156" selection-end-line="53" selection-end-column="156" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="244">
+          <caret line="360" column="16" selection-start-line="360" selection-start-column="16" selection-end-line="360" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/com/hotseflots/bouwserver/events/PlayerChat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
         </state>
       </provider>
     </entry>
