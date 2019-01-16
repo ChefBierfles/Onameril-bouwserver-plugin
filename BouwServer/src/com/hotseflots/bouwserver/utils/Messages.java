@@ -16,7 +16,7 @@ public class Messages {
     }
 
     public static String MUTE_MSG(String executor, String target, String reason ,String expireDate) {
-        return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is gemute door '" + ChatColor.GOLD + executor + ChatColor.WHITE + "' \nReden: \"" + ChatColor.GOLD + reason + ChatColor.WHITE + "\".\nVerloopt op: " + expireDate;
+        return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is gemute door '" + ChatColor.GOLD + executor + ChatColor.WHITE + "' \nReden: \"" + ChatColor.GOLD + reason + ChatColor.WHITE + "\".\nVerloopt op: "+ ChatColor.GOLD + expireDate;
     }
 
     public static String UNMUTE_MSG(String target) {

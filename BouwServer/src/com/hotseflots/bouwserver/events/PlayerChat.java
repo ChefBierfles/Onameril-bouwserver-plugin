@@ -19,21 +19,24 @@ public class PlayerChat implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
 
-        String expireDateString = Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "mutes", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "mutes"))), "expires"));
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
-        Date expireDate;
-        try {
-            expireDate = dateFormat.parse(expireDateString);
-        } catch (ParseException exc) {
-            return;
-        }
 
         /*
         Check if player is muted
          */
-        if (date.before(expireDate)) {
-            event.setCancelled(true);
+        if (Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "mutes"))) > 0) {
+            String expireDateString = Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "mutes", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "mutes"))), "expires"));
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date date = new Date();
+            Date expireDate;
+            try {
+                expireDate = dateFormat.parse(expireDateString);
+            } catch (ParseException exc) {
+                return;
+            }
+
+            if (date.before(expireDate)) {
+                event.setCancelled(true);
+            }
         }
 
         /*

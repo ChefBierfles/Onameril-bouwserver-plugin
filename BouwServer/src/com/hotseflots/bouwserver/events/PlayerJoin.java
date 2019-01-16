@@ -1,6 +1,7 @@
 package com.hotseflots.bouwserver.events;
 
 import com.hotseflots.bouwserver.Main;
+import com.hotseflots.bouwserver.utils.ConfigPaths;
 import com.hotseflots.bouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -10,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -17,8 +19,34 @@ public class PlayerJoin implements Listener {
     /*
     Everything that happends when a player joins.
      */
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
+
+        /*
+        Check if player is banned.
+         */
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+
+        if (Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))) > 0) {
+            String expireDateString = Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))), "expires"));
+            Date expireDate;
+            try {
+                expireDate = dateFormat.parse(expireDateString);
+            } catch (ParseException exc) {
+                return;
+            }
+
+            if (date.before(expireDate)) {
+                event.getPlayer().kickPlayer(
+                        Messages.BANNED_MSG(
+                                Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))), "by")),
+                                Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))), "reasons")),
+                                Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))), "expires"))
+                        ));
+                return;
+            }
+        }
 
         /*
         Send a message on player join.
@@ -44,8 +72,6 @@ public class PlayerJoin implements Listener {
         /*
         Generate User-Manager data for joined player
         */
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
 
         if (Main.plugin.config.get("players-history." + event.getPlayer().getUniqueId().toString()) == null) {
             Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString(), "");
@@ -70,8 +96,5 @@ public class PlayerJoin implements Listener {
         }
         Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress", event.getPlayer().getAddress().getHostString());
         Main.plugin.saveConfig();
-        /*
-        Check if player is banned.
-         */
     }
 }
