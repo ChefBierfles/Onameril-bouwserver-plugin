@@ -16,18 +16,44 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class PlayerJoin implements Listener {
-    /*
-    Everything that happends when a player joins.
-     */
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
+
+        //Exact date when the player joins
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+
+        /*
+        Generate User-Manager data for joined player
+        */
+        if (Main.plugin.config.get("players-history." + event.getPlayer().getUniqueId().toString()) == null) {
+            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString(), "");
+            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".name", event.getPlayer().getName());
+            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".last-login", dateFormat.format(date));
+            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress", event.getPlayer().getAddress().toString());
+            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".kicks", "");
+            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".kicks.amount", 0);
+            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".bans", "");
+            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".bans.amount", 0);
+            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".mutes", "");
+            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".mutes.amount", 0);
+        }
+
+        //Update last joined
+        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".last-login", dateFormat.format(date));
+        //Update name
+        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".name", event.getPlayer().getName());
+        //Update last ip and notify if logged on with another one.
+        if (Main.plugin.config.getString("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress") != event.getPlayer().getAddress().getHostString()) {
+            Bukkit.broadcastMessage(Messages.SERVER_TAG + " Speler " + event.getPlayer().getName() + " is met een ander ip dan zijn laatste sessie gejoined!");
+        }
+        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress", event.getPlayer().getAddress().getHostString());
+        Main.plugin.saveConfig();
 
         /*
         Check if player is banned.
          */
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
-
         if (Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))) > 0) {
             String expireDateString = Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))), "expires"));
             Date expireDate;
@@ -68,33 +94,5 @@ public class PlayerJoin implements Listener {
                 event.getPlayer().sendMessage("");
             }
         },20*5);
-
-        /*
-        Generate User-Manager data for joined player
-        */
-
-        if (Main.plugin.config.get("players-history." + event.getPlayer().getUniqueId().toString()) == null) {
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString(), "");
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".name", event.getPlayer().getName());
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".last-login", dateFormat.format(date));
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress", event.getPlayer().getAddress().toString());
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".kicks", "");
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".kicks.amount", 0);
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".bans", "");
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".bans.amount", 0);
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".mutes", "");
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".mutes.amount", 0);
-        }
-
-        //Update last joined
-        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".last-login", dateFormat.format(date));
-        //Update name
-        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".name", event.getPlayer().getName());
-        //Update last ip and notify if logged on with another one.
-        if (Main.plugin.config.getString("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress") != event.getPlayer().getAddress().getHostString()) {
-            Bukkit.broadcastMessage(Messages.SERVER_TAG + " Speler " + event.getPlayer().getName() + " is met een ander ip dan zijn laatste sessie gejoined!");
-        }
-        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress", event.getPlayer().getAddress().getHostString());
-        Main.plugin.saveConfig();
     }
 }

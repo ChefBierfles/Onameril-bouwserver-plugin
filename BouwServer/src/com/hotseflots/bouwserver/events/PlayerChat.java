@@ -1,10 +1,8 @@
 package com.hotseflots.bouwserver.events;
 
 import com.hotseflots.bouwserver.Main;
-import com.hotseflots.bouwserver.UserManagerSystem;
+import com.hotseflots.bouwserver.modules.UserManagerSystem;
 import com.hotseflots.bouwserver.utils.ConfigPaths;
-import com.hotseflots.bouwserver.utils.Messages;
-import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;

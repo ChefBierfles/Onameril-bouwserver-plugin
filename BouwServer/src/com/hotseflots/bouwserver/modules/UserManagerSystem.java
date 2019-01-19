@@ -1,14 +1,22 @@
-package com.hotseflots.bouwserver;
+package com.hotseflots.bouwserver.modules;
 
+import com.hotseflots.bouwserver.Main;
 import com.hotseflots.bouwserver.events.PlayerChat;
 import com.hotseflots.bouwserver.utils.ConfigPaths;
 import com.hotseflots.bouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.material.MaterialData;
 import org.bukkit.scheduler.BukkitScheduler;
 
 import java.rmi.ConnectIOException;
@@ -30,6 +38,8 @@ public class UserManagerSystem implements CommandExecutor {
     public static Player lastCommandTarget;
 
     public static boolean getDuration;
+    public static Inventory UserManagerRecord = Bukkit.createInventory(null, 54, ChatColor.RED + "User-Manager Record");
+    public static Inventory UserManagerRecord2 = Bukkit.createInventory(null, 54, ChatColor.RED + "User-Manager Record");
 
     @Override
     public boolean onCommand(CommandSender cmdSender, Command cmd, String alias, String[] args) {
@@ -69,12 +79,12 @@ public class UserManagerSystem implements CommandExecutor {
             }
 
             lastCommandTarget = target;
+            lastCommandExecutor = (Player) cmdSender;
+            lastCommandArgs = args;
 
             switch (args[0].toLowerCase()) {
                 case "ban":
                     askDuration((Player) cmdSender);
-                    lastCommandArgs = args;
-                    lastCommandExecutor = (Player) cmdSender;
                     break;
                 case "unban":
                     unbanPlayer((Player) cmdSender, target, getReason(args));
@@ -84,8 +94,6 @@ public class UserManagerSystem implements CommandExecutor {
                     break;
                 case "mute":
                     askDuration((Player) cmdSender);
-                    lastCommandArgs = args;
-                    lastCommandExecutor = (Player) cmdSender;
                     break;
                 case "unmute":
                     unmutePlayer((Player) cmdSender, target, getReason(args));
@@ -96,8 +104,11 @@ public class UserManagerSystem implements CommandExecutor {
                 case "unfreeze":
                     unfreezePlayer((Player) cmdSender, target);
                     break;
+                case "record":
+                    CreateRecordInventory(target);
+                    ((Player) cmdSender).openInventory(UserManagerRecord);
+                    break;
                 default:
-                    cmdSender.sendMessage(Messages.USERMANAGER_TAG + "");
                     cmdSender.sendMessage(Messages.USERMANAGER_TAG);
                     cmdSender.sendMessage("     Maak gebruik van de volgende argumenten:");
                     cmdSender.sendMessage(ChatColor.ITALIC + "     ban, unban, kick, mute, unmute, freeze, unfreeze");
@@ -301,5 +312,22 @@ public class UserManagerSystem implements CommandExecutor {
         Date date = new Date();
         date.setSeconds(date.getSeconds() + (int) timesToSeconds);
         return dateFormat.format(date);
+    }
+
+    public static void CreateRecordInventory(Player target) {
+
+        ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+        SkullMeta sm = (SkullMeta) skull.getItemMeta();
+        sm.setDisplayName(ChatColor.GOLD + target.getName());
+        sm.setOwningPlayer(target);
+        ArrayList<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.LIGHT_PURPLE + "Jouw UUID: " + ChatColor.DARK_PURPLE + target.getUniqueId().toString());
+        lore.add(ChatColor.LIGHT_PURPLE + "Laaste inlogpoging: " + ChatColor.DARK_PURPLE + Main.plugin.config.getString(ConfigPaths.lastLoginPath(target.getUniqueId().toString())));
+        sm.setLore(lore);
+        UserManagerRecord.setItem(0, skull);
+
+        for (int i = 1; i < 8; i++) {
+            UserManagerRecord.setItem(i, new ItemStack(Material.STAINED_GLASS_PANE));
+        }
     }
 }
