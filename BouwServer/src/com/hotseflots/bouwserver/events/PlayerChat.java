@@ -3,6 +3,7 @@ package com.hotseflots.bouwserver.events;
 import com.hotseflots.bouwserver.Main;
 import com.hotseflots.bouwserver.modules.UserManagerSystem;
 import com.hotseflots.bouwserver.utils.ConfigPaths;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -17,24 +18,11 @@ public class PlayerChat implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
 
-
         /*
         Check if player is muted
          */
-        if (Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "mutes"))) > 0) {
-            String expireDateString = Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "mutes", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "mutes"))), "expires"));
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            Date date = new Date();
-            Date expireDate;
-            try {
-                expireDate = dateFormat.parse(expireDateString);
-            } catch (ParseException exc) {
-                return;
-            }
-
-            if (date.before(expireDate)) {
-                event.setCancelled(true);
-            }
+        if (isPlayerMuted(event.getPlayer())) {
+            event.setCancelled(true);
         }
 
         /*
@@ -46,5 +34,26 @@ public class PlayerChat implements Listener {
             String durationString = event.getMessage();
             UserManagerSystem.peformTask(durationString);
         }
+    }
+
+    public static boolean isPlayerMuted(Player player) {
+        if (Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(player.getUniqueId().toString(), "mutes"))) > 0) {
+            String expireDateString = Main.plugin.config.getString(ConfigPaths.GetDetailPath(player.getUniqueId().toString(), "mutes", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(player.getUniqueId().toString(), "mutes"))), "expires"));
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date date = new Date();
+            Date expireDate;
+            try {
+                expireDate = dateFormat.parse(expireDateString);
+            } catch (ParseException exc) {
+                return false;
+            }
+
+            if (date.before(expireDate)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 }

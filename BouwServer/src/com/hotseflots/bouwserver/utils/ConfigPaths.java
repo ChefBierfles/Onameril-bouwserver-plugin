@@ -1,7 +1,5 @@
 package com.hotseflots.bouwserver.utils;
 
-import com.hotseflots.bouwserver.Main;
-
 public class ConfigPaths {
 
     public static String namePath(String PlayerUUID) {

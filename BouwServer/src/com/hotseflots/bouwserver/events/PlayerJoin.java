@@ -5,6 +5,7 @@ import com.hotseflots.bouwserver.utils.ConfigPaths;
 import com.hotseflots.bouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -17,45 +18,66 @@ import java.util.Date;
 
 public class PlayerJoin implements Listener {
 
+    private static Date date;
+    private static DateFormat dateFormat;
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
 
         //Exact date when the player joins
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
+        setCurrentDate();
 
-        /*
-        Generate User-Manager data for joined player
-        */
-        if (Main.plugin.config.get("players-history." + event.getPlayer().getUniqueId().toString()) == null) {
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString(), "");
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".name", event.getPlayer().getName());
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".last-login", dateFormat.format(date));
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress", event.getPlayer().getAddress().toString());
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".kicks", "");
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".kicks.amount", 0);
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".bans", "");
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".bans.amount", 0);
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".mutes", "");
-            Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".mutes.amount", 0);
+        //Generate or update User-Manager data
+        if (event.getPlayer().hasPlayedBefore()) {
+            createUserManagerData(event.getPlayer());
+        } else {
+            updateUserManagerData(event.getPlayer());
         }
 
-        //Update last joined
-        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".last-login", dateFormat.format(date));
+        //Check if player is banned.
+        checkIfPlayerIsBanned(event.getPlayer());
+
+        //Send a message on player join.
+        sendPlayerWelcomeMessage(event.getPlayer());
+    }
+
+    public static void setCurrentDate() {
+        dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        date = new Date();
+    }
+
+    public static void createUserManagerData(Player player) {
+        if (Main.plugin.config.get("players-history." + player.getUniqueId().toString()) == null) {
+            Main.plugin.config.set("players-history." + player.getUniqueId().toString(), "");
+            Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".name", player.getName());
+            Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".last-login", dateFormat.format(date));
+            Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".ip-adress", player.getAddress().toString());
+            Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".kicks", "");
+            Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".kicks.amount", 0);
+            Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".bans", "");
+            Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".bans.amount", 0);
+            Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".mutes", "");
+            Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".mutes.amount", 0);
+
+            Main.plugin.saveConfig();
+        }
+    }
+
+    public static void updateUserManagerData(Player player) {
+        Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".last-login", dateFormat.format(date));
         //Update name
-        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".name", event.getPlayer().getName());
+        Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".name", player.getName());
         //Update last ip and notify if logged on with another one.
-        if (Main.plugin.config.getString("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress") != event.getPlayer().getAddress().getHostString()) {
-            Bukkit.broadcastMessage(Messages.SERVER_TAG + " Speler " + event.getPlayer().getName() + " is met een ander ip dan zijn laatste sessie gejoined!");
+        if (Main.plugin.config.getString(ConfigPaths.ipAdressPath(player.getUniqueId().toString())) != player.getAddress().getHostString()) {
+            Bukkit.broadcastMessage(Messages.SERVER_TAG + " Speler " + player.getName() + " is met een ander ip dan zijn laatste sessie gejoined!");
         }
-        Main.plugin.config.set("players-history." + event.getPlayer().getUniqueId().toString() + ".ip-adress", event.getPlayer().getAddress().getHostString());
+        Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".ip-adress", player.getAddress().getHostString());
         Main.plugin.saveConfig();
+    }
 
-        /*
-        Check if player is banned.
-         */
-        if (Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))) > 0) {
-            String expireDateString = Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))), "expires"));
+    public static void checkIfPlayerIsBanned(Player player) {
+        if (Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(player.getUniqueId().toString(), "bans"))) > 0) {
+            String expireDateString = Main.plugin.config.getString(ConfigPaths.GetDetailPath(player.getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(player.getUniqueId().toString(), "bans"))), "expires"));
             Date expireDate;
             try {
                 expireDate = dateFormat.parse(expireDateString);
@@ -64,35 +86,34 @@ public class PlayerJoin implements Listener {
             }
 
             if (date.before(expireDate)) {
-                event.getPlayer().kickPlayer(
+                player.kickPlayer(
                         Messages.BANNED_MSG(
-                                Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))), "by")),
-                                Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))), "reasons")),
-                                Main.plugin.config.getString(ConfigPaths.GetDetailPath(event.getPlayer().getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(event.getPlayer().getUniqueId().toString(), "bans"))), "expires"))
+                                Main.plugin.config.getString(ConfigPaths.GetDetailPath(player.getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(player.getUniqueId().toString(), "bans"))), "by")),
+                                Main.plugin.config.getString(ConfigPaths.GetDetailPath(player.getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(player.getUniqueId().toString(), "bans"))), "reasons")),
+                                Main.plugin.config.getString(ConfigPaths.GetDetailPath(player.getUniqueId().toString(), "bans", Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(player.getUniqueId().toString(), "bans"))), "expires"))
                         ));
                 return;
             }
         }
+    }
 
-        /*
-        Send a message on player join.
-         */
-        event.setJoinMessage("");
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable() {
-            @Override
-            public void run() {
-                event.getPlayer().sendMessage("\n\n\n\n\n");
-                event.getPlayer().sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Welkom!");
-                event.getPlayer().sendMessage("");
-                event.getPlayer().sendMessage(ChatColor.WHITE + "" + ChatColor.RESET + "Welkom op de bouwserver van het Kingdom " + ChatColor.GOLD + ChatColor.BOLD + "Onameril" + ChatColor.WHITE + "" + ChatColor.RESET + "! Deze");
-                event.getPlayer().sendMessage("server heeft een nultolerantie beleid, dus wees altijd hoffelijk, hou je aan de regels, is het voor iedereen eens zo fijn.");event.getPlayer().sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Contact personen!");
-                event.getPlayer().sendMessage("");
-                event.getPlayer().sendMessage(ChatColor.RESET + "EnkelNick");event.getPlayer().sendMessage(ChatColor.RESET + "Tqqn");
-                event.getPlayer().sendMessage(ChatColor.RESET + "MijnKreftMetDani");
-                event.getPlayer().sendMessage("");
-                event.getPlayer().sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "------------------------------------------");
-                event.getPlayer().sendMessage("");
-            }
-        },20*5);
+    public static void sendPlayerWelcomeMessage(Player player) {
+//        Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable() {
+//            @Override
+//            public void run() {
+//                player.sendMessage("\n\n\n\n\n");
+//                player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Welkom!");
+//                player.sendMessage("");
+//                player.sendMessage(ChatColor.WHITE + "" + ChatColor.RESET + "Welkom op de bouwserver van het Kingdom " + ChatColor.GOLD + ChatColor.BOLD + "Onameril" + ChatColor.WHITE + "" + ChatColor.RESET + "! Deze");
+//                player.sendMessage("server heeft een nultolerantie beleid, dus wees altijd hoffelijk, hou je aan de regels, is het voor iedereen eens zo fijn.");event.getPlayer().sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Contact personen!");
+//                player.sendMessage("");
+//                player.sendMessage(ChatColor.RESET + "EnkelNick");
+//                player.sendMessage(ChatColor.RESET + "Tqqn");
+//                player.sendMessage(ChatColor.RESET + "MijnKreftMetDani");
+//                player.sendMessage("");
+//                player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "------------------------------------------");
+//                player.sendMessage("");
+//            }
+//        },20*5);
     }
 }
