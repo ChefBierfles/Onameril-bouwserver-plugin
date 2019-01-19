@@ -19,16 +19,16 @@ public class Messages {
         return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is gemute door '" + ChatColor.GOLD + executor + ChatColor.WHITE + "' \nReden: \"" + ChatColor.GOLD + reason + ChatColor.WHITE + "\".\nVerloopt op: "+ ChatColor.GOLD + expireDate;
     }
 
-    public static String UNMUTE_MSG(String target) {
-        return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' kan weer praten.";
+    public static String UNMUTE_MSG(String target, String executor) {
+        return "\n" + ChatColor.GOLD + executor + ChatColor.WHITE + " heeft " + ChatColor.GOLD + target + ChatColor.WHITE + " weer laten praten";
     }
 
-    public static String FREEZED_MSG(String executor, String target, String reason) {
-        return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is bevroren door '" + ChatColor.GOLD + executor + ChatColor.WHITE + ".";
+    public static String FREEZED_MSG(String executor) {
+        return "\nU bent vastgezet door " + ChatColor.GOLD + executor + ChatColor.WHITE + ".";
     }
 
-    public static String UNFREEZED_MSG(String target) {
-        return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' kan weer bewegen.";
+    public static String UNFREEZED_MSG() {
+        return "\nU kan weer bewegen.";
     }
 
     public static String BANNED_MSG(String executor, String reason, String timeString) {
@@ -39,7 +39,7 @@ public class Messages {
         return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is van de server verbannen door '" + ChatColor.GOLD + executor + ChatColor.WHITE + "' \nReden: \"" + ChatColor.GOLD + reason + ChatColor.WHITE + "\".\nVerloopt op: " + ChatColor.GOLD + timeString + ChatColor.WHITE + ".";
     }
 
-    public static String UNBAN_MSG(String target) {
-        return "\nSpeler '" + ChatColor.GOLD + target + ChatColor.WHITE + "' is weer toegelaten tot de server";
+    public static String UNBAN_MSG(String target, String executor) {
+        return "\n" + ChatColor.GOLD + executor + ChatColor.WHITE + " heeft " + ChatColor.GOLD + target + ChatColor.WHITE + " weer toegelaten tot de server.";
     }
 }

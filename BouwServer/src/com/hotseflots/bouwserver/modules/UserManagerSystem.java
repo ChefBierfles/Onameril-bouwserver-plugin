@@ -41,6 +41,8 @@ public class UserManagerSystem implements CommandExecutor {
     public static Inventory UserManagerRecord = Bukkit.createInventory(null, 54, ChatColor.RED + "User-Manager Record");
     public static Inventory UserManagerRecord2 = Bukkit.createInventory(null, 54, ChatColor.RED + "User-Manager Record");
 
+    public static List<String> frozenPlayers = new ArrayList<String>();
+
     @Override
     public boolean onCommand(CommandSender cmdSender, Command cmd, String alias, String[] args) {
         /*
@@ -161,7 +163,35 @@ public class UserManagerSystem implements CommandExecutor {
     }
 
     public static void unbanPlayer(Player executor, Player target, String reason) {
+        //Get banamount
+        int banAmount = Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(target.getUniqueId().toString(), "bans")));
 
+        if (banAmount == 0) {
+            executor.sendMessage(Messages.USERMANAGER_TAG + ChatColor.RED + "de gedefineerde speler heeft geen geregistreerde bans meer!");
+            return;
+        }
+
+        //Remove banID
+        Main.plugin.config.set(ConfigPaths.punishmentIDPath(target.getUniqueId().toString(), "bans", banAmount), null);
+
+        //Remove reason
+        Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "bans", banAmount, "reasons"), null);
+
+        //Remove banned by
+        Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "bans", banAmount, "by"), null);
+
+        //Remove Date
+        Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "bans", banAmount, "date"), null);
+
+        //Remove expiredate
+        Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "bans", banAmount, "expires"), null);
+
+        //Decrease ban amount
+        Main.plugin.config.set(ConfigPaths.amountPath(target.getUniqueId().toString(), "bans"), banAmount - 1);
+
+        Main.plugin.saveConfig();
+
+        Bukkit.broadcastMessage(Messages.UNBAN_MSG(target.getName(), executor.getName()));
     }
 
     public static void kickPlayer(Player executor, Player target, String reason) {
@@ -228,15 +258,60 @@ public class UserManagerSystem implements CommandExecutor {
     }
 
     public static void unmutePlayer(Player executor, Player target, String reason) {
+        //Get banamount
+        int muteAmount = Integer.parseInt(Main.plugin.config.getString(ConfigPaths.amountPath(target.getUniqueId().toString(), "bans")));
 
+        if (muteAmount == 0) {
+            executor.sendMessage(Messages.USERMANAGER_TAG + ChatColor.RED + "de gedefineerde speler heeft geen geregistreerde mutes meer!");
+            return;
+        }
+
+        //Remove banID
+        Main.plugin.config.set(ConfigPaths.punishmentIDPath(target.getUniqueId().toString(), "mutes", muteAmount), null);
+
+        //Remove reason
+        Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "mutes", muteAmount, "reasons"), null);
+
+        //Remove banned by
+        Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "mutes", muteAmount, "by"), null);
+
+        //Remove Date
+        Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "mutes", muteAmount, "date"), null);
+
+        //Remove expiredate
+        Main.plugin.config.set(ConfigPaths.GetDetailPath(target.getUniqueId().toString(), "mutes", muteAmount, "expires"), null);
+
+        //Decrease ban amount
+        Main.plugin.config.set(ConfigPaths.amountPath(target.getUniqueId().toString(), "mutes"), muteAmount - 1);
+
+        Main.plugin.saveConfig();
+
+        Bukkit.broadcastMessage(Messages.UNMUTE_MSG(target.getName(), executor.getName()));
     }
 
     public static void freezePlayer(Player executor, Player target) {
 
+        if (frozenPlayers.contains(target.getUniqueId().toString())) {
+            executor.sendMessage(Messages.USERMANAGER_TAG + ChatColor.RED + "De gedefineerde speler is al vastgezet!");
+            return;
+        }
+
+        target.sendMessage(Messages.FREEZED_MSG(executor.getName()));
+        frozenPlayers.add(target.getUniqueId().toString());
+        Main.plugin.config.set(ConfigPaths.frozenPlayers(), frozenPlayers.toString());
+        Main.plugin.saveConfig();
     }
 
     public static void unfreezePlayer(Player executor, Player target) {
+        if (!frozenPlayers.contains(target.getUniqueId().toString())) {
+            executor.sendMessage(Messages.USERMANAGER_TAG + ChatColor.RED + "De gedefineerde speler kan al bewegen!");
+            return;
+        }
 
+        target.sendMessage(Messages.UNFREEZED_MSG());
+        frozenPlayers.remove(target.getUniqueId().toString());
+        Main.plugin.config.set(ConfigPaths.frozenPlayers(), frozenPlayers.toString());
+        Main.plugin.saveConfig();
     }
 
     public static void askDuration(Player executor) {
@@ -330,4 +405,5 @@ public class UserManagerSystem implements CommandExecutor {
             UserManagerRecord.setItem(i, new ItemStack(Material.STAINED_GLASS_PANE));
         }
     }
+    
 }
