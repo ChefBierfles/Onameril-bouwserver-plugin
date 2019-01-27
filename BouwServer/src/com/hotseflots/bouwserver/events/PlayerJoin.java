@@ -68,7 +68,7 @@ public class PlayerJoin implements Listener {
         //Update name
         Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".name", player.getName());
         //Update last ip and notify if logged on with another one.
-        if (Main.plugin.config.getString(ConfigPaths.ipAdressPath(player.getUniqueId().toString())) != player.getAddress().getHostString()) {
+        if (Main.plugin.config.getString(ConfigPaths.ipAdressPath(player.getUniqueId().toString())) != player.getAddress().getAddress().getHostAddress()) {
             Bukkit.broadcastMessage(Messages.SERVER_TAG + " Speler " + player.getName() + " is met een ander ip dan zijn laatste sessie gejoined!");
         }
         Main.plugin.config.set("players-history." + player.getUniqueId().toString() + ".ip-adress", player.getAddress().getHostString());

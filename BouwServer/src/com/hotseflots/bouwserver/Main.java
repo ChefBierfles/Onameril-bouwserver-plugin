@@ -20,6 +20,7 @@ public class Main extends JavaPlugin {
         plugin = this;
     }
 
+    @Override
     public void onEnable() {
         Bukkit.getPluginManager().registerEvents(new PlayerJoin(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerChat(), this);
@@ -30,6 +31,7 @@ public class Main extends JavaPlugin {
         setupConfigFile();
     }
 
+    @Override
     public void onDisable() {
 
     }
