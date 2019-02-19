@@ -3,6 +3,8 @@ package nl.hotseflots.onabouwserver.events;
 import com.connorlinfoot.actionbarapi.ActionBarAPI;
 import nl.hotseflots.onabouwserver.commands.OpenMenu;
 import nl.hotseflots.onabouwserver.commands.StaffMode;
+import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
+import nl.hotseflots.onabouwserver.twofactorauth.Options;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -29,6 +31,21 @@ public class PlayerInteract implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
 
+        /*
+        When ever the player is in 2FA cancel this event
+         */
+        if (!Options.DENY_INTERACTION.getBooleanValue()) {
+            return;
+        }
+
+        if (MCAuth.hasTwofactorauth(event.getPlayer().getUniqueId())) {
+            event.setCancelled(true);
+            return;
+        }
+
+        /*
+        When ever the player is in staffmode
+         */
         if (StaffMode.staffModeList.contains(event.getPlayer().getUniqueId().toString())) {
             if (event.getAction() == Action.LEFT_CLICK_BLOCK) {
                 event.setCancelled(true);
@@ -127,7 +144,7 @@ public class PlayerInteract implements Listener {
                     lastTPEDPlayer.remove(event.getPlayer().getUniqueId().toString());
                     lastTPEDPlayer.put(event.getPlayer().getUniqueId().toString(), target.getUniqueId().toString());
                     event.getPlayer().teleport(target.getLocation());
-                    event.getPlayer().sendMessage(ChatColor.GREEN + "Je bent naar " + ChatColor.DARK_GREEN + target.getName() + ChatColor.GREEN + "");
+                    event.getPlayer().sendMessage(ChatColor.GREEN + "Je bent naar " + ChatColor.DARK_GREEN + target.getName() + ChatColor.GREEN + " geteleporteerd!");
                 }
             }
         }

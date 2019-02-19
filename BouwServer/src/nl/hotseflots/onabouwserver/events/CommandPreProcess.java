@@ -1,6 +1,8 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
+import nl.hotseflots.onabouwserver.twofactorauth.Options;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -18,6 +20,17 @@ public class CommandPreProcess implements Listener {
 
     @EventHandler
     public void onCommandPreProcess(PlayerCommandPreprocessEvent event) {
+        /*
+        Check if the player is in 2FA and if he entered a code
+         */
+        if (!Options.DENY_COMMANDS.getBooleanValue()) {
+            return;
+        }
+        if (MCAuth.hasTwofactorauth(event.getPlayer().getUniqueId())) {
+            event.setCancelled(true);
+            return;
+        }
+
         CommandSpy(event.getMessage(), event.getPlayer());
 
         if (event.getMessage().equalsIgnoreCase("/pl") || event.getMessage().equalsIgnoreCase("/plugins") || event.getMessage().equals("?")) {

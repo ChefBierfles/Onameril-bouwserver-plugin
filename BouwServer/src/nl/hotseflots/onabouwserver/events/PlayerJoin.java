@@ -3,6 +3,8 @@ package nl.hotseflots.onabouwserver.events;
 import com.connorlinfoot.actionbarapi.ActionBarAPI;
 import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.commands.StaffMode;
+import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
+import nl.hotseflots.onabouwserver.utils.Messages;
 import nl.hotseflots.onabouwserver.utils.PlayerCache;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -18,6 +20,13 @@ public class PlayerJoin implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
+        /*
+        Verify 2fa before we continue
+         */
+        MCAuth.attemptDataLoad(event.getPlayer().getUniqueId());
+        if (MCAuth.hasTwofactorauth(event.getPlayer().getUniqueId())) {
+            event.getPlayer().sendMessage(Messages.MCAUTH_LOGIN);
+        }
 
         /*
         Player with this permission will auto join in staffmode

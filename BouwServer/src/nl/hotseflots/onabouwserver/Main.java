@@ -1,10 +1,9 @@
 package nl.hotseflots.onabouwserver;
 
-import nl.hotseflots.onabouwserver.commands.Buildmode;
-import nl.hotseflots.onabouwserver.commands.OpenMenu;
+import nl.hotseflots.onabouwserver.commands.*;
 import nl.hotseflots.onabouwserver.events.*;
-import nl.hotseflots.onabouwserver.commands.StaffMode;
-import nl.hotseflots.onabouwserver.commands.FreezePlayer;
+import nl.hotseflots.onabouwserver.twofactorauth.AuthenticationDetails;
+import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -19,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 public class Main extends JavaPlugin {
@@ -34,6 +34,9 @@ public class Main extends JavaPlugin {
 
     private File playerCacheFile;
     private FileConfiguration playerCache;
+
+    private File TwoFAFile;
+    private FileConfiguration TwoFA;
 
     public Main() {
         plugin = this;
@@ -54,11 +57,16 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EntityPickupItem(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcess(), this);
         Bukkit.getPluginManager().registerEvents(new BlockPlace(), this);
+        Bukkit.getPluginManager().registerEvents(new AsyncPlayerChat(), this);
         Bukkit.getPluginCommand("staffmode").setExecutor(new StaffMode());
         Bukkit.getPluginCommand("buildmode").setExecutor(new Buildmode());
         Bukkit.getPluginCommand("freeze").setExecutor(new FreezePlayer());
         Bukkit.getPluginCommand("unfreeze").setExecutor(new FreezePlayer());
         Bukkit.getPluginCommand("commandhistory").setExecutor(new OpenMenu());
+        Bukkit.getPluginCommand("2fa").setExecutor(new TwoFACommand());
+
+        MCAuth.loadedAuthenticationDetails = new HashMap();
+        MCAuth.dataGenerator();
     }
 
     public void onDisable() {
@@ -104,6 +112,9 @@ public class Main extends JavaPlugin {
         playerCacheFile = new File(plugin.getDataFolder(), "playercache.yml");
         playerCache = YamlConfiguration.loadConfiguration(playerCacheFile);
 
+        TwoFAFile = new File(plugin.getDataFolder(), "2fa-config.yml");
+        TwoFA = YamlConfiguration.loadConfiguration(TwoFAFile);
+
         if (!globalCMDLogsFile.exists()) {
             plugin.saveResource("globallogs.yml", false);
         }
@@ -115,6 +126,18 @@ public class Main extends JavaPlugin {
         if (!playerCacheFile.exists()) {
             plugin.saveResource("playercache.yml", false);
         }
+
+        if (!TwoFAFile.exists()) {
+            plugin.saveResource("2fa-config.yml", false);
+        }
+    }
+
+    public FileConfiguration getTwoFACFG() {
+        return TwoFA;
+    }
+
+    public File getTwoFAFile() {
+        return TwoFAFile;
     }
 
     public FileConfiguration getPlayerCommandLogs() {

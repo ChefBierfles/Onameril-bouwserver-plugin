@@ -1,6 +1,8 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.commands.StaffMode;
+import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
+import nl.hotseflots.onabouwserver.twofactorauth.Options;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,6 +12,18 @@ public class PlayerMove implements Listener {
 
     @EventHandler
     public void onPlayerMovement(PlayerMoveEvent event) {
+        /*
+        When ever the player is in 2FA he won't be able to move
+         */
+        if (!Options.DENY_MOVEMENT.getBooleanValue()) {
+            return;
+        }
+
+        if (((event.getFrom().getBlockX() != event.getTo().getBlockX()) || (event.getFrom().getBlockY() != event.getTo().getBlockY()) || (event.getFrom().getBlockZ() != event.getTo().getBlockZ())) &&
+                (MCAuth.hasTwofactorauth(event.getPlayer().getUniqueId()))) {
+            event.getPlayer().teleport(event.getFrom());
+            return;
+        }
 
         /*
         If the player has been frozen he will be denied from moving
