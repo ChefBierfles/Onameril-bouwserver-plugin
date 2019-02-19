@@ -2,7 +2,6 @@ package nl.hotseflots.onabouwserver.commands;
 
 import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.twofactorauth.AuthenticationDetails;
-import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
 import nl.hotseflots.onabouwserver.twofactorauth.QRMap;
 import nl.hotseflots.onabouwserver.twofactorauth.TOTP;
 import nl.hotseflots.onabouwserver.utils.Messages;
@@ -10,14 +9,11 @@ import org.bukkit.command.CommandExecutor;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
-import java.util.UUID;
 import javax.imageio.ImageIO;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -30,15 +26,15 @@ public class TwoFACommand implements CommandExecutor {
         if ((sender.hasPermission("2fa.setup")) && ((sender instanceof Player)))
         {
             Player player = (Player)sender;
-            MCAuth.attemptDataLoad(player.getUniqueId());
-            if (MCAuth.hasTwofactorauth(player.getUniqueId()))
+            Main.plugin.attemptDataLoad(player.getUniqueId());
+            if (Main.plugin.hasTwofactorauth(player.getUniqueId()))
             {
-                MCAuth.unloadAuthenticationDetails(player.getUniqueId());
+                Main.plugin.unloadAuthenticationDetails(player.getUniqueId());
                 player.sendMessage(Messages.MCAUTH_SETUP_ALREADY_ENABLED);
                 return true;
             }
             AuthenticationDetails authenticationDetails = new AuthenticationDetails(player.getUniqueId().toString(), TOTP.generateBase32Secret(), true);
-            MCAuth.addAuthenticationDetauls(player.getUniqueId(), authenticationDetails);
+            Main.plugin.addAuthenticationDetauls(player.getUniqueId(), authenticationDetails);
             try
             {
                 URL url = new URL(TOTP.qrImageUrl("minecraftserver", authenticationDetails.getKey()));

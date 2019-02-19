@@ -2,7 +2,6 @@ package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.twofactorauth.AuthenticationDetails;
-import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
 import nl.hotseflots.onabouwserver.twofactorauth.Options;
 import nl.hotseflots.onabouwserver.twofactorauth.TOTP;
 import nl.hotseflots.onabouwserver.utils.Messages;
@@ -10,7 +9,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.scheduler.BukkitRunnable;
-import sun.java2d.loops.FillRect;
 
 import java.security.GeneralSecurityException;
 
@@ -18,9 +16,9 @@ public class AsyncPlayerChat implements Listener {
 
     @EventHandler
     public void onAsyncPlayerChatEvent(AsyncPlayerChatEvent event) {
-        if (MCAuth.hasTwofactorauth(event.getPlayer().getUniqueId()))
+        if (Main.plugin.hasTwofactorauth(event.getPlayer().getUniqueId()))
         {
-            final AuthenticationDetails authenticationDetails = MCAuth.getAuthenticationDetails(event.getPlayer().getUniqueId());
+            final AuthenticationDetails authenticationDetails = Main.plugin.getAuthenticationDetails(event.getPlayer().getUniqueId());
             event.setCancelled(true);
             new BukkitRunnable()
             {
@@ -39,9 +37,9 @@ public class AsyncPlayerChat implements Listener {
                     if (validCode.equals(event.getMessage()))
                     {
                         if (authenticationDetails.isSetup()) {
-                            MCAuth.saveAuthenticationDetails(event.getPlayer().getUniqueId(), authenticationDetails);
+                            Main.plugin.saveAuthenticationDetails(event.getPlayer().getUniqueId(), authenticationDetails);
                         }
-                        MCAuth.unloadAuthenticationDetails(event.getPlayer().getUniqueId());
+                        Main.plugin.unloadAuthenticationDetails(event.getPlayer().getUniqueId());
                         event.getPlayer().sendMessage(Messages.MCAUTH_VALID_CODE);
                     }
                     else
@@ -61,7 +59,7 @@ public class AsyncPlayerChat implements Listener {
                             }
                             else
                             {
-                                MCAuth.unloadAuthenticationDetails(event.getPlayer().getUniqueId());
+                                Main.plugin.unloadAuthenticationDetails(event.getPlayer().getUniqueId());
                                 event.getPlayer().sendMessage(Messages.MCAUTH_SETUP_FAIL);
                             }
                         }

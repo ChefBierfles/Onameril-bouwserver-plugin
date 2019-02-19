@@ -1,25 +1,18 @@
 package nl.hotseflots.onabouwserver.events;
 
 import com.connorlinfoot.actionbarapi.ActionBarAPI;
-import nl.hotseflots.onabouwserver.commands.OpenMenu;
+import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.commands.StaffMode;
-import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
 import nl.hotseflots.onabouwserver.twofactorauth.Options;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Shulker;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
 
-import javax.lang.model.element.ElementVisitor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -38,7 +31,7 @@ public class PlayerInteract implements Listener {
             return;
         }
 
-        if (MCAuth.hasTwofactorauth(event.getPlayer().getUniqueId())) {
+        if (Main.plugin.hasTwofactorauth(event.getPlayer().getUniqueId())) {
             event.setCancelled(true);
             return;
         }

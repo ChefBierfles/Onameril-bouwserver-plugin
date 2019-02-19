@@ -1,7 +1,7 @@
 package nl.hotseflots.onabouwserver.events;
 
+import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.commands.StaffMode;
-import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
 import nl.hotseflots.onabouwserver.twofactorauth.Options;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
@@ -20,7 +20,7 @@ public class PlayerMove implements Listener {
         }
 
         if (((event.getFrom().getBlockX() != event.getTo().getBlockX()) || (event.getFrom().getBlockY() != event.getTo().getBlockY()) || (event.getFrom().getBlockZ() != event.getTo().getBlockZ())) &&
-                (MCAuth.hasTwofactorauth(event.getPlayer().getUniqueId()))) {
+                (Main.plugin.hasTwofactorauth(event.getPlayer().getUniqueId()))) {
             event.getPlayer().teleport(event.getFrom());
             return;
         }

@@ -1,8 +1,8 @@
 package nl.hotseflots.onabouwserver.events;
 
 import net.minecraft.server.v1_12_R1.EntityPlayer;
+import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.commands.StaffMode;
-import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
 import nl.hotseflots.onabouwserver.twofactorauth.Options;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,7 +23,7 @@ public class EntityDamage implements Listener {
         if (!(event.getEntity() instanceof Player)) {
             return;
         }
-        if (MCAuth.hasTwofactorauth(event.getEntity().getUniqueId())) {
+        if (Main.plugin.hasTwofactorauth(event.getEntity().getUniqueId())) {
             event.setCancelled(true);
         }
 

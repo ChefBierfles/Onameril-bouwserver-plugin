@@ -3,11 +3,9 @@ package nl.hotseflots.onabouwserver;
 import nl.hotseflots.onabouwserver.commands.*;
 import nl.hotseflots.onabouwserver.events.*;
 import nl.hotseflots.onabouwserver.twofactorauth.AuthenticationDetails;
-import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -15,9 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -25,6 +21,7 @@ public class Main extends JavaPlugin {
 
     public static Main plugin;
     public static Logger logger = Bukkit.getLogger();
+    public static HashMap<UUID, AuthenticationDetails> loadedAuthenticationDetails;
 
     private File globalCMDLogsFile;
     private FileConfiguration globalCMDLogs;
@@ -43,6 +40,7 @@ public class Main extends JavaPlugin {
     }
 
     public void onEnable() {
+        initMessages();
         pluginMessage("boot");
         createFiles();
         Bukkit.getPluginManager().registerEvents(new PlayerQuit(), this);
@@ -65,8 +63,8 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("commandhistory").setExecutor(new OpenMenu());
         Bukkit.getPluginCommand("2fa").setExecutor(new TwoFACommand());
 
-        MCAuth.loadedAuthenticationDetails = new HashMap();
-        MCAuth.dataGenerator();
+        dataGenerator();
+        loadedAuthenticationDetails = new HashMap<>();
     }
 
     public void onDisable() {
@@ -83,6 +81,10 @@ public class Main extends JavaPlugin {
         } catch (IOException exc) {
             exc.printStackTrace();
         }
+    }
+
+    public void initMessages() {
+        
     }
 
     public void pluginMessage(String event) {
@@ -162,5 +164,71 @@ public class Main extends JavaPlugin {
 
     public File getPlayerCacheFile() {
         return playerCacheFile;
+    }
+
+    public void dataGenerator()
+    {
+        File dataDir = new File(Main.plugin.getDataFolder() + File.separator + "data");
+        if (!dataDir.isDirectory()) {
+            dataDir.mkdir();
+        }
+    }
+
+    public void attemptDataLoad(UUID uuid)
+    {
+        File userPath = new File(Main.plugin.getDataFolder() + File.separator + "data" + File.separator + uuid.toString() + ".yml");
+        if (!userPath.exists()) {
+            return;
+        }
+        YamlConfiguration yaml = YamlConfiguration.loadConfiguration(userPath);
+        String name = yaml.getString("name");
+        String key = yaml.getString("key");
+        loadedAuthenticationDetails.put(uuid, new AuthenticationDetails(name, key, false));
+    }
+
+    public void addAuthenticationDetauls(UUID uuid, AuthenticationDetails authenticationDetails)
+    {
+        loadedAuthenticationDetails.put(uuid, authenticationDetails);
+    }
+
+    public void saveAuthenticationDetails(UUID uuid, AuthenticationDetails authenticationDetails)
+    {
+        File userPath = new File(Main.plugin.getDataFolder() + File.separator + "data" + File.separator + uuid.toString() + ".yml");
+        if (!userPath.exists()) {
+            try
+            {
+                userPath.createNewFile();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        YamlConfiguration yaml = YamlConfiguration.loadConfiguration(userPath);
+        yaml.set("name", authenticationDetails.getName());
+        yaml.set("key", authenticationDetails.getKey());
+        try
+        {
+            yaml.save(userPath);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean hasTwofactorauth(UUID uuid)
+    {
+        return loadedAuthenticationDetails.containsKey(uuid);
+    }
+
+    public AuthenticationDetails getAuthenticationDetails(UUID uuid)
+    {
+        return loadedAuthenticationDetails.get(uuid);
+    }
+
+    public void unloadAuthenticationDetails(UUID uuid)
+    {
+        loadedAuthenticationDetails.remove(uuid);
     }
 }

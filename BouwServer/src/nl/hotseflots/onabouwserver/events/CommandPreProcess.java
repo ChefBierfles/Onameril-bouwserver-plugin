@@ -1,9 +1,7 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
-import nl.hotseflots.onabouwserver.twofactorauth.MCAuth;
 import nl.hotseflots.onabouwserver.twofactorauth.Options;
-import nl.hotseflots.onabouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -26,7 +24,7 @@ public class CommandPreProcess implements Listener {
         if (!Options.DENY_COMMANDS.getBooleanValue()) {
             return;
         }
-        if (MCAuth.hasTwofactorauth(event.getPlayer().getUniqueId())) {
+        if (Main.plugin.hasTwofactorauth(event.getPlayer().getUniqueId())) {
             event.setCancelled(true);
             return;
         }
@@ -58,7 +56,8 @@ public class CommandPreProcess implements Listener {
 
     public void CommandSpy(String peformedcommand, Player sender) {
         //Broadcast the peformed command to the console
-        Main.logger.info(Messages.CommandSpyMessage(sender.getName(), peformedcommand));
+        String commandSpyMessage = ChatColor.GRAY + "" + ChatColor.ITALIC + "[" + ChatColor.GOLD + "" + ChatColor.ITALIC + sender.getName() + ChatColor.GRAY + "" + ChatColor.ITALIC + " used the command " + ChatColor.GOLD + "" + ChatColor.ITALIC + peformedcommand + ChatColor.GRAY + "" + ChatColor.ITALIC + "]";
+        Main.logger.info(commandSpyMessage);
 
         //Add command to global logs
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/YYYY HH:mm:ss");
@@ -116,27 +115,27 @@ public class CommandPreProcess implements Listener {
             if (players.getName() != sender.getName()) {
                 if (sender.hasPermission("bouwserver.commandnotifier.ranking.eigenaar")) {
                     if (players.hasPermission("bouwserver.commandnotifier.ranking.eigenaar")) {
-                        players.sendMessage(Messages.CommandSpyMessage(sender.getName(), peformedcommand));
+                        players.sendMessage(commandSpyMessage);
                         return;
                     }
                 } else if (sender.hasPermission("bouwserver.commandnotifier.ranking.admin")) {
                     if (players.hasPermission("bouwserver.commandnotifier.ranking.eigenaar") || players.hasPermission("bouwserver.commandnotifier.ranking.admin")) {
-                        players.sendMessage(Messages.CommandSpyMessage(sender.getName(), peformedcommand));
+                        players.sendMessage(commandSpyMessage);
                         return;
                     }
                 } else if (sender.hasPermission("bouwserver.commandnotifier.ranking.moderator")) {
                     if (players.hasPermission("bouwserver.commandnotifier.ranking.eigenaar") || players.hasPermission("bouwserver.commandnotifier.ranking.admin") || players.hasPermission("bouwserver.commandnotifier.ranking.moderator")) {
-                        players.sendMessage(Messages.CommandSpyMessage(sender.getName(), peformedcommand));
+                        players.sendMessage(commandSpyMessage);
                         return;
                     }
                 } else if (sender.hasPermission("bouwserver.commandnotifier.ranking.onameril")) {
                     if (players.hasPermission("bouwserver.commandnotifier.ranking.eigenaar") || players.hasPermission("bouwserver.commandnotifier.ranking.admin") || players.hasPermission("bouwserver.commandnotifier.ranking.moderator")) {
-                        players.sendMessage(Messages.CommandSpyMessage(sender.getName(), peformedcommand));
+                        players.sendMessage(commandSpyMessage);
                         return;
                     }
                 } else if (sender.hasPermission("bouwserver.commandnotifier.ranking.rando")) {
                     if (players.hasPermission("bouwserver.commandnotifier.ranking.eigenaar") || players.hasPermission("bouwserver.commandnotifier.ranking.admin") || players.hasPermission("bouwserver.commandnotifier.ranking.moderator")) {
-                        players.sendMessage(Messages.CommandSpyMessage(sender.getName(), peformedcommand));
+                        players.sendMessage(commandSpyMessage);
                         return;
                     }
                 }
