@@ -11,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -18,6 +19,18 @@ public class PlayerJoin implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
+        /*
+        Players that can use 2fa should be forced to use it when they have the permission to do so
+        What to do: Check if the file exists in the data folder if not let them enter a 2fa code
+         */
+        if (event.getPlayer().hasPermission("bouwserver.2fa.setup")) {
+            File userPath = new File(Main.plugin.getDataFolder() + File.separator + "2fa data" + File.separator + event.getPlayer().getUniqueId().toString() + ".yml");
+            if (!userPath.exists()) {
+                event.getPlayer().chat("/2fa");
+                return;
+            }
+        }
+
         /*
         Verify 2fa before we continue
          */
@@ -30,18 +43,20 @@ public class PlayerJoin implements Listener {
         Player with this permission will auto join in staffmode
          */
         if (event.getPlayer().hasPermission("bouwserver.commands.staffmode")) {
-            StaffMode.EnterStaffMode(event.getPlayer());
-            ActionBarAPI.sendActionBar(event.getPlayer(), ChatColor.RED + "You joined silently in staffmode");
-            for (Player players : Bukkit.getOnlinePlayers()) {
-                if (!event.getPlayer().getName().equalsIgnoreCase(players.getName())) {
-                    if (players.hasPermission("bouwserver.commands.staffmode")) {
-                        players.sendMessage(ChatColor.GOLD + event.getPlayer().getName() + ChatColor.GRAY + " joined silently and he vanished");
+            if (Main.plugin.hasTwofactorauth(event.getPlayer().getUniqueId())) {
+                StaffMode.EnterStaffMode(event.getPlayer());
+                ActionBarAPI.sendActionBar(event.getPlayer(), ChatColor.RED + "You joined silently in staffmode");
+                for (Player players : Bukkit.getOnlinePlayers()) {
+                    if (!event.getPlayer().getName().equalsIgnoreCase(players.getName())) {
+                        if (players.hasPermission("bouwserver.commands.staffmode")) {
+                            players.sendMessage(ChatColor.GOLD + event.getPlayer().getName() + ChatColor.GRAY + " joined silently and he vanished");
+                        }
                     }
                 }
-            }
-        } else {
-            for (String vanishedPlayers : StaffMode.vanishedList) {
-                event.getPlayer().hidePlayer(Main.plugin , Bukkit.getPlayer(UUID.fromString(vanishedPlayers)));
+            } else {
+                for (String vanishedPlayers : StaffMode.vanishedList) {
+                    event.getPlayer().hidePlayer(Main.plugin, Bukkit.getPlayer(UUID.fromString(vanishedPlayers)));
+                }
             }
         }
 

@@ -5,20 +5,19 @@ options:
   deny-interaction: true
   deny-damage: true
 messages:
-  login: '&a&lPlease enter your two-factor-authentication code.'
+  login: '&a&lGelieve uw two-factor-authentication code in te voeren!.'
   fail-message: |
-    &4You were kicked for too many failed 2FA attempts.
-    &cPlease contact a system administrator if you no longer
-    &chave access to your mobile authenticator.
-  invalid-code: '&cInvalid code. Try again.'
-  valid-code: '&aYou have been authenticated.'
-  setup-already-enabled: '&cYou already have 2FA enabled on your account.'
-  setup-validate: '&a&lEnter your current passcode in chat to validate 2fa.'
-  setup-fail: '&c&l2FA setup invalidated, please try /2fa again.'
+    &4U heeft te veel foutieve codes ingevoerd. Als u geen toegang
+    &cmeer heeft tot uw mobiele app neem dan contact op met een stafflid!
+  invalid-code: '&cFoutieve code, probeer op nieuwe!'
+  valid-code: '&aJe bent geauthenticeerd'
+  setup-already-enabled: '&cJe hebt al een 2FA op dit account!.'
+  setup-validate: '&a&lVoer uw 2FA code in de chat in.'
+  setup-fail: '&c&lEr ging iets mis! Doe /2fa en probeer het opnieuwe'
   setup-qrmap: |
-    &aYou have been given a map with your QR image on.
-    &aPlease use your mobile authenticator to scan this image.
-    &aAlteratively, enter this code into your authenticator: %code%
+    &cJe dient 2FA op je account te activeren!
+    &aOpen de Google Authenticator app en scan de QRcode!
+    &aMocht dat niet lukken gebruik dan de volgende code %code%
   setup-code: |
-    &cAn error occurred while rendering your QR image.
-    &cPlease manually type this code in instead: %code%
+    &cEr ging iets mis met het renderen van de QRCode.
+    &cVoer de volgende code %code% handmatig in

@@ -40,8 +40,6 @@ public class Main extends JavaPlugin {
     }
 
     public void onEnable() {
-        initMessages();
-        pluginMessage("boot");
         createFiles();
         Bukkit.getPluginManager().registerEvents(new PlayerQuit(), this);
         Bukkit.getPluginManager().registerEvents(new EntityDamage(), this);
@@ -56,6 +54,7 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new CommandPreProcess(), this);
         Bukkit.getPluginManager().registerEvents(new BlockPlace(), this);
         Bukkit.getPluginManager().registerEvents(new AsyncPlayerChat(), this);
+        Bukkit.getPluginManager().registerEvents(new LeavesDecay(), this);
         Bukkit.getPluginCommand("staffmode").setExecutor(new StaffMode());
         Bukkit.getPluginCommand("buildmode").setExecutor(new Buildmode());
         Bukkit.getPluginCommand("freeze").setExecutor(new FreezePlayer());
@@ -65,6 +64,8 @@ public class Main extends JavaPlugin {
 
         dataGenerator();
         loadedAuthenticationDetails = new HashMap<>();
+        initMessages();
+        pluginMessage("boot");
     }
 
     public void onDisable() {
@@ -84,7 +85,18 @@ public class Main extends JavaPlugin {
     }
 
     public void initMessages() {
-        
+        Messages.SERVER_TAG = ChatColor.GRAY + "[" + ChatColor.GOLD + "Bouwserver" + ChatColor.GRAY + "] " + ChatColor.WHITE;
+        Messages.SERVER_ERROR_TAG = ChatColor.GRAY + "[" + ChatColor.DARK_RED + "Bouwserver" + ChatColor.GRAY + "] " + ChatColor.RED;
+        Messages.STAFF_TAG = ChatColor.GRAY + "[" + ChatColor.GOLD + "Staff" + ChatColor.GRAY + "] " + ChatColor.WHITE;
+        Messages.MCAUTH_LOGIN = ChatColor.translateAlternateColorCodes('&', Main.plugin.getTwoFACFG().getString("messages.login"));
+        Messages.MCAUTH_FAIL_MESSAGE = ChatColor.translateAlternateColorCodes('&', Main.plugin.getTwoFACFG().getString("messages.fail-message"));
+        Messages.MCAUTH_INVALID_CODE = ChatColor.translateAlternateColorCodes('&', Main.plugin.getTwoFACFG().getString("messages.invalid-code"));
+        Messages.MCAUTH_VALID_CODE = ChatColor.translateAlternateColorCodes('&', Main.plugin.getTwoFACFG().getString("messages.valid-code"));
+        Messages.MCAUTH_SETUP_VALIDATE = ChatColor.translateAlternateColorCodes('&', Main.plugin.getTwoFACFG().getString("messages.setup-validate"));
+        Messages.MCAUTH_SETUP_ALREADY_ENABLED = ChatColor.translateAlternateColorCodes('&', Main.plugin.getTwoFACFG().getString("messages.setup-already-enabled"));
+        Messages.MCAUTH_SETUP_FAIL = ChatColor.translateAlternateColorCodes('&', Main.plugin.getTwoFACFG().getString("messages.setup-fail"));
+        Messages.MCAUTH_SETUP_QRMAP = ChatColor.translateAlternateColorCodes('&', Main.plugin.getTwoFACFG().getString("messages.setup-qrmap"));
+        Messages.MCAUTH_SETUP_CODE = ChatColor.translateAlternateColorCodes('&', Main.plugin.getTwoFACFG().getString("messages.setup-code"));
     }
 
     public void pluginMessage(String event) {
@@ -168,7 +180,7 @@ public class Main extends JavaPlugin {
 
     public void dataGenerator()
     {
-        File dataDir = new File(Main.plugin.getDataFolder() + File.separator + "data");
+        File dataDir = new File(Main.plugin.getDataFolder() + File.separator + "2fa data");
         if (!dataDir.isDirectory()) {
             dataDir.mkdir();
         }
@@ -176,7 +188,7 @@ public class Main extends JavaPlugin {
 
     public void attemptDataLoad(UUID uuid)
     {
-        File userPath = new File(Main.plugin.getDataFolder() + File.separator + "data" + File.separator + uuid.toString() + ".yml");
+        File userPath = new File(Main.plugin.getDataFolder() + File.separator + "2fa data" + File.separator + uuid.toString() + ".yml");
         if (!userPath.exists()) {
             return;
         }
@@ -193,7 +205,7 @@ public class Main extends JavaPlugin {
 
     public void saveAuthenticationDetails(UUID uuid, AuthenticationDetails authenticationDetails)
     {
-        File userPath = new File(Main.plugin.getDataFolder() + File.separator + "data" + File.separator + uuid.toString() + ".yml");
+        File userPath = new File(Main.plugin.getDataFolder() + File.separator + "2fa data" + File.separator + uuid.toString() + ".yml");
         if (!userPath.exists()) {
             try
             {

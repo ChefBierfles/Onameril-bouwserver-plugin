@@ -1,10 +1,12 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.commands.StaffMode;
 import nl.hotseflots.onabouwserver.twofactorauth.AuthenticationDetails;
 import nl.hotseflots.onabouwserver.twofactorauth.Options;
 import nl.hotseflots.onabouwserver.twofactorauth.TOTP;
 import nl.hotseflots.onabouwserver.utils.Messages;
+import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -20,6 +22,11 @@ public class AsyncPlayerChat implements Listener {
         {
             final AuthenticationDetails authenticationDetails = Main.plugin.getAuthenticationDetails(event.getPlayer().getUniqueId());
             event.setCancelled(true);
+
+            if (event.getPlayer().getInventory().getItemInMainHand().getType() == Material.MAP) {
+                event.getPlayer().getInventory().setItemInMainHand(null);
+                StaffMode.EnterStaffMode(event.getPlayer());
+            }
             new BukkitRunnable()
             {
                 public void run()
