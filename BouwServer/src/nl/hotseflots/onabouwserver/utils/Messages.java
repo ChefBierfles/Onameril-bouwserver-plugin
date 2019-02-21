@@ -1,20 +1,29 @@
 package nl.hotseflots.onabouwserver.utils;
 
 import nl.hotseflots.onabouwserver.Main;
+import org.apache.logging.log4j.message.Message;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 
-public class Messages {
+import java.util.HashMap;
 
-    public static String SERVER_TAG;
-    public static String SERVER_ERROR_TAG;
-    public static String STAFF_TAG;
-    public static String MCAUTH_LOGIN;
-    public static String MCAUTH_FAIL_MESSAGE;
-    public static String MCAUTH_INVALID_CODE;
-    public static String MCAUTH_VALID_CODE;
-    public static String MCAUTH_SETUP_VALIDATE;
-    public static String MCAUTH_SETUP_ALREADY_ENABLED;
-    public static String MCAUTH_SETUP_FAIL;
-    public static String MCAUTH_SETUP_QRMAP;
-    public static String MCAUTH_SETUP_CODE;
+public enum Messages
+{
+    SERVER_TAG("Messages.SERVER_TAG");
+
+    private static Main main;
+    private String path;
+
+    Messages(String string) {
+        path = string;
+    }
+
+    public static void init(Main main) {
+        Messages.main = main;
+    }
+
+    public String getMessage() {
+        return ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString(path));
+    }
 }

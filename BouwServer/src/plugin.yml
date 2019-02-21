@@ -1,36 +1,5 @@
 name: OnamerilBouwServer
-description: Plugin voor de bouwserver van Onameril
+description: Plugin voor de bouwserver van Onameril!
 author: Hotseflots
-version: 1.1.2
+version: 2.0
 main: nl.hotseflots.onabouwserver.Main
-depend:
-  - ActionBarAPI
-commands:
-  staffmode:
-    description: Enter staffmode
-    usage: /staffmode
-    permission: bouwserver.commands.staffmode
-    aliases:
-      - sm
-  buildmode:
-    description: Enter buildmode
-    permission: bouwserver.commands.buildmode
-    aliases:
-      - bm
-  freeze:
-    description: Freeze player
-    permission: bouwserver.commands.freeze
-  unfreeze:
-    description: Unfreeze player
-    permission: bouwserver.commands.unfreeze
-  commandhistory:
-    description: See history of commands from player
-    permission: bouwserver.commands.commandhistory
-    aliases:
-      - cmhistory
-      - cmh
-      - chistory
-  2fa:
-    description: Setup two-factor authentication
-    usage: /2fa
-    permission: 2fa.setup

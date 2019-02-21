@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="BouwServer.jar">
+  <artifact type="jar" name="OnamerilBouwServer.jar">
     <output-path>C:/Data ROC/OneDrive - ROC van Twente/Prive/Server/plugins</output-path>
     <root id="archive" name="BouwServer.jar">
       <element id="module-output" name="BouwServer" />
