@@ -7,7 +7,8 @@ public enum Messages
 {
     SERVER_TAG("Messages.SERVER_TAG"),
     JOIN_MSG("Messages.JOIN_MSG"),
-    QUIT_MSG("Messages.QUIT_MSG");
+    QUIT_MSG("Messages.QUIT_MSG"),
+    MOTD_MSG("Messages.MOTD_MSG");
 
     private static Main main;
     private String path;

@@ -1,7 +1,21 @@
 Modules:
   JOIN_MSG: Enabled
   QUIT_MSG: Enabled
+  MOTD_MSG: Enabled
 Messages:
-  SERVER_TAG: '&7[&6Bouwserver&7] '
+  SERVER_TAG: '&7[&6Bouwserver&7]&r '
   JOIN_MSG: '%player% has joined the server!'
   QUIT_MSG: '%player% has left the server!'
+  MOTD_MSG: |
+    %newline%
+    %newline%
+    &6&lWelkom!&r
+    Welkom &e%player%&r op de bouwserver van het Kingdom &6&lOnameril&r!
+    Wij hanteren een nultolerantie beleid, dus wees altijd hoffelijk.
+    Hou je aan de regels dan is het voor iedereen eens zo fijn!
+    %newline%
+    &6&lContact personen!&r
+    EnkelNick
+    Tqqn
+    MijnKreftMetDani
+    ----------------------------------------------------------------------
