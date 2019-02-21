@@ -2,77 +2,16 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="BouwServer.jar" />
+      <artifact name="OnamerilBouwServer.jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21056cea-4dd9-4068-8bd8-605948a0c7f2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/2fa-config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/globallogs.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/OnamerilBouwServer_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/OnamerilBouwServer_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BouwServer/src/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/Buildmode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/FreezePlayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/OpenMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/StaffMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/TwoFACommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/AsyncPlayerChat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/BlockPlace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/CommandPreProcess.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/EntityDamage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/EntityPickupItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/InventoryClick.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/LeavesDecay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerDrop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerInteract.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerInteractEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerKick.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerMove.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerQuit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/twofactorauth/AuthenticationDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/twofactorauth/Options.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/twofactorauth/QRMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/twofactorauth/TOTP.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/PlayerCache.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/playercache.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/playerlogs.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/2fa-config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/globallogs.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/commands/Buildmode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/commands/FreezePlayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/commands/OpenMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/commands/StaffMode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/commands/TwoFACommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChat$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChat$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/BlockPlace.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/CommandPreProcess.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/EntityDamage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/EntityPickupItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/InventoryClick$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/InventoryClick.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/LeavesDecay.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerDrop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerInteract.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerInteractEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerJoin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerKick.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerMove.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerQuit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/twofactorauth/AuthenticationDetails.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/twofactorauth/Options.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/twofactorauth/QRMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/twofactorauth/TOTP.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/utils/Messages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/utils/Messages.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/utils/PlayerCache.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/playercache.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/playerlogs.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/plugin.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -100,15 +39,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="67" column="110" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="110" />
+            <state relative-caret-position="241">
+              <caret line="91" column="29" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1500#1501#0" expanded="true" />
-                <element signature="e#1528#1529#0" expanded="true" />
+                <element signature="e#1381#1413#1" />
+                <element signature="e#1551#1552#0" expanded="true" />
+                <element signature="method#sendPluginState#0;class#Main#0" />
+                <element signature="e#3020#3021#0" expanded="true" />
+                <element signature="e#3058#3059#0" expanded="true" />
+                <element signature="e#3149#3150#0" expanded="true" />
+                <element signature="e#3185#3186#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerQuitEvent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/Bouwserver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,12 +97,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="42" lean-forward="true" selection-start-column="42" selection-end-column="42" />
+            <state relative-caret-position="17">
+              <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#374#375#0" expanded="true" />
-                <element signature="e#406#407#0" expanded="true" />
+                <element signature="e#489#490#0" expanded="true" />
+                <element signature="e#518#519#0" expanded="true" />
                 <element signature="e#521#522#0" expanded="true" />
                 <element signature="e#561#562#0" expanded="true" />
               </folding>
@@ -131,22 +111,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="77" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+            <state relative-caret-position="102">
+              <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -171,8 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/staffmode/events/PlayerQuit.java" />
-        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/staffmode/events/PlayerInteractEntity.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/staffmode/events/PlayerDrop.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/staffmode/events/EntityDamage.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/staffmode/StaffMode.java" />
@@ -217,11 +183,13 @@
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/TwoFACommand.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BuildmodeCommand.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/plugin.yml" />
-        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/plugin-messages.yml" />
-        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/config.yml" />
+        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerQuitEvent.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/Bouwserver.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/Main.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java" />
       </list>
     </option>
   </component>
@@ -290,7 +258,7 @@
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="onamerilbouwserver" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550744728687" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550748658913" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/ActionBarAPI-1.5.4 (1).jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -376,12 +344,12 @@
       <workItem from="1550323338277" duration="3200000" />
       <workItem from="1550509381118" duration="2836000" />
       <workItem from="1550589776874" duration="15636000" />
-      <workItem from="1550691912515" duration="15429000" />
+      <workItem from="1550691912515" duration="19433000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178619000" />
+    <option name="totallyTimeSpent" value="182623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -397,7 +365,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.398017" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.398017" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -422,9 +390,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/twostepverify/nl/jespermunckhof/twofactor/listener/PlayerListener.java" />
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/twostepverify/nl/jespermunckhof/twofactor/Main.java" />
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/twostepverify/nl/jespermunckhof/twofactor/database/data/DataManager.java" />
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/twostepverify/org/apache/commons/codec/BinaryDecoder.java" />
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/twostepverify/org/apache/commons/codec/BinaryEncoder.java" />
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/twostepverify/org/apache/commons/codec/Charsets.java" />
@@ -717,16 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="77" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/plugin.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -734,35 +689,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java">
+    <entry file="jar://$USER_HOME$/Downloads/spigot-1.12.2.jar!/org/bukkit/event/player/PlayerJoinEvent.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="42" lean-forward="true" selection-start-column="42" selection-end-column="42" />
+        <state relative-caret-position="289">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#521#522#0" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/config.yml">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#561#562#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/Bouwserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="67" column="110" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="110" />
+        <state relative-caret-position="241">
+          <caret line="91" column="29" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1500#1501#0" expanded="true" />
-            <element signature="e#1528#1529#0" expanded="true" />
+            <element signature="e#1381#1413#1" />
+            <element signature="e#1551#1552#0" expanded="true" />
+            <element signature="method#sendPluginState#0;class#Main#0" />
+            <element signature="e#3020#3021#0" expanded="true" />
+            <element signature="e#3058#3059#0" expanded="true" />
+            <element signature="e#3149#3150#0" expanded="true" />
+            <element signature="e#3185#3186#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerQuitEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -773,7 +774,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>BouwServer.jar</last-edited>
+          <last-edited>OnamerilBouwServer.jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

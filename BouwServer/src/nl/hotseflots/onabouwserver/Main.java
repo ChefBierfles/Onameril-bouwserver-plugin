@@ -1,6 +1,7 @@
 package nl.hotseflots.onabouwserver;
 
 import nl.hotseflots.onabouwserver.events.PlayerJoinEvent;
+import nl.hotseflots.onabouwserver.events.PlayerQuitEvent;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,6 +15,9 @@ public class Main extends JavaPlugin {
 
     private static Main instance;
     private static Logger logger = Bukkit.getLogger();
+
+    private static String pluginUpdateDate = "dd/mm/yyyy h:m";
+    private static String pluginVersion = instance.getDescription().getVersion();
 
     @Override
     public void onEnable() {
@@ -30,6 +34,7 @@ public class Main extends JavaPlugin {
         Register all of the events
          */
         Bukkit.getPluginManager().registerEvents(new PlayerJoinEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerQuitEvent(), this);
 
         /*
         Register all of the commands
@@ -71,5 +76,19 @@ public class Main extends JavaPlugin {
             logger.info(ChatColor.RED + "            Bouw server plugin is succesvol afgesloten!            ");
             logger.info("-------------------------------------------------------------------");
         }
+    }
+
+    /*
+    Get the plugin update date
+     */
+    public String getPluginUpdateDate() {
+        return pluginUpdateDate;
+    }
+
+    /*
+    Get the plugin version
+     */
+    public String getPluginVersion() {
+        return pluginVersion;
     }
 }

@@ -1,2 +1,7 @@
+Modules:
+  JOIN_MSG: Enabled
+  QUIT_MSG: Enabled
 Messages:
-    SERVER_TAG: '&6Onameril Bouwserver'
+  SERVER_TAG: '&7[&6Bouwserver&7] '
+  JOIN_MSG: '%player% has joined the server!'
+  QUIT_MSG: '%player% has left the server!'

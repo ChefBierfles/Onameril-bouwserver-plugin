@@ -1,16 +1,13 @@
 package nl.hotseflots.onabouwserver.utils;
 
 import nl.hotseflots.onabouwserver.Main;
-import org.apache.logging.log4j.message.Message;
 import org.bukkit.ChatColor;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-
-import java.util.HashMap;
 
 public enum Messages
 {
-    SERVER_TAG("Messages.SERVER_TAG");
+    SERVER_TAG("Messages.SERVER_TAG"),
+    JOIN_MSG("Messages.JOIN_MSG"),
+    QUIT_MSG("Messages.QUIT_MSG");
 
     private static Main main;
     private String path;
@@ -24,6 +21,9 @@ public enum Messages
     }
 
     public String getMessage() {
-        return ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString(path));
+        if (Main.getInstance().getConfig().getString(path) != null) {
+            return ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString(path));
+        }
+        return null;
     }
 }
