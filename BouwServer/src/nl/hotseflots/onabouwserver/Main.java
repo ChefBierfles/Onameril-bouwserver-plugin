@@ -1,14 +1,18 @@
 package nl.hotseflots.onabouwserver;
 
+import nl.hotseflots.onabouwserver.commands.BouwserverCommand;
+import nl.hotseflots.onabouwserver.events.InventoryClickEvent;
 import nl.hotseflots.onabouwserver.events.PlayerJoinEvent;
 import nl.hotseflots.onabouwserver.events.PlayerQuitEvent;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import sun.plugin2.message.Message;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Logger;
 
 public class Main extends JavaPlugin {
@@ -16,10 +20,31 @@ public class Main extends JavaPlugin {
     private static Main instance;
     private static Logger logger = Bukkit.getLogger();
 
+    private File globalCMDLogsFile;
+    private FileConfiguration globalCMDLogs;
+
+    private File playerLogsFile;
+    private FileConfiguration playerLogs;
+
+    private File playerCacheFile;
+    private FileConfiguration playerCache;
+
+    private File TwoFAFile;
+    private FileConfiguration TwoFA;
+
     @Override
     public void onEnable() {
 
         instance = this;
+
+        /*
+        Generate plugin files
+         */
+        createFiles();
+
+        /*
+        Initialize Messages info
+         */
         Messages.init(Main.getInstance());
 
         /*
@@ -32,10 +57,12 @@ public class Main extends JavaPlugin {
          */
         Bukkit.getPluginManager().registerEvents(new PlayerJoinEvent(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerQuitEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new InventoryClickEvent(), this);
 
         /*
         Register all of the commands
          */
+        Bukkit.getPluginCommand("bouwserver").setExecutor(new BouwserverCommand());
 
         /*
         Notfiying the console that the plugin loaded correctly
@@ -51,9 +78,113 @@ public class Main extends JavaPlugin {
         sendPluginState("");
     }
 
+    /*
+    Return the plugins instance
+     */
     public static Main getInstance() {
         return instance;
     }
+
+    /*
+    Create plugin files
+     */
+    private void createFiles() {
+
+        /*
+        Creating directories
+         */
+        File playerDataDir = new File(getDataFolder(), "PlayerData");
+
+        if (!playerDataDir.exists()) {
+            playerDataDir.mkdir();
+        }
+
+        try {
+            playerDataDir.createNewFile();
+        } catch (IOException exc) {}
+
+        File commandHistoryDir = new File(getDataFolder(), "CommandHistory");
+
+        if (!commandHistoryDir.exists()) {
+            commandHistoryDir.mkdir();
+        }
+
+        try {
+            commandHistoryDir.createNewFile();
+        } catch (IOException exc) {}
+
+        /*
+        Create files
+         */
+        globalCMDLogsFile = new File(getDataFolder() + File.separator + "CommandHistory" + File.separator + "globallogs.yml");
+        globalCMDLogs = YamlConfiguration.loadConfiguration(globalCMDLogsFile);
+
+        playerLogsFile = new File(getDataFolder() + File.separator + "PlayerData" + File.separator + "playerlogs.yml");
+        playerLogs = YamlConfiguration.loadConfiguration(playerLogsFile);
+
+        playerCacheFile = new File(getDataFolder() + File.separator + "PlayerData" + File.separator + "playercache.yml");
+        playerCache = YamlConfiguration.loadConfiguration(playerCacheFile);
+
+        TwoFAFile = new File(getDataFolder(), "2fa-config.yml");
+        TwoFA = YamlConfiguration.loadConfiguration(TwoFAFile);
+
+        if (!globalCMDLogsFile.exists()) {
+            try {
+                globalCMDLogsFile.createNewFile();
+            } catch (IOException exc) { exc.printStackTrace(); }
+        }
+
+        if (!playerLogsFile.exists()) {
+            try {
+                playerLogsFile.createNewFile();
+            } catch (IOException exc) { exc.printStackTrace(); }
+        }
+
+        if (!playerCacheFile.exists()) {
+            try {
+                playerCacheFile.createNewFile();
+            } catch (IOException exc) { exc.printStackTrace(); }
+        }
+
+        if (!TwoFAFile.exists()) {
+            try {
+                TwoFAFile.createNewFile();
+            } catch (IOException exc) { exc.printStackTrace(); }
+        }
+    }
+
+    public FileConfiguration getTwoFACFG() {
+        return TwoFA;
+    }
+
+    public File getTwoFAFile() {
+        return TwoFAFile;
+    }
+
+    public FileConfiguration getPlayerCommandLogs() {
+        return playerLogs;
+    }
+
+    public File getPlayerCommandLogsFile() {
+        return playerLogsFile;
+    }
+
+    public FileConfiguration getGlobalCommandLogs() {
+        return globalCMDLogs;
+    }
+
+    public File getGlobalCommandLogsFile() {
+        return globalCMDLogsFile;
+    }
+
+    public FileConfiguration getPlayerCache() {
+        return playerCache;
+    }
+
+    public File getPlayerCacheFile() {
+        return playerCacheFile;
+    }
+
 
     /*
     Function to show that the plugin is loaded or unloaded

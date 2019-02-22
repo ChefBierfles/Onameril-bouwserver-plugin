@@ -3,3 +3,6 @@ description: Plugin voor de bouwserver van Onameril!
 author: Hotseflots
 version: 2.0
 main: nl.hotseflots.onabouwserver.Main
+commands:
+  bouwserver:
+    aliases: bs

@@ -1,5 +1,6 @@
 package nl.hotseflots.onabouwserver.commands;
 
+import nl.hotseflots.onabouwserver.modules.Bouwserver;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,13 +12,19 @@ public class BouwserverCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
 
         if (commandSender instanceof Player) {
+
+            Player player = (Player) commandSender;
+
             if (strings.length == 0) {
-                createItems((Player) commandSender);
+
+                Bouwserver.createInvenory(player);
+
             }
         } else {
 
-        }
 
+
+        }
         return false;
     }
 }

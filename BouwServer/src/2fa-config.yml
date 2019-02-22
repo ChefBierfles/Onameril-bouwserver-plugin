@@ -1,0 +1,23 @@
+options:
+  max-tries: 3
+  deny-commands: true
+  deny-movement: true
+  deny-interaction: true
+  deny-damage: true
+messages:
+  login: '&a&lGelieve uw two-factor-authentication code in te voeren!.'
+  fail-message: |
+    &4U heeft te veel foutieve codes ingevoerd. Als u geen toegang
+    &cmeer heeft tot uw mobiele app neem dan contact op met een stafflid!
+  invalid-code: '&cFoutieve code, probeer op nieuwe!'
+  valid-code: '&aJe bent geauthenticeerd'
+  setup-already-enabled: '&cJe hebt al een 2FA op dit account!.'
+  setup-validate: '&a&lVoer uw 2FA code in de chat in.'
+  setup-fail: '&c&lEr ging iets mis! Doe /2fa en probeer het opnieuwe'
+  setup-qrmap: |
+    &cJe dient 2FA op je account te activeren!
+    &aOpen de Google Authenticator app en scan de QRcode!
+    &aMocht dat niet lukken gebruik dan de volgende code %code%
+  setup-code: |
+    &cEr ging iets mis met het renderen van de QRCode.
+    &cVoer de volgende code %code% handmatig in

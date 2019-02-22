@@ -1,7 +1,5 @@
 package nl.hotseflots.onabouwserver.modules;
 
-import jdk.nashorn.internal.ir.CatchNode;
-import net.minecraft.server.v1_12_R1.ItemMapEmpty;
 import nl.hotseflots.onabouwserver.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -18,9 +16,11 @@ import java.util.List;
 
 public class Bouwserver {
 
-    public static ItemStack playerHead = new ItemStack(Material.SKULL_ITEM);
+    public static ItemStack playerStatsItem = new ItemStack(Material.SKULL_ITEM);
     public static ItemStack serverStatsItem = new ItemStack(Material.GOLD_PICKAXE);
     public static ItemStack pluginStatsItem = new ItemStack(Material.NAME_TAG);
+
+    private static Inventory bouwServerInventory;
 
     public static void createItems(Player player) {
 
@@ -35,16 +35,16 @@ public class Bouwserver {
         /*
         Player stats
          */
-        SkullMeta playerHeadMeta = (SkullMeta) playerHead.getItemMeta();
-        playerHeadMeta.setDisplayName(ChatColor.GOLD + player.getName());
-        playerHeadMeta.setOwningPlayer(Bukkit.getOfflinePlayer(player.getUniqueId()));
+        SkullMeta playerStatsItemMeta = (SkullMeta) playerStatsItem.getItemMeta();
+        playerStatsItemMeta.setDisplayName(ChatColor.GOLD + player.getName());
+        playerStatsItemMeta.setOwningPlayer(Bukkit.getOfflinePlayer(player.getUniqueId()));
         List<String> itemLore = new ArrayList<>();
         itemLore.add(ChatColor.YELLOW + "Je UUID is: " + ChatColor.GOLD + player.getUniqueId());
         itemLore.add(ChatColor.YELLOW + "Je hebt " + ChatColor.GOLD + hoursPlayed + ChatColor.YELLOW + " uren gespeeld!");
         itemLore.add(ChatColor.YELLOW + "Je hebt " + ChatColor.GOLD + blocksPlaced + ChatColor.YELLOW + " blokken geplaatst!");
         itemLore.add(ChatColor.YELLOW + "Je hebt " + ChatColor.GOLD + blocksPlaced + ChatColor.YELLOW + " blokken gebroken!");
-        playerHeadMeta.setLore(itemLore);
-        playerHead.setItemMeta(playerHeadMeta);
+        playerStatsItemMeta.setLore(itemLore);
+        playerStatsItem.setItemMeta(playerStatsItemMeta);
         itemLore.clear();
 
         /*
@@ -70,9 +70,22 @@ public class Bouwserver {
         itemLore.add(ChatColor.YELLOW + "Naam: " + ChatColor.GOLD + Main.getInstance().getDescription().getName());
         itemLore.add(ChatColor.YELLOW + "Versie: " + ChatColor.GOLD + Main.getInstance().getDescription().getVersion());
         itemLore.add(ChatColor.YELLOW + "Laaste release: " + ChatColor.GOLD + pluginDateReleased);
+        pluginStatsItemMeta.setLore(itemLore);
+        pluginStatsItem.setItemMeta(pluginStatsItemMeta);
+        itemLore.clear();
     }
 
-    public static void createInvenory() {
-        Inventory bouwServerInventory = Bukkit.createInventory(null, 9, ChatColor.GOLD + "Onameril Bouwserver Plugin");
+    public static void createInvenory(Player player) {
+        createItems(player);
+        bouwServerInventory = Bukkit.createInventory(null, 9, ChatColor.GOLD + "" + ChatColor.BOLD + "Onameril Bouwserver Plugin");
+        bouwServerInventory.setItem(1, playerStatsItem);
+        bouwServerInventory.setItem(4, serverStatsItem);
+        bouwServerInventory.setItem(7, pluginStatsItem);
+
+        player.openInventory(bouwServerInventory);
+    }
+
+    public static Inventory getInventory() {
+        return bouwServerInventory;
     }
 }
