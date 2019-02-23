@@ -27,9 +27,9 @@ public class Bouwserver {
         /*
         Place holders
          */
-        int hoursPlayed = 1;
-        int blocksPlaced = 1;
-        int blocksBroken = 1;
+        double hoursPlayed = 99.8;
+        int blocksPlaced = PlayerStats.getPlacedBlocks(player);
+        int blocksBroken = PlayerStats.getBrokenBlocks(player);
         String pluginDateReleased = "21/02/2019 16:30:00";
 
         /*
@@ -42,7 +42,7 @@ public class Bouwserver {
         itemLore.add(ChatColor.YELLOW + "Je UUID is: " + ChatColor.GOLD + player.getUniqueId());
         itemLore.add(ChatColor.YELLOW + "Je hebt " + ChatColor.GOLD + hoursPlayed + ChatColor.YELLOW + " uren gespeeld!");
         itemLore.add(ChatColor.YELLOW + "Je hebt " + ChatColor.GOLD + blocksPlaced + ChatColor.YELLOW + " blokken geplaatst!");
-        itemLore.add(ChatColor.YELLOW + "Je hebt " + ChatColor.GOLD + blocksPlaced + ChatColor.YELLOW + " blokken gebroken!");
+        itemLore.add(ChatColor.YELLOW + "Je hebt " + ChatColor.GOLD + blocksBroken + ChatColor.YELLOW + " blokken gebroken!");
         playerStatsItemMeta.setLore(itemLore);
         playerStatsItem.setItemMeta(playerStatsItemMeta);
         itemLore.clear();

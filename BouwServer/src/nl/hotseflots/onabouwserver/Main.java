@@ -1,9 +1,7 @@
 package nl.hotseflots.onabouwserver;
 
 import nl.hotseflots.onabouwserver.commands.BouwserverCommand;
-import nl.hotseflots.onabouwserver.events.InventoryClickEvent;
-import nl.hotseflots.onabouwserver.events.PlayerJoinEvent;
-import nl.hotseflots.onabouwserver.events.PlayerQuitEvent;
+import nl.hotseflots.onabouwserver.events.*;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -58,6 +56,8 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerJoinEvent(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerQuitEvent(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryClickEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new BlockBreakEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new BlockPlaceEvent(), this);
 
         /*
         Register all of the commands

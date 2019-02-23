@@ -9,6 +9,22 @@ public class InventoryClickEvent implements Listener {
     @EventHandler
     public void onInventoryClick(org.bukkit.event.inventory.InventoryClickEvent event) {
 
+        if (event.getClickedInventory() == null) {
+            return;
+        }
+
+        if (event.getCurrentItem() == null) {
+            return;
+        }
+
+        if (event.getInventory() == null) {
+            return;
+        }
+
+        if (event.getCursor() == null) {
+            return;
+        }
+
         /*
         Check if the clicked inventory is the bouwserver one
          */
