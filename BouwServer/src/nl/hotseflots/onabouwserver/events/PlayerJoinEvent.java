@@ -1,6 +1,7 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.modules.PlayerStats;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -34,5 +35,10 @@ public class PlayerJoinEvent implements Listener {
                 }
             }, 20*4); // 20 * 4 = 80ticks : 4 sec
         }
+
+        /*
+        Note the time in miliseconds that the player joined
+         */
+        PlayerStats.setJoinedTimeInMiliseconds(event.getPlayer(), System.currentTimeMillis());
     }
 }

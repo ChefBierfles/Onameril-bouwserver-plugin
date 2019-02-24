@@ -1,6 +1,7 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.modules.PlayerStats;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -18,5 +19,10 @@ public class PlayerQuitEvent implements Listener {
         if (Main.getInstance().getConfig().getString("Modules.QUIT_MSG").equalsIgnoreCase("enabled")) {
             event.setQuitMessage(Messages.SERVER_TAG.getMessage() + Messages.QUIT_MSG.getMessage().replace("%player%", event.getPlayer().getName()));
         }
+
+        /*
+        Note the time in miliseconds that the player quitted
+         */
+        PlayerStats.setQuittedTimeInMiliseconds(event.getPlayer(), System.currentTimeMillis());
     }
 }

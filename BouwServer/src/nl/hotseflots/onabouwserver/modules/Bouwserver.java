@@ -16,7 +16,7 @@ import java.util.List;
 
 public class Bouwserver {
 
-    public static ItemStack playerStatsItem = new ItemStack(Material.SKULL_ITEM);
+    public static ItemStack playerStatsItem = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
     public static ItemStack serverStatsItem = new ItemStack(Material.GOLD_PICKAXE);
     public static ItemStack pluginStatsItem = new ItemStack(Material.NAME_TAG);
 
@@ -25,9 +25,12 @@ public class Bouwserver {
     public static void createItems(Player player) {
 
         /*
-        Place holders
+        Set player stats
          */
-        double hoursPlayed = 99.8;
+        double hoursPlayed;
+        try {
+            hoursPlayed = PlayerStats.milisecondsToHours(PlayerStats.getPlayedMiliseconds(player));
+        } catch (NullPointerException exc) { hoursPlayed = 0; }
         int blocksPlaced = PlayerStats.getPlacedBlocks(player);
         int blocksBroken = PlayerStats.getBrokenBlocks(player);
         String pluginDateReleased = "21/02/2019 16:30:00";
@@ -76,6 +79,7 @@ public class Bouwserver {
     }
 
     public static void createInvenory(Player player) {
+        PlayerStats.setQuittedTimeInMiliseconds(player, System.currentTimeMillis());
         createItems(player);
         bouwServerInventory = Bukkit.createInventory(null, 9, ChatColor.GOLD + "" + ChatColor.BOLD + "Onameril Bouwserver Plugin");
         bouwServerInventory.setItem(1, playerStatsItem);
