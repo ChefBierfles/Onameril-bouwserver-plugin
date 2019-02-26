@@ -1,8 +1,10 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.modules.RankDetector;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Options;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -13,7 +15,6 @@ public class PlayerMovementEvent implements Listener {
 
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
-
         /*
         When the player has to fill a 2fa code before playiny
         If so disable movement until he is verified

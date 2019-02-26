@@ -3,7 +3,10 @@ description: Plugin voor de bouwserver van Onameril!
 author: Hotseflots
 version: 2.0
 main: nl.hotseflots.onabouwserver.Main
+depend:
+  - PermissionsEx
 commands:
   bouwserver:
     aliases: bs
   2fa:
+    description: Setup 2FA for the player

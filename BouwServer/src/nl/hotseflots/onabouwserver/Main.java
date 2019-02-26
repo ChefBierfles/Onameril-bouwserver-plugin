@@ -30,9 +30,6 @@ public class Main extends JavaPlugin {
     private File playerCacheFile;
     private FileConfiguration playerCache;
 
-    private File TwoFAFile;
-    private FileConfiguration TwoFA;
-
     @Override
     public void onEnable() {
 
@@ -130,9 +127,6 @@ public class Main extends JavaPlugin {
         playerCacheFile = new File(getDataFolder() + File.separator + "PlayerData" + File.separator + "playercache.yml");
         playerCache = YamlConfiguration.loadConfiguration(playerCacheFile);
 
-        TwoFAFile = new File(getDataFolder(), "2fa-config.yml");
-        TwoFA = YamlConfiguration.loadConfiguration(TwoFAFile);
-
         if (!globalCMDLogsFile.exists()) {
             try {
                 globalCMDLogsFile.createNewFile();
@@ -150,20 +144,6 @@ public class Main extends JavaPlugin {
                 playerCacheFile.createNewFile();
             } catch (IOException exc) { exc.printStackTrace(); }
         }
-
-        if (!TwoFAFile.exists()) {
-            try {
-                TwoFAFile.createNewFile();
-            } catch (IOException exc) { exc.printStackTrace(); }
-        }
-    }
-
-    public FileConfiguration getTwoFACFG() {
-        return TwoFA;
-    }
-
-    public File getTwoFAFile() {
-        return TwoFAFile;
     }
 
     public FileConfiguration getPlayerCommandLogs() {
