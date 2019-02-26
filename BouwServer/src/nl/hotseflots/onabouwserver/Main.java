@@ -1,8 +1,11 @@
 package nl.hotseflots.onabouwserver;
 
 import nl.hotseflots.onabouwserver.commands.BouwserverCommand;
+import nl.hotseflots.onabouwserver.commands.TwoFactorAuthCommand;
 import nl.hotseflots.onabouwserver.events.*;
+import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Messages;
+import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -39,16 +42,19 @@ public class Main extends JavaPlugin {
         Generate plugin files
          */
         createFiles();
+        nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA.dataGenerator();
 
         /*
-        Initialize Messages info
+        Initialize Messages cfg settings
          */
         Messages.init(Main.getInstance());
+        Options.init(Main.getInstance());
 
         /*
         Initialize the config file
          */
         saveDefaultConfig();
+        nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA.dataGenerator();
 
         /*
         Register all of the events
@@ -58,11 +64,18 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new InventoryClickEvent(), this);
         Bukkit.getPluginManager().registerEvents(new BlockBreakEvent(), this);
         Bukkit.getPluginManager().registerEvents(new BlockPlaceEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new EntityDamageEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerInteractEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerMovementEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerDropEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new CommandPreProcessEvent(), this);
 
         /*
         Register all of the commands
          */
         Bukkit.getPluginCommand("bouwserver").setExecutor(new BouwserverCommand());
+        Bukkit.getPluginCommand("2fa").setExecutor(new TwoFactorAuthCommand());
 
         /*
         Notfiying the console that the plugin loaded correctly
@@ -99,19 +112,11 @@ public class Main extends JavaPlugin {
             playerDataDir.mkdir();
         }
 
-        try {
-            playerDataDir.createNewFile();
-        } catch (IOException exc) {}
-
         File commandHistoryDir = new File(getDataFolder(), "CommandHistory");
 
         if (!commandHistoryDir.exists()) {
             commandHistoryDir.mkdir();
         }
-
-        try {
-            commandHistoryDir.createNewFile();
-        } catch (IOException exc) {}
 
         /*
         Create files

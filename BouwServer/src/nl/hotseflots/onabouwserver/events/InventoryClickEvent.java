@@ -1,6 +1,6 @@
 package nl.hotseflots.onabouwserver.events;
 
-import nl.hotseflots.onabouwserver.modules.Bouwserver;
+import nl.hotseflots.onabouwserver.modules.PlayerStats;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -9,15 +9,7 @@ public class InventoryClickEvent implements Listener {
     @EventHandler
     public void onInventoryClick(org.bukkit.event.inventory.InventoryClickEvent event) {
 
-        if (event.getClickedInventory() == null) {
-            return;
-        }
-
         if (event.getCurrentItem() == null) {
-            return;
-        }
-
-        if (event.getInventory() == null) {
             return;
         }
 
@@ -25,10 +17,18 @@ public class InventoryClickEvent implements Listener {
             return;
         }
 
+        if (event.getInventory().getName() == null || event.getClickedInventory().getName() == null) {
+            return;
+        }
+
+        if (event.getCurrentItem().getItemMeta() == null || event.getCursor().getItemMeta() == null) {
+            return;
+        }
+
         /*
         Check if the clicked inventory is the bouwserver one
          */
-        if (event.getClickedInventory().getName().equals(Bouwserver.getInventory().getName())) {
+        if (event.getClickedInventory().getName().equals(PlayerStats.getInventory().getName())) {
             event.setCancelled(true);
         }
     }

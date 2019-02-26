@@ -2,6 +2,15 @@ Modules:
   JOIN_MSG: Enabled
   QUIT_MSG: Enabled
   MOTD_MSG: Enabled
+  TwoFA:
+    Module: Enabled
+    Options:
+      MAX_TRIES: 3
+      DENY_COMMANDS: true
+      DENY_MOVEMENT: true
+      DENY_INTERACTION: true
+      DENY_DAMAGE: true
+      DENY_DROPPING: true
 Messages:
   SERVER_TAG: '&7[&6Bouwserver&7]&r '
   JOIN_MSG: '%player% has joined the server!'
@@ -18,4 +27,20 @@ Messages:
     EnkelNick
     Tqqn
     MijnKreftMetDani
-    ----------------------------------------------------------------------
+  TwoFA_LOGIN_MSG: '&a&lGelieve uw two-factor-authentication code in te voeren!.'
+  TwoFA_FAIL_MSG: |
+    &4U heeft te veel foutieve codes ingevoerd. Als u geen toegang
+    &cmeer heeft tot uw mobiele app neem dan contact op met een stafflid!
+  TwoFA_INVALID_MSG: '&cFoutieve code, probeer op nieuwe!'
+  TwoFA_VALID_MSG: '&aJe bent geauthenticeerd'
+  TwoFA_SETUP_VALIDATE_MSG: '&a&lVoer uw 2FA code in de chat in.'
+  TwoFA_SETUP_ALREADY_ENABLED_MSG: '&cJe hebt al een 2FA op dit account!.'
+  TwoFA_SETUP_FAIL_MSG: '&c&lEr ging iets mis! Doe /2fa en probeer het opnieuw.'
+  TwoFA_SETUP_QRMAP_MSG: |
+    &cJe dient 2FA op je account te activeren!
+    &aOpen de Google Authenticator app en scan de QRcode!
+    &aMocht dat niet lukken gebruik dan de volgende code %code%
+  TwoFA_SETUP_MSG: |
+    &cEr ging iets mis met het renderen van de QRCode.
+    &cVoer de volgende code %code% handmatig in
+  TwoFA_QRMAP_NAME: '&dScan de QR-Code met de Google Authenticator!'

@@ -6,3 +6,4 @@ main: nl.hotseflots.onabouwserver.Main
 commands:
   bouwserver:
     aliases: bs
+  2fa:
