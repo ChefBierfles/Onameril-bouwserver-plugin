@@ -1,7 +1,7 @@
 Modules:
   JOIN_MSG: Enabled
   QUIT_MSG: Enabled
-  MOTD_MSG: Enabled
+  WELCOME_MSG: Enabled
   TwoFA:
     Module: Enabled
     Options:
@@ -11,13 +11,15 @@ Modules:
       DENY_INTERACTION: true
       DENY_DAMAGE: true
       DENY_DROPPING: true
+  CommandSpy: Enabled
+  CommandLogging: Enabled
 Messages:
+  STAFF_TAG: '&7[&4Staff&7]&r '
+  STAFF_CHAT: '&4&l[StaffChat] %rank% %playername% %message%'
   SERVER_TAG: '&7[&6Bouwserver&7]&r '
   JOIN_MSG: '%player% has joined the server!'
   QUIT_MSG: '%player% has left the server!'
-  MOTD_MSG: |
-    %newline%
-    %newline%
+  WELCOME_MSG: |
     &6&lWelkom!&r
     Welkom &e%player%&r op de bouwserver van het Kingdom &6&lOnameril&r!
     Wij hanteren een nultolerantie beleid, dus wees altijd hoffelijk.

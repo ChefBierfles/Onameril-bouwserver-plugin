@@ -18,23 +18,22 @@ public class RankDetector {
     public static String getRank(UUID uuid) {
 
         String[] groups = PermissionsEx.getUser(Bukkit.getPlayer(uuid)).getGroupNames();
-        String ranks = "";
         for (String group : groups) {
-            ranks += group + " ";
-        }
 
-        if (ranks.contains("Owner")) {
-            return "Owner";
-        } else if (ranks.contains("Admin")) {
-            return "Admin";
-        } else if (ranks.contains("Moderator")) {
-            return "Moderator";
-        } else if (ranks.contains("Onameril")) {
-            return "Onameril";
-        } else if (ranks.contains("Rando")) {
-            return "Rando";
-        } else {
-            return null;
+            if (group.contains("Eigenaar")) {
+                return "Eigenaar";
+            } else if (group.contains("Admin")) {
+                return "Admin";
+            } else if (group.contains("Moderator")) {
+                return "Moderator";
+            } else if (group.contains("Onameril")) {
+                return "Onameril";
+            } else if (group.contains("Rando")) {
+                return "Rando";
+            } else {
+                return null;
+            }
         }
+        return null;
     }
 }
