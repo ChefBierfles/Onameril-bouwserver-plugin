@@ -11,10 +11,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
+import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 public class PlayerStats {
 
@@ -23,12 +26,29 @@ public class PlayerStats {
     public static ItemStack pluginStatsItem = new ItemStack(Material.NAME_TAG);
     private static HashMap<UUID, Integer> placedBlocksList = new HashMap<>();
     private static HashMap<UUID, Integer> brokenBlocksList = new HashMap<>();
-    private static HashMap<UUID, Long> joinedTimeInMiliseconds = new HashMap<>();
-    private static HashMap<UUID, Long> quittedTimeInMiliseconds = new HashMap<>();
+    private static HashMap<UUID, Long> joinTime = new HashMap<>();
+    private static HashMap<UUID, Long> playedTime = new HashMap<>();
     private static Inventory bouwServerInventory;
 
-    public static float milisecondsToHours(Long miliseconds) {
-        return Math.round((miliseconds / 3600000) * 100) / 100;
+    private static int itemUpdaterTask;
+
+    public static void setJoinTime(Player player) {
+        joinTime.put(player.getUniqueId(), System.currentTimeMillis());
+    }
+
+    public static Long getJoinTime(Player player) {
+        return joinTime.get(player.getUniqueId());
+    }
+
+    public static void setPlayedTime(Player player) {
+
+        Long playedTimeInMs = (System.currentTimeMillis() - getJoinTime(player)) + getPlayedTime(player);
+        setJoinTime(player);
+        playedTime.put(player.getUniqueId(), playedTimeInMs);
+    }
+
+    public static Long getPlayedTime(Player player) {
+        return playedTime.get(player.getUniqueId());
     }
 
     public static Integer getBrokenBlocks(Player player) {
@@ -49,32 +69,12 @@ public class PlayerStats {
         }
     }
 
-    public static Long getJoinedTimeInMiliseconds(Player player) {
-        return joinedTimeInMiliseconds.get(player.getUniqueId());
+    public static void setBrokenBlocks(Player player, int amount) {
+        brokenBlocksList.put(player.getUniqueId(), amount);
     }
 
-    public static Long getQuittedTimeInMiliseconds(Player player) {
-        return quittedTimeInMiliseconds.get(player.getUniqueId());
-    }
-
-    public static void setJoinedTimeInMiliseconds(Player player, long ms) {
-        joinedTimeInMiliseconds.put(player.getUniqueId(), ms);
-    }
-
-    public static void setQuittedTimeInMiliseconds(Player player, long ms) {
-        quittedTimeInMiliseconds.put(player.getUniqueId(), ms);
-    }
-
-    public static void setBrokenBlocks(Player player, int upBy) {
-        brokenBlocksList.put(player.getUniqueId(), getBrokenBlocks(player) + upBy);
-    }
-
-    public static Long getPlayedMiliseconds(Player player) {
-        return System.currentTimeMillis() - getJoinedTimeInMiliseconds(player);
-    }
-
-    public static void setPlacedBlocks(Player player, int upBy) {
-        placedBlocksList.put(player.getUniqueId(), getPlacedBlocks(player) + upBy);
+    public static void setPlacedBlocks(Player player, int amount) {
+        placedBlocksList.put(player.getUniqueId(), amount);
     }
 
     public static void createItems(Player player) {
@@ -82,12 +82,7 @@ public class PlayerStats {
         /*
         Set player stats
          */
-        double hoursPlayed;
-        try {
-            hoursPlayed = PlayerStats.milisecondsToHours(PlayerStats.getPlayedMiliseconds(player));
-        } catch (NullPointerException exc) {
-            hoursPlayed = 0;
-        }
+        String hoursPlayed = PlayerStats.playedTimeToHours(player);
         int blocksPlaced = PlayerStats.getPlacedBlocks(player);
         int blocksBroken = PlayerStats.getBrokenBlocks(player);
         String pluginDateReleased = "21/02/2019 16:30:00";
@@ -99,10 +94,10 @@ public class PlayerStats {
         playerStatsItemMeta.setDisplayName(ChatColor.GOLD + player.getName());
         playerStatsItemMeta.setOwningPlayer(Bukkit.getOfflinePlayer(player.getUniqueId()));
         List<String> itemLore = new ArrayList<>();
-        itemLore.add(ChatColor.YELLOW + "Je UUID is: " + ChatColor.GOLD + player.getUniqueId());
-        itemLore.add(ChatColor.YELLOW + "Je hebt " + ChatColor.GOLD + hoursPlayed + ChatColor.YELLOW + " uren gespeeld!");
-        itemLore.add(ChatColor.YELLOW + "Je hebt " + ChatColor.GOLD + blocksPlaced + ChatColor.YELLOW + " blokken geplaatst!");
-        itemLore.add(ChatColor.YELLOW + "Je hebt " + ChatColor.GOLD + blocksBroken + ChatColor.YELLOW + " blokken gebroken!");
+        itemLore.add(ChatColor.YELLOW + "Uw UUID is: " + ChatColor.GOLD + player.getUniqueId());
+        itemLore.add(ChatColor.YELLOW + "U hebt " + ChatColor.GOLD + blocksPlaced + ChatColor.YELLOW + " blokken geplaatst!");
+        itemLore.add(ChatColor.YELLOW + "U hebt " + ChatColor.GOLD + blocksBroken + ChatColor.YELLOW + " blokken gebroken!");
+        itemLore.add(ChatColor.YELLOW + "U speeltijd is: " + ChatColor.GOLD + hoursPlayed + ChatColor.YELLOW + "!");
         playerStatsItemMeta.setLore(itemLore);
         playerStatsItem.setItemMeta(playerStatsItemMeta);
         itemLore.clear();
@@ -139,9 +134,6 @@ public class PlayerStats {
     Create the inventory so it is viewable for the player
      */
     public static void createInvenory(Player player) {
-
-        //Set the quitted time to now so we get the time difference between that we joined and openened the menu
-        PlayerStats.setQuittedTimeInMiliseconds(player, System.currentTimeMillis());
         createItems(player);
         bouwServerInventory = Bukkit.createInventory(null, 9, ChatColor.GOLD + "" + ChatColor.BOLD + "Onameril Bouwserver Plugin");
         bouwServerInventory.setItem(1, playerStatsItem);
@@ -156,5 +148,64 @@ public class PlayerStats {
      */
     public static Inventory getInventory() {
         return bouwServerInventory;
+    }
+
+    public static void savePlayerStatsToStorage(Player player) {
+        Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+
+                Main.getInstance().getPlayerCache().set("Data." + player.getUniqueId().toString() + ".BLOCKS_PLACED", PlayerStats.getPlacedBlocks(player));
+                Main.getInstance().getPlayerCache().set("Data." + player.getUniqueId().toString() + ".BLOCKS_BROKEN", PlayerStats.getBrokenBlocks(player));
+                Main.getInstance().getPlayerCache().set("Data." + player.getUniqueId().toString() + ".PLAYED_MILISECONDS", PlayerStats.getPlayedTime(player).toString());
+
+                PlayerStats.playedTime.remove(player.getUniqueId());
+                PlayerStats.placedBlocksList.remove(player.getUniqueId());
+                PlayerStats.brokenBlocksList.remove(player.getUniqueId());
+                try {
+                    Main.getInstance().getPlayerCache().save(Main.getInstance().getPlayerCacheFile());
+                } catch (IOException exc) {}
+            }
+        });
+    }
+
+    public static void savePlayerStatsToCache(Player player) {
+        Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                PlayerStats.playedTime.put(player.getUniqueId(), Long.parseLong(Main.getInstance().getPlayerCache().getString("Data." + player.getUniqueId().toString() + ".PLAYED_MILISECONDS")));
+                PlayerStats.setBrokenBlocks(player, (int) Main.getInstance().getPlayerCache().get("Data." + player.getUniqueId().toString() + ".BLOCKS_BROKEN"));
+                PlayerStats.setPlacedBlocks(player, (int) Main.getInstance().getPlayerCache().get("Data." + player.getUniqueId().toString() + ".BLOCKS_PLACED"));
+            }
+        });
+    }
+
+    public static String playedTimeToHours(Player player) {
+        setPlayedTime(player);
+        Long millis = getPlayedTime(player);
+        return String.format("%02d:%02d:%02d",
+                TimeUnit.MILLISECONDS.toHours(millis),
+                TimeUnit.MILLISECONDS.toMinutes(millis) -
+                        TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
+                TimeUnit.MILLISECONDS.toSeconds(millis) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+    }
+
+    public static void savePlayerStatsInterval(int interval){
+        Bukkit.getScheduler().scheduleAsyncRepeatingTask(Main.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                for (Player players: Bukkit.getOnlinePlayers()) {
+                    Main.getInstance().getPlayerCache().set("Data." + players.getUniqueId().toString() + ".BLOCKS_BROKEN", PlayerStats.getBrokenBlocks(players));
+                    Main.getInstance().getPlayerCache().set("Data." + players.getUniqueId().toString() + ".BLOCKS_PLACED", PlayerStats.getPlacedBlocks(players));
+                    PlayerStats.setPlayedTime(players);
+                    Main.getInstance().getPlayerCache().set("Data." + players.getUniqueId().toString() + ".PLAYED_MILISECONDS", PlayerStats.getPlayedTime(players).toString());
+
+                    try {
+                        Main.getInstance().getPlayerCache().save(Main.getInstance().getPlayerCacheFile());
+                    } catch (IOException exc) { exc.printStackTrace(); }
+                }
+            }
+        }, 20 * interval, 20 * interval);
     }
 }

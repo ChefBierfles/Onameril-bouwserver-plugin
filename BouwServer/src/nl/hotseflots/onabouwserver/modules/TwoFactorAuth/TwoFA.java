@@ -1,6 +1,7 @@
 package nl.hotseflots.onabouwserver.modules.TwoFactorAuth;
 
 import nl.hotseflots.onabouwserver.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
@@ -66,8 +67,11 @@ public class TwoFA {
 
     public static boolean hasTwofactorauth(UUID uuid)
     {
-        File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + uuid.toString() + ".yml");
-        return loadedAuthenticationDetails.containsKey(uuid) && userPath.exists();
+        if (Main.getInstance().getConfig().getString("Modules.TwoFA.Module").equalsIgnoreCase("enabled")) {
+            File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + uuid.toString() + ".yml");
+            return loadedAuthenticationDetails.containsKey(uuid) && (userPath.exists() && Bukkit.getPlayer(uuid).hasPermission("2fa.setup"));
+        }
+        return false;
     }
 
     public static AuthenticationDetails getAuthenticationDetails(UUID uuid)
