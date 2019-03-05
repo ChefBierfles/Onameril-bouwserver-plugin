@@ -25,18 +25,35 @@ import org.bukkit.map.MapView;
 public class TwoFactorAuthCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+
+        /*
+        Check if the sender has the permissions to setup TwoFA and
+        check if the sender is an instance of player.
+         */
         if ((sender.hasPermission("bouwserver.2fa.setup")) && ((sender instanceof Player))) {
+
+            /*
+            Check if the 2FA module is enabled in the config file
+             */
             if (Main.getInstance().getConfig().getString("Modules.TwoFA.Module").equalsIgnoreCase("enabled")) {
+
+                /*
+                Cast the sender to a player object
+                 */
                 Player player = (Player) sender;
+
                 TwoFA.attemptDataLoad(player.getUniqueId());
+
                 File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + player.getUniqueId().toString() + ".yml");
                 if (TwoFA.hasTwofactorauth(player.getUniqueId()) && userPath.exists()) {
                     TwoFA.unloadAuthenticationDetails(player.getUniqueId());
                     player.sendMessage(Messages.MCAUTH_SETUP_ALREADY_ENABLED.getMessage());
                     return true;
                 }
+
                 AuthenticationDetails authenticationDetails = new AuthenticationDetails(player.getUniqueId().toString(), TOTP.generateBase32Secret(), true);
                 TwoFA.addAuthenticationDetauls(player.getUniqueId(), authenticationDetails);
+
                 try {
                     URL url = new URL(TOTP.qrImageUrl("minecraftserver", authenticationDetails.getKey()));
                     BufferedImage image = ImageIO.read(url);

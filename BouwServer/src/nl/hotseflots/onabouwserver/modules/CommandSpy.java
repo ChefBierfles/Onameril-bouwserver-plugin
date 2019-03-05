@@ -19,12 +19,6 @@ public class CommandSpy {
         Owner > Admin > Mod > Onameril > Rando
         Admin > Mod > Onameril > Rando
         Mod > Onameril > Rando
-        Permissions:
-        OnamerilBouwServer.Eigenaar
-        OnamerilBouwServer.Admin
-        OnamerilBouwServer.Moderator
-        OnamerilBouwServer.Onameril
-        OnamerilBouwServer.Rando
      */
 
     public static void CommandSpy(String peformedcommand, Player sender) {

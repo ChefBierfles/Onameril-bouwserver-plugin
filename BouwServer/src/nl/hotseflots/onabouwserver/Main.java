@@ -67,7 +67,6 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerMovementEvent(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerDropEvent(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessEvent(), this);
-        Bukkit.getPluginManager().registerEvents(new EntityPickUpItemEvent(), this);
         Bukkit.getPluginManager().registerEvents(new LeavesDecayEvent(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerInteractEntityEvent(), this);
 
@@ -76,11 +75,6 @@ public class Main extends JavaPlugin {
          */
         Bukkit.getPluginCommand("bouwserver").setExecutor(new BouwserverCommand());
         Bukkit.getPluginCommand("2fa").setExecutor(new TwoFactorAuthCommand());
-        Bukkit.getPluginCommand("staffmode").setExecutor(new StaffMode());
-        Bukkit.getPluginCommand("buildmode").setExecutor(new Buildmode());
-        Bukkit.getPluginCommand("freeze").setExecutor(new FreezePlayer());
-        Bukkit.getPluginCommand("unfreeze").setExecutor(new FreezePlayer());
-        Bukkit.getPluginCommand("commandhistory").setExecutor(new OpenMenu());
 
         /*
         Save player stats every 5minutes as per interval

@@ -1,8 +1,6 @@
 package nl.hotseflots.onabouwserver.events;
 
-import net.minecraft.server.v1_12_R1.EntityPlayer;
 import nl.hotseflots.onabouwserver.Main;
-import nl.hotseflots.onabouwserver.commands.StaffMode;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.entity.Player;
@@ -39,21 +37,6 @@ public class EntityDamageEvent implements Listener {
 
                 event.setCancelled(true);
             }
-        }
-
-        /*
-        When ever the player is in staffmode
-         */
-        if (StaffMode.staffModeList.contains(event.getEntity().getUniqueId().toString())) {
-            event.setCancelled(true);
-        }
-
-        /*
-        Whenever the player is frozen
-         */
-        if (StaffMode.frozenPlayerList.contains(player.getUniqueId().toString())) {
-            event.setDamage(0);
-            event.setCancelled(true);;
         }
     }
 }

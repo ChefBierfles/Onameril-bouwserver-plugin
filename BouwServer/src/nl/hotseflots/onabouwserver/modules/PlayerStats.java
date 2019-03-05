@@ -30,27 +30,47 @@ public class PlayerStats {
     private static HashMap<UUID, Long> playedTime = new HashMap<>();
     private static Inventory bouwServerInventory;
 
-    private static int itemUpdaterTask;
-
+    /*
+    Save the time in milliseconds that the player joined
+     */
     public static void setJoinTime(Player player) {
         joinTime.put(player.getUniqueId(), System.currentTimeMillis());
     }
 
+    /*
+    Get the time that the player joined
+     */
     public static Long getJoinTime(Player player) {
         return joinTime.get(player.getUniqueId());
     }
 
+    /*
+    Set the played time
+     */
     public static void setPlayedTime(Player player) {
-
         Long playedTimeInMs = (System.currentTimeMillis() - getJoinTime(player)) + getPlayedTime(player);
+
+        /*
+        Reset the joined time
+         */
         setJoinTime(player);
+
+        /*
+        Save the played time in HashMap
+         */
         playedTime.put(player.getUniqueId(), playedTimeInMs);
     }
 
+    /*
+    Get the played time in milliseconds
+     */
     public static Long getPlayedTime(Player player) {
         return playedTime.get(player.getUniqueId());
     }
 
+    /*
+    Get the amount of broken blocks
+     */
     public static Integer getBrokenBlocks(Player player) {
 
         if (brokenBlocksList.containsKey(player.getUniqueId())) {
@@ -60,6 +80,9 @@ public class PlayerStats {
         }
     }
 
+    /*
+    Get the amount of placed blocks
+     */
     public static Integer getPlacedBlocks(Player player) {
 
         if (placedBlocksList.containsKey(player.getUniqueId())) {
@@ -69,14 +92,23 @@ public class PlayerStats {
         }
     }
 
+    /*
+    Set the amount of broken blocks
+     */
     public static void setBrokenBlocks(Player player, int amount) {
         brokenBlocksList.put(player.getUniqueId(), amount);
     }
 
+    /*
+    Set the amount of placed blocks
+     */
     public static void setPlacedBlocks(Player player, int amount) {
         placedBlocksList.put(player.getUniqueId(), amount);
     }
 
+    /*
+    Create the inventory items
+     */
     public static void createItems(Player player) {
 
         /*
@@ -134,12 +166,28 @@ public class PlayerStats {
     Create the inventory so it is viewable for the player
      */
     public static void createInvenory(Player player) {
+
+        /*
+        Create the itemes for the inventory
+         */
         createItems(player);
+
+        /*
+        Assign the inventory instance to the variabel
+         */
         bouwServerInventory = Bukkit.createInventory(null, 9, ChatColor.GOLD + "" + ChatColor.BOLD + "Onameril Bouwserver Plugin");
+
+        /*
+        Add the items to the inventory
+         */
         bouwServerInventory.setItem(1, playerStatsItem);
         bouwServerInventory.setItem(4, serverStatsItem);
         bouwServerInventory.setItem(7, pluginStatsItem);
 
+        /*
+        Open the bouwserver inventory so it is
+        viewable for the player
+         */
         player.openInventory(bouwServerInventory);
     }
 
@@ -150,6 +198,9 @@ public class PlayerStats {
         return bouwServerInventory;
     }
 
+    /*
+    Save the player stats to the playercache.yml
+     */
     public static void savePlayerStatsToStorage(Player player) {
         Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), new Runnable() {
             @Override
@@ -169,6 +220,9 @@ public class PlayerStats {
         });
     }
 
+    /*
+    Retrieve the PlayerStats from playercache.yml to the Storage
+     */
     public static void savePlayerStatsToCache(Player player) {
         Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), new Runnable() {
             @Override
@@ -180,6 +234,10 @@ public class PlayerStats {
         });
     }
 
+    /*
+    Convert the played miliseconds into a
+    hour:minute:second time-structure
+     */
     public static String playedTimeToHours(Player player) {
         setPlayedTime(player);
         Long millis = getPlayedTime(player);
@@ -191,6 +249,9 @@ public class PlayerStats {
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
     }
 
+    /*
+    Interval to save the player stats to the playercache.yml
+     */
     public static void savePlayerStatsInterval(int interval){
         Bukkit.getScheduler().scheduleAsyncRepeatingTask(Main.getInstance(), new Runnable() {
             @Override
