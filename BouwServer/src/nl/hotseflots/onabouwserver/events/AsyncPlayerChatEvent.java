@@ -1,14 +1,14 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
-import nl.hotseflots.onabouwserver.modules.StaffChat;
-import nl.hotseflots.onabouwserver.modules.WelcomeMessage;
+import nl.hotseflots.onabouwserver.modules.MOTD;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.AuthenticationDetails;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TOTP;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -55,10 +55,10 @@ public class AsyncPlayerChatEvent implements Listener {
                             @Override
                             public void run() {
                                 /*
-                                Send the player the servers WelcomeMessage if the WelcomeMessage Module is enabled
+                                Send the player the servers MOTD if the MOTD Module is enabled
                                 */
                                 if (Main.getInstance().getConfig().getString("Modules.MOTD_MSG").equalsIgnoreCase("enabled")) {
-                                    WelcomeMessage.sendDelayedMOTD(event.getPlayer());
+                                    MOTD.sendDelayedMOTD(event.getPlayer());
                                 }
                             }
                         }, 20 * 1);

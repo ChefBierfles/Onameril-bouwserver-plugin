@@ -1,8 +1,6 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
-import nl.hotseflots.onabouwserver.modules.CommandSpy;
-import nl.hotseflots.onabouwserver.modules.PlayerStats;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.event.EventHandler;
@@ -20,12 +18,12 @@ public class CommandPreProcessEvent implements Listener {
             File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + event.getPlayer().getUniqueId().toString() + ".yml");
             if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId()) || (!userPath.exists() && !event.getMessage().equalsIgnoreCase("/2fa"))) {
 
-                if (Options.DENY_COMMANDS.getBooleanValue()) {
-                    event.setCancelled(true);
+                if (!Options.DENY_COMMANDS.getBooleanValue()) {
+                    return;
                 }
+
+                event.setCancelled(true);
             }
         }
-
-        CommandSpy.CommandSpy(event.getMessage(), event.getPlayer());
     }
 }

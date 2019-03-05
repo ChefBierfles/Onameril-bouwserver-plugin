@@ -10,7 +10,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 import java.io.File;
-import java.io.IOException;
 
 public class PlayerQuitEvent implements Listener {
 
@@ -21,10 +20,13 @@ public class PlayerQuitEvent implements Listener {
         Check if the QUIT_MSG module is enabled
          */
         if (Main.getInstance().getConfig().getString("Modules.QUIT_MSG").equalsIgnoreCase("enabled")) {
-            if (!event.getPlayer().hasPermission("bouwserver.commands.staffmode")) {
-                event.setQuitMessage(Messages.SERVER_TAG.getMessage() + Messages.QUIT_MSG.getMessage().replace("%player%", event.getPlayer().getName()));
-            }
+            event.setQuitMessage(Messages.SERVER_TAG.getMessage() + Messages.QUIT_MSG.getMessage().replace("%player%", event.getPlayer().getName()));
         }
+
+        /*
+        Note the time in miliseconds that the player quitted
+         */
+        PlayerStats.setQuittedTimeInMiliseconds(event.getPlayer(), System.currentTimeMillis());
 
         /*
         If the player didnt succesfully setup 2Fa we will remove him once he quits
@@ -34,11 +36,5 @@ public class PlayerQuitEvent implements Listener {
         if (!userPath.exists()) {
             TwoFA.unloadAuthenticationDetails(event.getPlayer().getUniqueId());
         }
-
-        /*
-        Save PlayerStats
-         */
-        PlayerStats.setPlayedTime(event.getPlayer());
-        PlayerStats.savePlayerStatsToStorage(event.getPlayer());
     }
 }

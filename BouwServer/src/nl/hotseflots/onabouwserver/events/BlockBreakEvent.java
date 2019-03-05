@@ -12,8 +12,14 @@ public class BlockBreakEvent implements Listener {
     public void onBlockBreak(org.bukkit.event.block.BlockBreakEvent event) {
 
         /*
-        If the player breaks a block we save it
+        If the player breaks a block we save it async so it has little
+        inpact on the server
          */
-        PlayerStats.setBrokenBlocks(event.getPlayer(), PlayerStats.getBrokenBlocks(event.getPlayer()) + 1);
+        Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                PlayerStats.setBrokenBlocks(event.getPlayer(), 1);
+            }
+        });
     }
 }

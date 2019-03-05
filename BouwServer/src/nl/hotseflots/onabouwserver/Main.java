@@ -1,8 +1,8 @@
 package nl.hotseflots.onabouwserver;
 
-import nl.hotseflots.onabouwserver.commands.*;
+import nl.hotseflots.onabouwserver.commands.BouwserverCommand;
+import nl.hotseflots.onabouwserver.commands.TwoFactorAuthCommand;
 import nl.hotseflots.onabouwserver.events.*;
-import nl.hotseflots.onabouwserver.modules.PlayerStats;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import nl.hotseflots.onabouwserver.utils.Options;
@@ -67,25 +67,12 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerMovementEvent(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerDropEvent(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessEvent(), this);
-        Bukkit.getPluginManager().registerEvents(new EntityPickUpItemEvent(), this);
-        Bukkit.getPluginManager().registerEvents(new LeavesDecayEvent(), this);
-        Bukkit.getPluginManager().registerEvents(new PlayerInteractEntityEvent(), this);
 
         /*
         Register all of the commands
          */
         Bukkit.getPluginCommand("bouwserver").setExecutor(new BouwserverCommand());
         Bukkit.getPluginCommand("2fa").setExecutor(new TwoFactorAuthCommand());
-        Bukkit.getPluginCommand("staffmode").setExecutor(new StaffMode());
-        Bukkit.getPluginCommand("buildmode").setExecutor(new Buildmode());
-        Bukkit.getPluginCommand("freeze").setExecutor(new FreezePlayer());
-        Bukkit.getPluginCommand("unfreeze").setExecutor(new FreezePlayer());
-        Bukkit.getPluginCommand("commandhistory").setExecutor(new OpenMenu());
-
-        /*
-        Save player stats every 5minutes as per interval
-         */
-        PlayerStats.savePlayerStatsInterval(60);
 
         /*
         Notfiying the console that the plugin loaded correctly
@@ -95,7 +82,6 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-
         /*
         Notiying the console that the plugin unloaded correctly
          */
@@ -120,13 +106,13 @@ public class Main extends JavaPlugin {
         File playerDataDir = new File(getDataFolder(), "PlayerData");
 
         if (!playerDataDir.exists()) {
-            playerDataDir.mkdirs();
+            playerDataDir.mkdir();
         }
 
         File commandHistoryDir = new File(getDataFolder(), "CommandHistory");
 
         if (!commandHistoryDir.exists()) {
-            commandHistoryDir.mkdirs();
+            commandHistoryDir.mkdir();
         }
 
         /*
@@ -135,7 +121,7 @@ public class Main extends JavaPlugin {
         globalCMDLogsFile = new File(getDataFolder() + File.separator + "CommandHistory" + File.separator + "globallogs.yml");
         globalCMDLogs = YamlConfiguration.loadConfiguration(globalCMDLogsFile);
 
-        playerLogsFile = new File(getDataFolder() + File.separator + "CommandHistory" + File.separator + "playerlogs.yml");
+        playerLogsFile = new File(getDataFolder() + File.separator + "PlayerData" + File.separator + "playerlogs.yml");
         playerLogs = YamlConfiguration.loadConfiguration(playerLogsFile);
 
         playerCacheFile = new File(getDataFolder() + File.separator + "PlayerData" + File.separator + "playercache.yml");

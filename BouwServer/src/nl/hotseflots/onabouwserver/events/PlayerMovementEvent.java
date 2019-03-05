@@ -1,12 +1,10 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
-import nl.hotseflots.onabouwserver.commands.StaffMode;
 import nl.hotseflots.onabouwserver.modules.RankDetector;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -23,7 +21,7 @@ public class PlayerMovementEvent implements Listener {
          */
         if (Main.getInstance().getConfig().getString("Modules.TwoFA.Module").equalsIgnoreCase("enabled")) {
             File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + event.getPlayer().getUniqueId().toString() + ".yml");
-            if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId()) || (!userPath.exists() && event.getPlayer().hasPermission("bouwserver.2fa.setup"))) {
+            if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId()) || !userPath.exists()) {
                 if (((event.getFrom().getBlockX() != event.getTo().getBlockX()) || (event.getFrom().getBlockY() != event.getTo().getBlockY()) || (event.getFrom().getBlockZ() != event.getTo().getBlockZ()))) {
                     if (!Options.DENY_MOVEMENT.getBooleanValue()) {
                         return;
@@ -31,13 +29,6 @@ public class PlayerMovementEvent implements Listener {
                     event.getPlayer().teleport(event.getFrom());
                 }
             }
-        }
-
-        if (StaffMode.frozenPlayerList.contains(event.getPlayer().getUniqueId().toString())) {
-            String title = ChatColor.DARK_RED + "You have been frozen!";
-            String subtitle = ChatColor.RED + "Je kan momenteel niet bewegen!";
-            event.getPlayer().sendTitle(title, subtitle, 0, 40, 10);
-            event.setCancelled(true);
         }
     }
 }

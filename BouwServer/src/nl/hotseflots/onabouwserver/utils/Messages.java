@@ -5,12 +5,10 @@ import org.bukkit.ChatColor;
 
 public enum Messages
 {
-    STAFF_TAG("Messages.STAFF_TAG"),
-    STAFF_CHAT("Messages.STAFF_CHAT"),
     SERVER_TAG("Messages.SERVER_TAG"),
     JOIN_MSG("Messages.JOIN_MSG"),
     QUIT_MSG("Messages.QUIT_MSG"),
-    MOTD_MSG("Messages.WELCOME_MSG"),
+    MOTD_MSG("Messages.MOTD_MSG"),
     MCAUTH_LOGIN("Messages.TwoFA_LOGIN_MSG"),
     MCAUTH_FAIL_MESSAGE("Messages.TwoFA_FAIL_MSG"),
     MCAUTH_INVALID_CODE("Messages.TwoFA_INVALID_MSG"),
