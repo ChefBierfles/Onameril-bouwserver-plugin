@@ -1,6 +1,7 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.entity.Player;
@@ -37,6 +38,13 @@ public class EntityDamageEvent implements Listener {
 
                 event.setCancelled(true);
             }
+        }
+
+        /*
+        When ever the player is in staffmode
+         */
+        if (StaffMode.playersInStaffMode.contains(event.getEntity().getUniqueId())) {
+            event.setCancelled(true);
         }
     }
 }

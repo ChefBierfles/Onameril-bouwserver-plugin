@@ -24,10 +24,15 @@ public class PlayerCache {
                 }
 
                 //See if the UUID exists in the logs
-                Main.getInstance().getPlayerCommandLogs().set("PlayerCommandLogs." + player.getUniqueId().toString(), "");
+                if (Main.getInstance().getPlayerCommandLogs().get("PlayerCommandLogs." + player.getUniqueId().toString()) == null) {
+                    Main.getInstance().getPlayerCommandLogs().set("PlayerCommandLogs." + player.getUniqueId().toString(), "");
+                }
                 Main.getInstance().getPlayerCommandLogs().set("PlayerCommandLogs." + player.getUniqueId().toString() + ".Name", player.getName().toLowerCase());
                 Main.getInstance().getPlayerCommandLogs().set("PlayerCommandLogs." + player.getUniqueId().toString() + ".UUID", player.getUniqueId().toString());
                 Main.getInstance().getPlayerCommandLogs().set("PlayerCommandLogs." + player.getUniqueId().toString() + ".IP-Adress", player.getAddress().getAddress().getHostAddress());
+                if (Main.getInstance().getPlayerCommandLogs().get("PlayerCommandLogs." + player.getUniqueId().toString() + ".CommandData") == null) {
+                    Main.getInstance().getPlayerCommandLogs().set("PlayerCommandLogs." + player.getUniqueId().toString() + ".CommandData", "");
+                }
                 if (Main.getInstance().getPlayerCache().get("Data." + player.getUniqueId().toString() + ".BLOCKS_PLACED") == null) {
                     Main.getInstance().getPlayerCache().set("Data." + player.getUniqueId().toString() + ".BLOCKS_PLACED", 0);
                 }

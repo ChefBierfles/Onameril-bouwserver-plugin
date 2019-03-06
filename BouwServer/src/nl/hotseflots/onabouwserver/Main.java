@@ -69,12 +69,16 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessEvent(), this);
         Bukkit.getPluginManager().registerEvents(new LeavesDecayEvent(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerInteractEntityEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new EntityPickUpItemEvent(), this);
 
         /*
         Register all of the commands
          */
         Bukkit.getPluginCommand("bouwserver").setExecutor(new BouwserverCommand());
         Bukkit.getPluginCommand("2fa").setExecutor(new TwoFactorAuthCommand());
+        Bukkit.getPluginCommand("staffmode").setExecutor(new StaffModeCommand());
+        Bukkit.getPluginCommand("buildmode").setExecutor(new BuildModeCommand());
+        Bukkit.getPluginCommand("commandhistory").setExecutor(new CommandHistoryCommand());
 
         /*
         Save player stats every 5minutes as per interval

@@ -2,6 +2,7 @@ package nl.hotseflots.onabouwserver.commands;
 
 import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.modules.PlayerStats;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -40,7 +41,8 @@ public class BouwserverCommand implements CommandExecutor {
                 Reload the config file
                  */
                 if (strings[0].equalsIgnoreCase("reload")) {
-                    Main.getInstance().saveConfig();
+                    Main.getInstance().reloadConfig();
+                    commandSender.sendMessage(ChatColor.GREEN + "Config file van de Bouwserver plugin is succesvol herladen!");
                 }
             }
         }

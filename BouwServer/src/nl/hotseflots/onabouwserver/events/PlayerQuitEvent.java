@@ -2,6 +2,7 @@ package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.modules.PlayerStats;
+import nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import org.bukkit.Bukkit;
@@ -33,6 +34,13 @@ public class PlayerQuitEvent implements Listener {
         File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + event.getPlayer().getUniqueId().toString() + ".yml");
         if (!userPath.exists()) {
             TwoFA.unloadAuthenticationDetails(event.getPlayer().getUniqueId());
+        }
+
+        /*
+        When the player quits he will be set out of StaffMode so his inventory will be restored.
+         */
+        if (StaffMode.playersInStaffMode.contains(event.getPlayer().getUniqueId())) {
+            StaffMode.leaveStaffMode(event.getPlayer());
         }
 
         /*

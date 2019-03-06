@@ -1,6 +1,7 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.event.EventHandler;
@@ -22,6 +23,47 @@ public class PlayerDropEvent implements Listener {
                 }
 
                 event.setCancelled(true);
+            }
+        }
+
+        if (StaffMode.playersInStaffMode.contains(event.getPlayer().getUniqueId())) {
+            event.setCancelled(true);
+        }
+
+        /*
+        Player will not be able to drop staffitems
+         */
+        if (StaffMode.isStaffItem(event.getItemDrop().getItemStack())) {
+            if (!StaffMode.playersInStaffMode.contains(event.getPlayer().getUniqueId())) {
+                event.setCancelled(true);
+                event.getItemDrop().remove();
+                return;
+            }
+        }
+
+
+        if (event.getItemDrop().getItemStack().isSimilar(StaffMode.vanishOnItem ) ) {
+            event.setCancelled(true);
+            event.getPlayer().updateInventory();
+        } else if (event.getItemDrop().getItemStack().isSimilar(StaffMode.vanishOffItem)) {
+            event.setCancelled(true);
+            event.getPlayer().updateInventory();
+        } else if (event.getItemDrop().getItemStack().isSimilar(StaffMode.randomTPItem)) {
+            event.setCancelled(true);
+            event.getPlayer().updateInventory();
+        } else if (event.getItemDrop().getItemStack().isSimilar(StaffMode.lookupItem)) {
+            event.setCancelled(true);
+            event.getPlayer().updateInventory();
+        } else if (event.getItemDrop().getItemStack().isSimilar(StaffMode.freezeItem)) {
+            event.setCancelled(true);
+            event.getPlayer().updateInventory();
+        }
+
+        if (StaffMode.isStaffItem(event.getItemDrop().getItemStack())) {
+            if (!StaffMode.playersInStaffMode.contains(event.getPlayer().getUniqueId())) {
+                event.setCancelled(true);
+                event.getItemDrop().remove();
+                return;
             }
         }
     }

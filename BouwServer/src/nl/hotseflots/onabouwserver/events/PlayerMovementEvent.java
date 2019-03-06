@@ -1,6 +1,7 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.ChatColor;
@@ -28,6 +29,16 @@ public class PlayerMovementEvent implements Listener {
                     event.getPlayer().teleport(event.getFrom());
                 }
             }
+        }
+
+        /*
+        If the player has been frozen he will be denied from moving
+         */
+        if (StaffMode.frozenPlayers.contains(event.getPlayer().getUniqueId())) {
+            String title = ChatColor.DARK_RED + "You have been frozen!";
+            String subtitle = ChatColor.RED + "Je kan momenteel niet bewegen!";
+            event.getPlayer().sendTitle(title, subtitle, 0, 40, 10);
+            event.setCancelled(true);
         }
     }
 }

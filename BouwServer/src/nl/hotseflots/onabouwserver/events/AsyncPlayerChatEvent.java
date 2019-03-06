@@ -23,7 +23,7 @@ public class AsyncPlayerChatEvent implements Listener {
         /*
         Check if the TwoFA-module is enabled
          */
-        if (Options.MODULE_TWOFA.getStringValue() == "Enabled") {
+        if (Options.MODULE_TWOFA.getStringValue().equalsIgnoreCase("enabled")) {
             File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + event.getPlayer().getUniqueId().toString() + ".yml");
             if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId()) || !userPath.exists()) {
                 final AuthenticationDetails authenticationDetails = TwoFA.getAuthenticationDetails(event.getPlayer().getUniqueId());

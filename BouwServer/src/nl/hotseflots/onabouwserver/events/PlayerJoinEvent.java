@@ -2,11 +2,13 @@ package nl.hotseflots.onabouwserver.events;
 
 import com.connorlinfoot.actionbarapi.ActionBarAPI;
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode;
 import nl.hotseflots.onabouwserver.modules.WelcomeMessage;
 import nl.hotseflots.onabouwserver.modules.PlayerCache;
 import nl.hotseflots.onabouwserver.modules.PlayerStats;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Messages;
+import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -37,10 +39,32 @@ public class PlayerJoinEvent implements Listener {
         PlayerStats.setJoinTime(event.getPlayer());
 
         /*
-        Check if the JOIN_MSG module is enabled
+        Player with this permission will auto join in staffmode
          */
-        if (Main.getInstance().getConfig().getString("Modules.JOIN_MSG").equalsIgnoreCase("enabled")) {
-            event.setJoinMessage(Messages.SERVER_TAG.getMessage() + Messages.JOIN_MSG.getMessage().replace("%player%", event.getPlayer().getName()));
+        if (event.getPlayer().hasPermission("bouwserver.commands.staffmode")) {
+            if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId())) {
+                StaffMode.enterStaffMode(event.getPlayer());
+                ActionBarAPI.sendActionBar(event.getPlayer(), ChatColor.RED + "You joined silently in staffmode");
+                for (Player players : Bukkit.getOnlinePlayers()) {
+                    if (!event.getPlayer().getName().equalsIgnoreCase(players.getName())) {
+                        if (players.hasPermission("bouwserver.commands.staffmode")) {
+                            players.sendMessage(ChatColor.GOLD + event.getPlayer().getName() + ChatColor.GRAY + " joined silently and he vanished");
+                        }
+                    }
+                }
+            } else {
+                for (UUID vanishedPlayers : StaffMode.playersInVanishMode) {
+                    event.getPlayer().hidePlayer(Main.getInstance(), Bukkit.getPlayer(vanishedPlayers));
+                }
+            }
+        } else {
+
+            /*
+            Check if the JOIN_MSG module is enabled
+            */
+            if (Main.getInstance().getConfig().getString("Modules.JOIN_MSG").equalsIgnoreCase("enabled")) {
+                event.setJoinMessage(Messages.SERVER_TAG.getMessage() + Messages.JOIN_MSG.getMessage().replace("%player%", event.getPlayer().getName()));
+            }
         }
 
         /*
@@ -77,7 +101,7 @@ public class PlayerJoinEvent implements Listener {
             /*
             Send the player the servers WelcomeMessage if the WelcomeMessage Module is enabled
             */
-            if (Main.getInstance().getConfig().getString("Modules.MOTD_MSG").equalsIgnoreCase("enabled")) {
+            if (Options.MODULE_TWOFA.getStringValue().equalsIgnoreCase("enabled")) {
                 WelcomeMessage.sendDelayedMOTD(event.getPlayer());
             }
         }
