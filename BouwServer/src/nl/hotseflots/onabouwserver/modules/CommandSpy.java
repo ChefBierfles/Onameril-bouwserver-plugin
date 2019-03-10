@@ -1,6 +1,7 @@
 package nl.hotseflots.onabouwserver.modules;
 
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -25,12 +26,12 @@ public class CommandSpy {
 
         String commandSpyMessage = ChatColor.GRAY + "" + ChatColor.ITALIC + "[" + ChatColor.GOLD + "" + ChatColor.ITALIC + sender.getName() + ChatColor.GRAY + "" + ChatColor.ITALIC + " used the command " + ChatColor.GOLD + "" + ChatColor.ITALIC + peformedcommand + ChatColor.GRAY + "" + ChatColor.ITALIC + "]";
 
-        if (Main.getInstance().getConfig().getString("Modules.CommandSpy").equalsIgnoreCase("Enabled")) {
+        if (Options.MODULE_COMMANDLOGGING.getStringValue().equalsIgnoreCase("Enabled")) {
             //Broadcast the peformed command to the console
             Main.getInstance().getLogger().info(commandSpyMessage);
         }
 
-        if (Main.getInstance().getConfig().getString("Modules.CommandLogging").equalsIgnoreCase("Enabled")) {
+        if (Options.MODULE_COMMANDSPY.getStringValue().equalsIgnoreCase("Enabled")) {
             //Add command to global logs
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/YYYY HH:mm:ss");
             Calendar calendar = new GregorianCalendar();

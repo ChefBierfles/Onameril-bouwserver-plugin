@@ -12,7 +12,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -117,6 +116,7 @@ public class PlayerStats {
         String hoursPlayed = PlayerStats.playedTimeToHours(player);
         int blocksPlaced = PlayerStats.getPlacedBlocks(player);
         int blocksBroken = PlayerStats.getBrokenBlocks(player);
+        int commandsPeformed = CommandHistoryMenu.getCommandAmount(player);
         String pluginDateReleased = "21/02/2019 16:30:00";
 
         /*
@@ -126,9 +126,10 @@ public class PlayerStats {
         playerStatsItemMeta.setDisplayName(ChatColor.GOLD + player.getName());
         playerStatsItemMeta.setOwningPlayer(Bukkit.getOfflinePlayer(player.getUniqueId()));
         List<String> itemLore = new ArrayList<>();
-        itemLore.add(ChatColor.YELLOW + "Uw UUID is: " + ChatColor.GOLD + player.getUniqueId());
+        itemLore.add(ChatColor.YELLOW + "UUID: " + ChatColor.GOLD + player.getUniqueId());
         itemLore.add(ChatColor.YELLOW + "U hebt " + ChatColor.GOLD + blocksPlaced + ChatColor.YELLOW + " blokken geplaatst!");
         itemLore.add(ChatColor.YELLOW + "U hebt " + ChatColor.GOLD + blocksBroken + ChatColor.YELLOW + " blokken gebroken!");
+        itemLore.add(ChatColor.YELLOW + "U hebt " + ChatColor.GOLD + commandsPeformed + ChatColor.YELLOW + " commando's uitgevoerd!");
         itemLore.add(ChatColor.YELLOW + "U speeltijd is: " + ChatColor.GOLD + hoursPlayed + ChatColor.YELLOW + "!");
         playerStatsItemMeta.setLore(itemLore);
         playerStatsItem.setItemMeta(playerStatsItemMeta);

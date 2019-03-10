@@ -1,9 +1,12 @@
 Modules:
-  JOIN_MSG: Enabled
-  QUIT_MSG: Enabled
-  WELCOME_MSG: Enabled
+  JOIN_MSG:
+    Module: 'Enabled'
+  QUIT_MSG:
+    Module: 'Enabled'
+  WELCOME_MSG:
+    Module: 'Enabled'
   TwoFA:
-    Module: Enabled
+    Module: 'Enabled'
     Options:
       MAX_TRIES: 3
       DENY_COMMANDS: true
@@ -11,8 +14,16 @@ Modules:
       DENY_INTERACTION: true
       DENY_DAMAGE: true
       DENY_DROPPING: true
-  CommandSpy: Enabled
-  CommandLogging: Enabled
+  CommandSpy:
+    Module: 'Enabled'
+  CommandLogging:
+    Module: 'Enabled'
+  Staffmode:
+    Module: 'Enabled'
+  Buildmode:
+    Module: 'Enabled'
+  ANTI-LEAVESDECAY:
+    Module: 'Enabled'
 Messages:
   STAFF_TAG: '&7[&4Staff&7]&r '
   STAFF_CHAT: '&4&l[StaffChat] %rank% %playername% %message%'
@@ -46,3 +57,4 @@ Messages:
     &cEr ging iets mis met het renderen van de QRCode.
     &cVoer de volgende code %code% handmatig in
   TwoFA_QRMAP_NAME: '&dScan de QR-Code met de Google Authenticator!'
+  SERVER_CLOSING_MSG: '&6De server is aan het afsluiten!'

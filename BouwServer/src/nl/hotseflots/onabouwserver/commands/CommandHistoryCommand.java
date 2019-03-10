@@ -1,7 +1,6 @@
 package nl.hotseflots.onabouwserver.commands;
 
 import nl.hotseflots.onabouwserver.modules.CommandHistoryMenu;
-import nl.hotseflots.onabouwserver.modules.PlayerCache;
 import nl.hotseflots.onabouwserver.utils.UUIDTool;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -10,7 +9,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import sun.plugin2.message.Message;
 
 public class CommandHistoryCommand implements CommandExecutor {
 
@@ -54,8 +52,8 @@ public class CommandHistoryCommand implements CommandExecutor {
 
                     }
                 }
-                return false;
             }
+            return false;
         }
         return false;
     }

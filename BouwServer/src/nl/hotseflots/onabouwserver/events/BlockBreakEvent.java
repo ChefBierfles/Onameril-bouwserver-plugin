@@ -1,8 +1,6 @@
 package nl.hotseflots.onabouwserver.events;
 
-import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.modules.PlayerStats;
-import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 

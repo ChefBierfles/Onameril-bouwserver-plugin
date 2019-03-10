@@ -1,6 +1,7 @@
 package nl.hotseflots.onabouwserver.events;
 
 import com.connorlinfoot.actionbarapi.ActionBarAPI;
+import net.minecraft.server.v1_12_R1.PacketPlayOutMount;
 import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
@@ -8,6 +9,8 @@ import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -119,6 +122,7 @@ public class PlayerInteractEvent implements Listener {
                 }
 
                 if (playersToTP.size() == 1) {
+                    event.getPlayer().sendMessage(ChatColor.AQUA + "Je bent naar " + ChatColor.BLUE + playersToTP.get(0).getName() + ChatColor.AQUA + " geteleporteerd!");
                     event.getPlayer().teleport(playersToTP.get(0));
                 }
 
@@ -139,7 +143,7 @@ public class PlayerInteractEvent implements Listener {
                     lastTPEDPlayer.remove(event.getPlayer().getUniqueId());
                     lastTPEDPlayer.put(event.getPlayer().getUniqueId(), target.getUniqueId());
                     event.getPlayer().teleport(target.getLocation());
-                    target.setPassenger(event.getPlayer());
+                    target.addPassenger(event.getPlayer());
                     event.getPlayer().sendMessage(ChatColor.GREEN + "Je bent naar " + ChatColor.DARK_GREEN + target.getName() + ChatColor.GREEN + " geteleporteerd!");
                 }
             }

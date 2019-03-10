@@ -55,7 +55,7 @@ public class AsyncPlayerChatEvent implements Listener {
                                 /*
                                 Send the player the servers WelcomeMessage if the WelcomeMessage Module is enabled
                                 */
-                                    if (Main.getInstance().getConfig().getString("Modules.MOTD_MSG").equalsIgnoreCase("enabled")) {
+                                    if (Messages.MOTD_MSG.getMessage().equalsIgnoreCase("enabled")) {
                                         WelcomeMessage.sendDelayedMOTD(event.getPlayer());
                                     }
                                 }

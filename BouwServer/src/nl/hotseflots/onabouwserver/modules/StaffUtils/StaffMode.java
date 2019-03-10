@@ -1,7 +1,6 @@
 package nl.hotseflots.onabouwserver.modules.StaffUtils;
 
 import com.connorlinfoot.actionbarapi.ActionBarAPI;
-import com.sun.org.apache.regexp.internal.RE;
 import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.modules.BuildMode;
 import org.bukkit.Bukkit;
@@ -13,11 +12,8 @@ import org.bukkit.boss.BarStyle;
 import org.bukkit.craftbukkit.v1_12_R1.boss.CraftBossBar;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -170,7 +166,7 @@ public class StaffMode {
         if (mode.equalsIgnoreCase("on")) {
             for (Player players : Bukkit.getOnlinePlayers()) {
                 if (!players.getName().equalsIgnoreCase(player.getName())) {
-                    if (players.hasPermission("bouwserver.commands.staffmodee")) {
+                    if (players.hasPermission("bouwserver.commands.staffmode")) {
                         players.sendMessage(ChatColor.GOLD + player.getName() + ChatColor.GRAY + " has vanished. POOF!");
                     }
                 }
@@ -182,7 +178,7 @@ public class StaffMode {
 
             //Add: Hide player from online players
             for (Player hideFromPlayer : Bukkit.getOnlinePlayers()) {
-                if (!hideFromPlayer.hasPermission("bouwserver.commands.staffmodee")) {
+                if (!hideFromPlayer.hasPermission("bouwserver.commands.staffmode")) {
                     if (!hideFromPlayer.getName().equals(player.getName())) {
                         hideFromPlayer.hidePlayer(Main.getInstance(), player);
                     }

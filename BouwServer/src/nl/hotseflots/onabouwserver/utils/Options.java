@@ -16,7 +16,10 @@ public enum Options
     MODULE_WELCOME_MSG(Main.getInstance().getConfig().getString("Modules.WELCOME_MSG.Module")),
     MODULE_TWOFA(Main.getInstance().getConfig().getString("Modules.TwoFA.Module")),
     MODULE_COMMANDSPY(Main.getInstance().getConfig().getString("Modules.CommandSpy.Module")),
-    MODULE_COMMANDLOGGING(Main.getInstance().getConfig().getString("Modules.CommandLogging.Module"));
+    MODULE_COMMANDLOGGING(Main.getInstance().getConfig().getString("Modules.CommandLogging.Module")),
+    MODULE_BUILDMODE(Main.getInstance().getConfig().getString("Modules.Buildmode.Module")),
+    MODULE_STAFFMODE(Main.getInstance().getConfig().getString("Modules.Staffmode.Module")),
+    MODULE_ANTILEAVEDECAY(Main.getInstance().getConfig().getString("Modules.ANTI-LEAVESDECAY.Module"));
 
     private static Main main;
     private int intValue;

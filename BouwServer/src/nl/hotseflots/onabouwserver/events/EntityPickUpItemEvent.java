@@ -6,8 +6,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 
-import java.util.List;
-
 public class EntityPickUpItemEvent implements Listener {
 
     @EventHandler

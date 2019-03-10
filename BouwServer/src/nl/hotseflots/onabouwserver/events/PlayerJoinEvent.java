@@ -41,29 +41,34 @@ public class PlayerJoinEvent implements Listener {
         /*
         Player with this permission will auto join in staffmode
          */
-        if (event.getPlayer().hasPermission("bouwserver.commands.staffmode")) {
-            if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId())) {
-                StaffMode.enterStaffMode(event.getPlayer());
-                ActionBarAPI.sendActionBar(event.getPlayer(), ChatColor.RED + "You joined silently in staffmode");
-                for (Player players : Bukkit.getOnlinePlayers()) {
-                    if (!event.getPlayer().getName().equalsIgnoreCase(players.getName())) {
-                        if (players.hasPermission("bouwserver.commands.staffmode")) {
-                            players.sendMessage(ChatColor.GOLD + event.getPlayer().getName() + ChatColor.GRAY + " joined silently and he vanished");
+        if (Options.MODULE_STAFFMODE.getStringValue().equalsIgnoreCase("Enabled")) {
+            if (event.getPlayer().hasPermission("bouwserver.commands.staffmode")) {
+                event.setJoinMessage("");
+                    StaffMode.enterStaffMode(event.getPlayer());
+                    ActionBarAPI.sendActionBar(event.getPlayer(), ChatColor.RED + "You joined silently in staffmode");
+                    for (Player players : Bukkit.getOnlinePlayers()) {
+                        if (!event.getPlayer().getName().equalsIgnoreCase(players.getName())) {
+                            if (players.hasPermission("bouwserver.commands.staffmode")) {
+                                players.sendMessage(ChatColor.GOLD + event.getPlayer().getName() + ChatColor.GRAY + " joined silently and he vanished");
+                            }
                         }
                     }
-                }
             } else {
-                for (UUID vanishedPlayers : StaffMode.playersInVanishMode) {
-                    event.getPlayer().hidePlayer(Main.getInstance(), Bukkit.getPlayer(vanishedPlayers));
+                /*
+                Hide staff from freshly joined player
+                 */
+                for (UUID hideStaffFromUUID : StaffMode.playersInVanishMode) {
+                    Player hideStaffFromPlayer = Bukkit.getPlayer(hideStaffFromUUID);
+                    event.getPlayer().hidePlayer(Main.getInstance(), hideStaffFromPlayer);
                 }
-            }
-        } else {
-
-            /*
-            Check if the JOIN_MSG module is enabled
-            */
-            if (Main.getInstance().getConfig().getString("Modules.JOIN_MSG").equalsIgnoreCase("enabled")) {
-                event.setJoinMessage(Messages.SERVER_TAG.getMessage() + Messages.JOIN_MSG.getMessage().replace("%player%", event.getPlayer().getName()));
+                /*
+                Check if the JOIN_MSG module is enabled
+                */
+                if (Options.MODULE_JOIN_MSG.getStringValue().equalsIgnoreCase("enabled")) {
+                    event.setJoinMessage(Messages.SERVER_TAG.getMessage() + Messages.JOIN_MSG.getMessage().replace("%player%", event.getPlayer().getName()));
+                } else {
+                    event.setJoinMessage("");
+                }
             }
         }
 
@@ -71,16 +76,18 @@ public class PlayerJoinEvent implements Listener {
         Players that can use 2fa should be forced to use it when they have the permission to do so
         What to do: Check if the file exists in the data folder if not let them setup 2fa.
          */
-        if (event.getPlayer().hasPermission("bouwserver.2fa.setup")) {
-            File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + event.getPlayer().getUniqueId().toString() + ".yml");
-            if (!userPath.exists()) {
-                Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), new Runnable() {
-                    @Override
-                    public void run() {
-                        event.getPlayer().chat("/2fa");
-                    }
-                }, 20 * 1);
-                return;
+        if (Options.MODULE_TWOFA.getStringValue().equalsIgnoreCase("enabled")) {
+            if (event.getPlayer().hasPermission("bouwserver.2fa.setup")) {
+                File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + event.getPlayer().getUniqueId().toString() + ".yml");
+                if (!userPath.exists()) {
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), new Runnable() {
+                        @Override
+                        public void run() {
+                            event.getPlayer().chat("/2fa");
+                        }
+                    }, 20 * 1);
+                    return;
+                }
             }
         }
 
@@ -88,21 +95,23 @@ public class PlayerJoinEvent implements Listener {
         Verify 2fa before allowing the player to play
         after that send the player the motd message
          */
-        TwoFA.attemptDataLoad(event.getPlayer().getUniqueId());
-        if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId())) {
-            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), new Runnable() {
-                @Override
-                public void run() {
-                    event.getPlayer().sendMessage(Messages.MCAUTH_LOGIN.getMessage());
-                }
-            }, 20 * 1);
-            return;
-        } else {
+        if (Options.MODULE_TWOFA.getStringValue().equalsIgnoreCase("enabled")) {
+            TwoFA.attemptDataLoad(event.getPlayer().getUniqueId());
+            if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId())) {
+                Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), new Runnable() {
+                    @Override
+                    public void run() {
+                        event.getPlayer().sendMessage(Messages.MCAUTH_LOGIN.getMessage());
+                    }
+                }, 20 * 1);
+                return;
+            } else {
             /*
             Send the player the servers WelcomeMessage if the WelcomeMessage Module is enabled
             */
-            if (Options.MODULE_TWOFA.getStringValue().equalsIgnoreCase("enabled")) {
-                WelcomeMessage.sendDelayedMOTD(event.getPlayer());
+                if (Options.MODULE_WELCOME_MSG.getStringValue().equalsIgnoreCase("enabled")) {
+                    WelcomeMessage.sendDelayedMOTD(event.getPlayer());
+                }
             }
         }
     }

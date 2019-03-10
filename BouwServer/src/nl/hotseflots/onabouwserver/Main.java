@@ -3,7 +3,6 @@ package nl.hotseflots.onabouwserver;
 import nl.hotseflots.onabouwserver.commands.*;
 import nl.hotseflots.onabouwserver.events.*;
 import nl.hotseflots.onabouwserver.modules.PlayerStats;
-import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.Bukkit;

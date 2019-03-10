@@ -25,22 +25,30 @@ public class InventoryClickEvent implements Listener {
             return;
         }
 
-        if (event.getClickedInventory() == null || event.getInventory() == null) {
+        if (event.getClickedInventory() == null) {
             return;
         }
 
-        if (event.getInventory().getName() == null || event.getClickedInventory().getName() == null) {
+        if (event.getInventory() == null) {
+            return;
+        }
+
+        if (event.getClickedInventory().getName() == null) {
+            return;
+        }
+
+        if (event.getInventory().getName() == null) {
             return;
         }
 
         /*
         Check if the clicked inventory is the bouwserver one
          */
-        if (!(event.getInventory() instanceof PlayerInventory)) {
-            if (event.getClickedInventory().getName().equals(PlayerStats.getInventory().getName())) {
+        if (!(event.getClickedInventory() instanceof PlayerInventory)) {
+            if (event.getClickedInventory().getName().equals(ChatColor.GOLD + "" + ChatColor.BOLD + "Onameril Bouwserver Plugin")) {
                 event.setCancelled(true);
                 return;
-            } else if (event.getClickedInventory().getName().equals(CommandHistoryMenu.historyInventory.getName())) {
+            } else if (event.getClickedInventory().getName().equals(ChatColor.DARK_GRAY + "(Most recent" + ChatColor.GOLD + "" + ChatColor.BOLD + " > " + ChatColor.RESET + ChatColor.DARK_GRAY + "Oldest)")) {
                 if (CommandHistoryMenu.dates.size() != 0) {
                     if (event.getCurrentItem().isSimilar(CommandHistoryMenu.nextButtonItem)) {
                         event.setCancelled(true);

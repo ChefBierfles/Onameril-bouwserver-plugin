@@ -1,13 +1,7 @@
 package nl.hotseflots.onabouwserver.modules;
 
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-import ru.tehkode.permissions.PermissionsUserData;
 import ru.tehkode.permissions.bukkit.PermissionsEx;
-
-import java.io.File;
-import java.util.List;
 import java.util.UUID;
 
 public class RankDetector {
