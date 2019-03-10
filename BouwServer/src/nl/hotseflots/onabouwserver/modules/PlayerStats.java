@@ -117,7 +117,7 @@ public class PlayerStats {
         int blocksPlaced = PlayerStats.getPlacedBlocks(player);
         int blocksBroken = PlayerStats.getBrokenBlocks(player);
         int commandsPeformed = CommandHistoryMenu.getCommandAmount(player);
-        String pluginDateReleased = "21/02/2019 16:30:00";
+        String pluginDateReleased = "10/03/2019 17:01:00";
 
         /*
         Player stats

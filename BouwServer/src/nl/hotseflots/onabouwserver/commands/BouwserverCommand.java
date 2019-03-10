@@ -12,7 +12,7 @@ public class BouwserverCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if (commandSender.hasPermission("bouwserver.commands.buildmode")) {
+        if (commandSender.hasPermission("bouwserver.command.bouwserver")) {
         /*
         Check if the CommandSender is a player since we are opening
         an inventory and a console can't do that

@@ -78,6 +78,8 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("staffmode").setExecutor(new StaffModeCommand());
         Bukkit.getPluginCommand("buildmode").setExecutor(new BuildModeCommand());
         Bukkit.getPluginCommand("commandhistory").setExecutor(new CommandHistoryCommand());
+        Bukkit.getPluginCommand("unfreeze").setExecutor(new FreezeCommand());
+        Bukkit.getPluginCommand("freeze").setExecutor(new FreezeCommand());
 
         /*
         Save player stats every 5minutes as per interval
