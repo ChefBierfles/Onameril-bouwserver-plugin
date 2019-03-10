@@ -225,14 +225,14 @@ public class PlayerStats {
     Retrieve the PlayerStats from playercache.yml to the Storage
      */
     public static void savePlayerStatsToCache(Player player) {
-        Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), new Runnable() {
+        Bukkit.getScheduler().runTaskLaterAsynchronously(Main.getInstance(), new Runnable() {
             @Override
             public void run() {
                 PlayerStats.playedTime.put(player.getUniqueId(), Long.parseLong(Main.getInstance().getPlayerCache().getString("Data." + player.getUniqueId().toString() + ".PLAYED_MILISECONDS")));
                 PlayerStats.setBrokenBlocks(player, (int) Main.getInstance().getPlayerCache().get("Data." + player.getUniqueId().toString() + ".BLOCKS_BROKEN"));
                 PlayerStats.setPlacedBlocks(player, (int) Main.getInstance().getPlayerCache().get("Data." + player.getUniqueId().toString() + ".BLOCKS_PLACED"));
             }
-        });
+        }, 10 * 1);
     }
 
     /*

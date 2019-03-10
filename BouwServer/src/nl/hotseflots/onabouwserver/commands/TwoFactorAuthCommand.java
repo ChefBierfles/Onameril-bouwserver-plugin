@@ -44,8 +44,7 @@ public class TwoFactorAuthCommand implements CommandExecutor {
 
                 TwoFA.attemptDataLoad(player.getUniqueId());
 
-                File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + player.getUniqueId().toString() + ".yml");
-                if (TwoFA.hasTwofactorauth(player.getUniqueId()) && userPath.exists()) {
+                if (TwoFA.hasTwofactorauth(player.getUniqueId())) {
                     TwoFA.unloadAuthenticationDetails(player.getUniqueId());
                     player.sendMessage(Messages.MCAUTH_SETUP_ALREADY_ENABLED.getMessage());
                     return true;

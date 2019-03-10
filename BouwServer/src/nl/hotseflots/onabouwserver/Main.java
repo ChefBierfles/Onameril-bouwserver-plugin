@@ -3,16 +3,19 @@ package nl.hotseflots.onabouwserver;
 import nl.hotseflots.onabouwserver.commands.*;
 import nl.hotseflots.onabouwserver.events.*;
 import nl.hotseflots.onabouwserver.modules.PlayerStats;
+import nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 public class Main extends JavaPlugin {
@@ -94,6 +97,19 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
+
+        /*
+        Remove players from staffmode if the server shutsdown
+         */
+        /*
+        Save player stats when server closes
+         */
+        for (Player onlinePlayers : Bukkit.getOnlinePlayers()) {
+
+            if (StaffMode.playersInStaffMode.contains(onlinePlayers.getUniqueId())) {
+                StaffMode.leaveStaffMode(onlinePlayers);
+            }
+        }
 
         /*
         Notiying the console that the plugin unloaded correctly

@@ -69,7 +69,7 @@ public class TwoFA {
     {
         if (Main.getInstance().getConfig().getString("Modules.TwoFA.Module").equalsIgnoreCase("enabled")) {
             File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + uuid.toString() + ".yml");
-            return (loadedAuthenticationDetails.containsKey(uuid) && (userPath.exists() && Bukkit.getPlayer(uuid).hasPermission("bouwserver.2fa.use")));
+            return (loadedAuthenticationDetails.containsKey(uuid) && userPath.exists() && Bukkit.getPlayer(uuid).hasPermission("bouwserver.2fa.use"));
         }
         return false;
     }

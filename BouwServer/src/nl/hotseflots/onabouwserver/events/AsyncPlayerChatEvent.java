@@ -1,6 +1,7 @@
 package nl.hotseflots.onabouwserver.events;
 
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode;
 import nl.hotseflots.onabouwserver.modules.WelcomeMessage;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.AuthenticationDetails;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TOTP;
@@ -24,8 +25,12 @@ public class AsyncPlayerChatEvent implements Listener {
         Check if the TwoFA-module is enabled
          */
         if (Options.MODULE_TWOFA.getStringValue().equalsIgnoreCase("enabled")) {
+
+            /*
+            Catch the 2fa code if the player needs to verify
+             */
             File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + event.getPlayer().getUniqueId().toString() + ".yml");
-            if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId()) || !userPath.exists()) {
+            if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId()) || (event.getPlayer().hasPermission("bouwserver.2fa.use") && !userPath.exists())) {
                 final AuthenticationDetails authenticationDetails = TwoFA.getAuthenticationDetails(event.getPlayer().getUniqueId());
                 event.setCancelled(true);
 
@@ -40,10 +45,6 @@ public class AsyncPlayerChatEvent implements Listener {
                             return;
                         }
                         if (validCode.equals(event.getMessage())) {
-                            if (!userPath.exists()) {
-                                event.getPlayer().getInventory().clear();
-                            }
-
                             if (authenticationDetails.isSetup()) {
                                 TwoFA.saveAuthenticationDetails(event.getPlayer().getUniqueId(), authenticationDetails);
                             }
@@ -55,7 +56,7 @@ public class AsyncPlayerChatEvent implements Listener {
                                 /*
                                 Send the player the servers WelcomeMessage if the WelcomeMessage Module is enabled
                                 */
-                                    if (Messages.MOTD_MSG.getMessage().equalsIgnoreCase("enabled")) {
+                                    if (Options.MODULE_WELCOME_MSG.getStringValue().equalsIgnoreCase("enabled")) {
                                         WelcomeMessage.sendDelayedMOTD(event.getPlayer());
                                     }
                                 }

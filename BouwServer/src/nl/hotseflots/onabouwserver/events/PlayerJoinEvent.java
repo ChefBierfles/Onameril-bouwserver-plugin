@@ -77,9 +77,8 @@ public class PlayerJoinEvent implements Listener {
         What to do: Check if the file exists in the data folder if not let them setup 2fa.
          */
         if (Options.MODULE_TWOFA.getStringValue().equalsIgnoreCase("enabled")) {
-            if (event.getPlayer().hasPermission("bouwserver.2fa.setup")) {
-                File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + event.getPlayer().getUniqueId().toString() + ".yml");
-                if (!userPath.exists()) {
+            if (event.getPlayer().hasPermission("bouwserver.2fa.use")) {
+                if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId())) {
                     Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), new Runnable() {
                         @Override
                         public void run() {
