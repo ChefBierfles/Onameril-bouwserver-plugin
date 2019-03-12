@@ -19,7 +19,8 @@ public enum Options
     MODULE_COMMANDLOGGING(Main.getInstance().getConfig().getString("Modules.CommandLogging.Module")),
     MODULE_BUILDMODE(Main.getInstance().getConfig().getString("Modules.Buildmode.Module")),
     MODULE_STAFFMODE(Main.getInstance().getConfig().getString("Modules.Staffmode.Module")),
-    MODULE_ANTILEAVEDECAY(Main.getInstance().getConfig().getString("Modules.ANTI-LEAVESDECAY.Module"));
+    MODULE_ANTILEAVEDECAY(Main.getInstance().getConfig().getString("Modules.ANTI-LEAVESDECAY.Module")),
+    MODULE_STAFFCHAT(Main.getInstance().getConfig().getString("Modules.STAFFMODE.Module"));
 
     private static Main main;
     private int intValue;

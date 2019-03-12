@@ -24,6 +24,8 @@ Modules:
     Module: 'Enabled'
   ANTI-LEAVESDECAY:
     Module: 'Enabled'
+  STAFFMODE:
+    Module: 'Enabled'
 Messages:
   STAFF_TAG: '&7[&4Staff&7]&r '
   STAFF_CHAT: '&4&l[StaffChat] %rank% %playername% %message%'
@@ -58,3 +60,4 @@ Messages:
     &cVoer de volgende code %code% handmatig in
   TwoFA_QRMAP_NAME: '&dScan de QR-Code met de Google Authenticator!'
   SERVER_CLOSING_MSG: '&6De server is aan het afsluiten!'
+  STAFF_CHAT_FORMAT: '&4&lStaffChat &8>> %rank% &r%playername% %message%'

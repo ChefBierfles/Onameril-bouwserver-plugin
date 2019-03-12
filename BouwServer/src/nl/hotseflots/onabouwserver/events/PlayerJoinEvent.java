@@ -29,14 +29,14 @@ public class PlayerJoinEvent implements Listener {
         PlayerCache.registerPlayerData(event.getPlayer());
 
         /*
-        Retrieve the playerstats from the server storage and load it into the ram (cache)
-         */
-        PlayerStats.savePlayerStatsToCache(event.getPlayer());
-
-        /*
         Note the join tme
          */
         PlayerStats.setJoinTime(event.getPlayer());
+
+        /*
+        Retrieve the playerstats from the server storage and load it into the ram (cache)
+         */
+        PlayerStats.savePlayerStatsToCache(event.getPlayer());
 
         /*
         Player with this permission will auto join in staffmode
@@ -78,7 +78,8 @@ public class PlayerJoinEvent implements Listener {
          */
         if (Options.MODULE_TWOFA.getStringValue().equalsIgnoreCase("enabled")) {
             if (event.getPlayer().hasPermission("bouwserver.2fa.use")) {
-                if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId())) {
+                File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + event.getPlayer().getUniqueId().toString() + ".yml");
+                if ((!userPath.exists() && event.getPlayer().hasPermission("bouwserver.2fa.setup"))) {
                     Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), new Runnable() {
                         @Override
                         public void run() {

@@ -1,6 +1,8 @@
 package nl.hotseflots.onabouwserver.events;
 
+import net.md_5.bungee.api.ChatColor;
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.modules.RankDetector;
 import nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode;
 import nl.hotseflots.onabouwserver.modules.WelcomeMessage;
 import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.AuthenticationDetails;
@@ -9,6 +11,7 @@ import nl.hotseflots.onabouwserver.modules.TwoFactorAuth.TwoFA;
 import nl.hotseflots.onabouwserver.utils.Messages;
 import nl.hotseflots.onabouwserver.utils.Options;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -20,6 +23,26 @@ public class AsyncPlayerChatEvent implements Listener {
 
     @EventHandler
     public void onAsyncPlayerChatEvent(org.bukkit.event.player.AsyncPlayerChatEvent event) {
+        /*
+        Check if the player talked in staffmode
+         */
+        if (Options.MODULE_STAFFCHAT.getStringValue().equalsIgnoreCase("enabled")) {
+            if (event.getMessage().startsWith("!")) {
+                if (event.getPlayer().hasPermission("bouwserver.commands.staffmode")) {
+                    String message = event.getMessage().replaceFirst("!", "");
+                    for (Player staffPlayers : Bukkit.getOnlinePlayers()) {
+                        if (staffPlayers.hasPermission("bouwserver.commands.staffmode")) {
+                            String format = Messages.STAFF_CHAT_FORMAT.getMessage();
+                            format = format.replace("%rank%", RankDetector.getRank(event.getPlayer().getUniqueId()));
+                            format = format.replace("%playername%", event.getPlayer().getName());
+                            format = format.replace("%message%", message);
+                            staffPlayers.sendMessage(format);
+                            event.setCancelled(true);
+                        }
+                    }
+                }
+            }
+        }
 
         /*
         Check if the TwoFA-module is enabled
@@ -50,12 +73,17 @@ public class AsyncPlayerChatEvent implements Listener {
                             }
                             TwoFA.unloadAuthenticationDetails(event.getPlayer().getUniqueId());
                             event.getPlayer().sendMessage(Messages.MCAUTH_VALID_CODE.getMessage());
+
+                            if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase(Messages.MCAUTH_QRMAP_NAME.getMessage())) {
+                                event.getPlayer().getInventory().setItemInMainHand(null);
+                            }
+
                             Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), new Runnable() {
                                 @Override
                                 public void run() {
-                                /*
-                                Send the player the servers WelcomeMessage if the WelcomeMessage Module is enabled
-                                */
+                                    /*
+                                    Send the player the servers WelcomeMessage if the WelcomeMessage Module is enabled
+                                    */
                                     if (Options.MODULE_WELCOME_MSG.getStringValue().equalsIgnoreCase("enabled")) {
                                         WelcomeMessage.sendDelayedMOTD(event.getPlayer());
                                     }
