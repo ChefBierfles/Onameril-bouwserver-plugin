@@ -1,7 +1,7 @@
 name: OnamerilBouwServer
 description: Plugin voor de bouwserver van Onameril!
 author: Hotseflots
-version: 2.0
+version: 2.0.5
 main: nl.hotseflots.onabouwserver.Main
 depend:
   - PermissionsEx

@@ -25,8 +25,8 @@ public class CommandPreProcessEvent implements Listener {
 
         if (Main.getInstance().getConfig().getString("Modules.TwoFA.Module").equalsIgnoreCase("enabled")) {
             File userPath = new File(Main.getInstance().getDataFolder() + File.separator + "PlayerData" + File.separator + "TwoFA-Data" + File.separator + event.getPlayer().getUniqueId().toString() + ".yml");
-            if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId()) || (!userPath.exists() && !event.getMessage().equalsIgnoreCase("/2fa"))) {
-
+            if (TwoFA.hasTwofactorauth(event.getPlayer().getUniqueId()) || (!userPath.exists() && !event.getMessage().equalsIgnoreCase("/2fa") && event.getPlayer().hasPermission("bouwserver.2fa.use"))) {
+                System.out.println("3");
                 if (Options.DENY_COMMANDS.getBooleanValue()) {
                     event.setCancelled(true);
                 }

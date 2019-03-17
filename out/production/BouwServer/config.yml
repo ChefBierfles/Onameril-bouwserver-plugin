@@ -26,6 +26,9 @@ Modules:
     Module: 'Enabled'
   STAFFMODE:
     Module: 'Enabled'
+  SPAWNMANAGER:
+    Module: 'Enabled'
+    SPAWN_COORDS: ''
 Messages:
   STAFF_TAG: '&7[&4Staff&7]&r '
   STAFF_CHAT: '&4&l[StaffChat] %rank% %playername% %message%'

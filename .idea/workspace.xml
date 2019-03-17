@@ -7,24 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21056cea-4dd9-4068-8bd8-605948a0c7f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/SpawnManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BouwServer/src/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BouwserverCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BouwserverCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/CommandPreProcessEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/CommandPreProcessEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Options.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Options.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BouwServer/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BouwServer/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent$1$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerJoinEvent$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerJoinEvent$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerJoinEvent$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerJoinEvent$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffChat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/utils/Messages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/utils/Messages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/CommandPreProcessEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/CommandPreProcessEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/PlayerStats.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/PlayerStats.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/utils/Options.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/utils/Options.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BouwServer/plugin.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,11 +51,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerCache.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-170">
+              <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="178" column="157" selection-start-line="178" selection-start-column="157" selection-end-line="178" selection-end-column="157" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1469#1470#0" expanded="true" />
+                <element signature="e#1526#1527#0" expanded="true" />
+                <element signature="e#7196#7197#0" expanded="true" />
+                <element signature="e#7238#7239#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent.java">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BouwserverCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="29" column="53" lean-forward="true" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
+            <state relative-caret-position="522">
+              <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,19 +92,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/config.yml">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/plugin.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="62" column="72" selection-start-line="62" selection-start-column="72" selection-end-line="62" selection-end-column="72" />
+            <state relative-caret-position="136">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="24" column="49" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="49" />
+            <state relative-caret-position="471">
+              <caret line="79" column="49" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,10 +113,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Options.java">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/CommandHistoryMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="20" />
+            <state relative-caret-position="624">
+              <caret line="287" selection-start-line="287" selection-end-line="287" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/StaffModeCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="15" column="74" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="74" />
+            <state relative-caret-position="493">
+              <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,10 +137,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/TwoFactorAuthCommand.java">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/EntityPickUpItemEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="64" column="53" selection-start-line="64" selection-start-column="53" selection-end-line="64" selection-end-column="53" />
+            <state relative-caret-position="187">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,46 +149,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/FreezeCommand.java">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/InventoryClickEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/CommandHistoryCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BuildModeCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffChat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+            <state relative-caret-position="1479">
+              <caret line="97" column="68" selection-start-line="97" selection-start-column="68" selection-end-line="97" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -200,7 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/TwoFactorAuth/AuthenticationDetails.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/TwoFactorAuth/TOTP.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/2fa-config.yml" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/TwoFactorAuth/QRMap.java" />
@@ -212,7 +205,6 @@
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/Buildmode.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/FreezePlayer.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/LeafesDecayEvent.java" />
-        <option value="$PROJECT_DIR$/BouwServer/src/plugin.yml" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/AsyncPlayerPreLoginEvent.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/StaffMode.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffChat.java" />
@@ -232,7 +224,6 @@
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/CommandSpy.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/EntityDamageEvent.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/StaffModeCommand.java" />
-        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/CommandPreProcessEvent.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/CommandHistoryCommand.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/FreezeCommand.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffMode.java" />
@@ -240,17 +231,20 @@
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerInteractEvent.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/InventoryClickEvent.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/ServerListPingEvent.java" />
-        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BouwserverCommand.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/TwoFactorAuth/TwoFA.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/TwoFactorAuthCommand.java" />
-        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/Main.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffChat.java" />
-        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Options.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java" />
-        <option value="$PROJECT_DIR$/BouwServer/src/config.yml" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/config.yml" />
+        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Options.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/SpawnManager.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/CommandPreProcessEvent.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/plugin.yml" />
+        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BouwserverCommand.java" />
       </list>
     </option>
   </component>
@@ -261,8 +255,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="550" />
-    <option name="y" value="580" />
+    <option name="x" value="551" />
+    <option name="y" value="581" />
     <option name="width" value="1240" />
     <option name="height" value="685" />
   </component>
@@ -272,7 +266,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -317,14 +310,6 @@
               <item name="BouwServer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="onabouwserver" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="StaffUtils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnamerilBouwServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BouwServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="onabouwserver" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -332,6 +317,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -341,8 +327,8 @@
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="onamerilbouwserver" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552325649523" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552481631268" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MCForge-Client/OKD Project 1.12" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -460,18 +446,21 @@
       <workItem from="1552319875742" duration="4322000" />
       <workItem from="1552380714655" duration="1169000" />
       <workItem from="1552415082181" duration="1394000" />
-      <workItem from="1552416811083" duration="132000" />
+      <workItem from="1552416811083" duration="732000" />
+      <workItem from="1552476193966" duration="4209000" />
+      <workItem from="1552501856086" duration="2336000" />
+      <workItem from="1552550741639" duration="708000" />
+      <workItem from="1552809644845" duration="5632000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328683000" />
+    <option name="totallyTimeSpent" value="342168000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.25503355" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.26979867" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -481,7 +470,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4986577" visible="true" weight="0.398017" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4986577" weight="0.398017" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -489,14 +478,14 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013423" side_tool="true" weight="0.398017" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49597314" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50201344" side_tool="true" weight="0.398017" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4966443" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24966443" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.3295302" />
       <window_info anchor="right" id="Maven" order="6" weight="0.3295302" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
@@ -510,20 +499,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/AsyncPlayerPreLoginEvent.java" />
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/Buildmode.java" />
-    <entry file="jar://$USER_HOME$/Downloads/spigot-1.12.2.jar!/org/bukkit/event/player/AsyncPlayerChatEvent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-          <folding>
-            <element signature="e#837#838#0" expanded="true" />
-            <element signature="e#872#873#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffChat.java" />
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/StaffMode.java" />
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffMode.java" />
     <entry file="jar://$USER_HOME$/Downloads/ActionBarAPI-1.5.4 (1).jar!/com/connorlinfoot/actionbarapi/ActionBarAPI.class">
@@ -568,16 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/EntityPickUpItemEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/BlockPlaceEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -615,16 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerInteractEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="145" column="59" selection-start-line="145" selection-start-column="59" selection-end-line="145" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/LeavesDecayEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -635,44 +590,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/InventoryClickEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="97" column="68" selection-start-line="97" selection-start-column="68" selection-end-line="97" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/ServerListPingEvent.java" />
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/CommandPreProcessEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/plugin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BouwserverCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/globallogs.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -740,16 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="77" column="56" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/BuildMode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
@@ -780,36 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/CommandHistoryMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4624">
-          <caret line="287" selection-start-line="287" selection-end-line="287" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Downloads/spigot-1.12.2.jar!/org/bukkit/inventory/Inventory.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1314#1315#0" expanded="true" />
-            <element signature="e#1392#1393#0" expanded="true" />
-            <element signature="e#1500#1501#0" expanded="true" />
-            <element signature="e#1557#1558#0" expanded="true" />
-            <element signature="e#2082#2083#0" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -830,26 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/EntityDamageEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -860,54 +722,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="29" column="53" lean-forward="true" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" column="72" selection-start-line="62" selection-start-column="72" selection-end-line="62" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Messages.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="24" column="49" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Options.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/StaffModeCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="74" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/TwoFactorAuthCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="64" column="53" selection-start-line="64" selection-start-column="53" selection-end-line="64" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -924,13 +742,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffChat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="144" column="12" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerInteractEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="145" column="59" selection-start-line="145" selection-start-column="59" selection-end-line="145" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/SpawnManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Options.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="30" column="87" lean-forward="true" selection-start-line="30" selection-start-column="87" selection-end-line="30" selection-end-column="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/CommandHistoryCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
+        <state relative-caret-position="670">
           <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/TwoFactorAuthCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="64" column="53" selection-start-line="64" selection-start-column="53" selection-end-line="64" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/CommandPreProcessEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -944,10 +850,781 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffChat.java">
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/StaffModeCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        <state relative-caret-position="493">
+          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/EntityPickUpItemEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/InventoryClickEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="97" column="68" selection-start-line="97" selection-start-column="68" selection-end-line="97" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/plugin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/CommandHistoryMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="287" selection-start-line="287" selection-end-line="287" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/spigot-1.12.2.jar!/org/bukkit/OfflinePlayer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="79" column="49" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/nl.hotseflots.onabouwserver.modules.PlayerStats">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>nl.hotseflots.onabouwserver.modules.PlayerStats</OriginalElement>
+          <nodes>
+            <node x="2455.3247200263504" y="349.0">nl.hotseflots.onabouwserver.modules.PlayerCache</node>
+            <node x="2940.451086956522" y="349.0">nl.hotseflots.onabouwserver.modules.CommandSpy</node>
+            <node x="1356.3491765480894" y="349.0">nl.hotseflots.onabouwserver.modules.BuildMode</node>
+            <node x="1891.842391304348" y="846.0">nl.hotseflots.onabouwserver.modules.SpawnManager</node>
+            <node x="0.0" y="488.0">nl.hotseflots.onabouwserver.commands.CommandHistoryCommand</node>
+            <node x="2312.9660243741764" y="0.0">nl.hotseflots.onabouwserver.utils.Options</node>
+            <node x="688.0991765480894" y="349.0">nl.hotseflots.onabouwserver.events.PlayerInteractEntityEvent</node>
+            <node x="583.502449769434" y="488.0">nl.hotseflots.onabouwserver.events.InventoryClickEvent</node>
+            <node x="2752.3247200263504" y="349.0">nl.hotseflots.onabouwserver.commands.FreezeCommand</node>
+            <node x="182.858695652174" y="349.0">nl.hotseflots.onabouwserver.utils.UUIDTool</node>
+            <node x="2587.3247200263504" y="349.0">nl.hotseflots.onabouwserver.events.LeavesDecayEvent</node>
+            <node x="1862.5285243741764" y="349.0">nl.hotseflots.onabouwserver.events.PlayerMovementEvent</node>
+            <node x="375.76045372200224" y="349.0">nl.hotseflots.onabouwserver.modules.PlayerStats</node>
+            <node x="887.0991765480894" y="488.0">nl.hotseflots.onabouwserver.events.BlockPlaceEvent</node>
+            <node x="1694.5285243741764" y="349.0">nl.hotseflots.onabouwserver.events.PlayerInteractEvent</node>
+            <node x="243.50244976943395" y="488.0">nl.hotseflots.onabouwserver.commands.BouwserverCommand</node>
+            <node x="463.01045372200224" y="0.0">nl.hotseflots.onabouwserver.modules.CommandHistoryMenu</node>
+            <node x="2152.7160243741764" y="488.0">nl.hotseflots.onabouwserver.events.PlayerQuitEvent</node>
+            <node x="1561.6535243741764" y="488.0">nl.hotseflots.onabouwserver.commands.BuildModeCommand</node>
+            <node x="1357.3491765480894" y="0.0">nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode</node>
+            <node x="3083.451086956522" y="349.0">nl.hotseflots.onabouwserver.modules.WelcomeMessage</node>
+            <node x="3082.908053359684" y="0.0">nl.hotseflots.onabouwserver.modules.RankDetector</node>
+            <node x="2877.3247200263504" y="488.0">nl.hotseflots.onabouwserver.events.CommandPreProcessEvent</node>
+            <node x="3395.9344202898556" y="488.0">nl.hotseflots.onabouwserver.commands.TwoFactorAuthCommand</node>
+            <node x="427.50244976943395" y="488.0">nl.hotseflots.onabouwserver.events.BlockBreakEvent</node>
+            <node x="3212.9344202898556" y="488.0">nl.hotseflots.onabouwserver.events.AsyncPlayerChatEvent</node>
+            <node x="1919.842391304348" y="767.0">nl.hotseflots.onabouwserver.Main</node>
+            <node x="997.3491765480895" y="349.0">nl.hotseflots.onabouwserver.events.EntityPickUpItemEvent</node>
+            <node x="2047.5285243741764" y="349.0">nl.hotseflots.onabouwserver.commands.StaffModeCommand</node>
+            <node x="1482.3491765480894" y="349.0">nl.hotseflots.onabouwserver.events.PlayerDropEvent</node>
+            <node x="3222.908053359684" y="0.0">nl.hotseflots.onabouwserver.utils.Messages</node>
+            <node x="2303.7160243741764" y="488.0">nl.hotseflots.onabouwserver.events.PlayerJoinEvent</node>
+            <node x="1184.3491765480894" y="349.0">nl.hotseflots.onabouwserver.events.EntityDamageEvent</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.modules.PlayerStats">
+              <point x="-32.97826086956525" y="-14.5" />
+              <point x="1923.864130434783" y="727.0" />
+              <point x="231.39375411725996" y="727.0" />
+              <point x="231.39375411725996" y="448.0" />
+              <point x="383.26045372200224" y="448.0" />
+              <point x="-45.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.LeavesDecayEvent" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="0.0" y="-14.5" />
+              <point x="2659.3247200263504" y="259.0" />
+              <point x="2375.2660243741766" y="259.0" />
+              <point x="17.800000000000182" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerJoinEvent" target="nl.hotseflots.onabouwserver.Main">
+              <point x="32.25" y="14.5" />
+              <point x="2400.4660243741764" y="577.0" />
+              <point x="1965.6902173913045" y="577.0" />
+              <point x="8.847826086956502" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.InventoryClickEvent">
+              <point x="-24.93478260869574" y="-14.5" />
+              <point x="1931.9076086956525" y="677.0" />
+              <point x="621.002449769434" y="677.0" />
+              <point x="-37.5" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.CommandSpy" target="nl.hotseflots.onabouwserver.modules.RankDetector">
+              <point x="30.5" y="-14.5" />
+              <point x="3031.951086956522" y="279.0" />
+              <point x="3112.908053359684" y="279.0" />
+              <point x="-30.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.EntityDamageEvent">
+              <point x="-12.065217391304259" y="-14.5" />
+              <point x="1944.777173913044" y="597.0" />
+              <point x="1261.1535243741764" y="597.0" />
+              <point x="1261.1535243741764" y="468.0" />
+              <point x="1298.3491765480894" y="468.0" />
+              <point x="38.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerJoinEvent" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="-32.25" y="-14.5" />
+              <point x="2335.9660243741764" y="468.0" />
+              <point x="2322.3229537220022" y="468.0" />
+              <point x="2322.3229537220022" y="149.0" />
+              <point x="1451.5991765480894" y="149.0" />
+              <point x="42.25" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerDropEvent" target="nl.hotseflots.onabouwserver.Main">
+              <point x="34.0" y="14.5" />
+              <point x="1584.3491765480894" y="468.0" />
+              <point x="1551.1535243741764" y="468.0" />
+              <point x="1551.1535243741764" y="567.0" />
+              <point x="1949.6032608695655" y="567.0" />
+              <point x="-7.23913043478251" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerMovementEvent" target="nl.hotseflots.onabouwserver.Main">
+              <point x="-41.25" y="14.5" />
+              <point x="1903.7785243741764" y="468.0" />
+              <point x="1956.038043478261" y="468.0" />
+              <point x="-0.8043478260869961" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.PlayerDropEvent">
+              <point x="-8.847826086956502" y="-14.5" />
+              <point x="1947.9945652173915" y="577.0" />
+              <point x="1549.5448287220024" y="577.0" />
+              <point x="1549.5448287220024" y="468.0" />
+              <point x="1516.3491765480894" y="468.0" />
+              <point x="-34.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.BlockBreakEvent">
+              <point x="-28.152173913043498" y="-14.5" />
+              <point x="1928.6902173913045" y="697.0" />
+              <point x="495.00244976943395" y="697.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.BouwserverCommand" target="nl.hotseflots.onabouwserver.modules.PlayerStats">
+              <point x="41.0" y="-14.5" />
+              <point x="366.50244976943395" y="468.0" />
+              <point x="413.26045372200224" y="468.0" />
+              <point x="-15.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerInteractEvent" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="-37.0" y="-14.5" />
+              <point x="1731.5285243741764" y="189.0" />
+              <point x="1425.5991765480894" y="189.0" />
+              <point x="16.25" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerQuitEvent" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="16.375" y="-14.5" />
+              <point x="2234.5910243741764" y="279.0" />
+              <point x="2351.532691040843" y="279.0" />
+              <point x="-5.933333333333394" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.TwoFactorAuthCommand" target="nl.hotseflots.onabouwserver.Main">
+              <point x="45.75" y="14.5" />
+              <point x="3533.1844202898556" y="717.0" />
+              <point x="1988.2119565217395" y="717.0" />
+              <point x="31.369565217391255" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.EntityPickUpItemEvent">
+              <point x="-16.891304347826008" y="-14.5" />
+              <point x="1939.951086956522" y="627.0" />
+              <point x="1080.3491765480894" y="627.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.BuildModeCommand" target="nl.hotseflots.onabouwserver.modules.BuildMode">
+              <point x="-40.25" y="-14.5" />
+              <point x="1601.9035243741764" y="458.0" />
+              <point x="1435.8491765480894" y="458.0" />
+              <point x="26.5" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.InventoryClickEvent" target="nl.hotseflots.onabouwserver.modules.CommandHistoryMenu">
+              <point x="0.0" y="-14.5" />
+              <point x="658.502449769434" y="468.0" />
+              <point x="666.5991765480894" y="468.0" />
+              <point x="666.5991765480894" y="329.0" />
+              <point x="582.0104537220022" y="329.0" />
+              <point x="34.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.PlayerMovementEvent">
+              <point x="0.8043478260869961" y="-14.5" />
+              <point x="1957.646739130435" y="468.0" />
+              <point x="1986.2785243741764" y="468.0" />
+              <point x="41.25" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.WelcomeMessage" target="nl.hotseflots.onabouwserver.Main">
+              <point x="0.0" y="14.5" />
+              <point x="3155.451086956522" y="677.0" />
+              <point x="1981.777173913044" y="677.0" />
+              <point x="24.93478260869574" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerDropEvent" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="-34.0" y="-14.5" />
+              <point x="1516.3491765480894" y="199.0" />
+              <point x="1419.0991765480894" y="199.0" />
+              <point x="9.75" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerMovementEvent" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="-41.25" y="-14.5" />
+              <point x="1903.7785243741764" y="179.0" />
+              <point x="1432.0991765480894" y="179.0" />
+              <point x="22.75" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerJoinEvent" target="nl.hotseflots.onabouwserver.utils.Messages">
+              <point x="10.75" y="-14.5" />
+              <point x="2378.9660243741764" y="468.0" />
+              <point x="2368.4660243741764" y="468.0" />
+              <point x="2368.4660243741764" y="299.0" />
+              <point x="3237.758053359684" y="299.0" />
+              <point x="-34.65000000000009" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.CommandPreProcessEvent" target="nl.hotseflots.onabouwserver.Main">
+              <point x="46.999999999999886" y="14.5" />
+              <point x="3018.3247200263504" y="657.0" />
+              <point x="1978.559782608696" y="657.0" />
+              <point x="21.717391304347757" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerInteractEvent" target="nl.hotseflots.onabouwserver.Main">
+              <point x="-37.0" y="14.5" />
+              <point x="1731.5285243741764" y="468.0" />
+              <point x="1779.5380434782612" y="468.0" />
+              <point x="1779.5380434782612" y="547.0" />
+              <point x="1952.8206521739135" y="547.0" />
+              <point x="-4.021739130434753" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.BlockPlaceEvent" target="nl.hotseflots.onabouwserver.modules.PlayerStats">
+              <point x="-33.25" y="-14.5" />
+              <point x="920.3491765480894" y="418.0" />
+              <point x="443.26045372200224" y="418.0" />
+              <point x="15.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.LeavesDecayEvent">
+              <point x="15.282608695652243" y="-14.5" />
+              <point x="1972.1250000000005" y="617.0" />
+              <point x="2659.3247200263504" y="617.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode" target="nl.hotseflots.onabouwserver.modules.BuildMode">
+              <point x="3.25" y="14.5" />
+              <point x="1412.5991765480894" y="209.0" />
+              <point x="1435.8491765480894" y="209.0" />
+              <point x="26.5" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerQuitEvent" target="nl.hotseflots.onabouwserver.modules.PlayerStats">
+              <point x="-49.125" y="-14.5" />
+              <point x="2169.0910243741764" y="408.0" />
+              <point x="458.26045372200224" y="408.0" />
+              <point x="30.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerInteractEntityEvent" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="44.5" y="-14.5" />
+              <point x="821.5991765480894" y="149.0" />
+              <point x="1367.0991765480894" y="149.0" />
+              <point x="-42.25" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.CommandHistoryCommand" target="nl.hotseflots.onabouwserver.modules.CommandHistoryMenu">
+              <point x="-48.75" y="-14.5" />
+              <point x="48.75" y="319.0" />
+              <point x="480.01045372200224" y="319.0" />
+              <point x="-68.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.utils.Messages">
+              <point x="36.195652173913004" y="-14.5" />
+              <point x="1993.038043478261" y="747.0" />
+              <point x="3592.651811594203" y="747.0" />
+              <point x="3592.651811594203" y="49.0" />
+              <point x="3316.958053359684" y="49.0" />
+              <point x="44.55000000000018" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerInteractEntityEvent" target="nl.hotseflots.onabouwserver.modules.CommandHistoryMenu">
+              <point x="-44.5" y="-14.5" />
+              <point x="732.5991765480894" y="129.0" />
+              <point x="616.0104537220022" y="129.0" />
+              <point x="68.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.InventoryClickEvent" target="nl.hotseflots.onabouwserver.utils.UUIDTool">
+              <point x="-50.0" y="-14.5" />
+              <point x="608.502449769434" y="428.0" />
+              <point x="270.358695652174" y="428.0" />
+              <point x="37.5" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.utils.Options" target="nl.hotseflots.onabouwserver.Main">
+              <point x="23.73333333333312" y="14.5" />
+              <point x="2381.19935770751" y="249.0" />
+              <point x="2741.8247200263504" y="249.0" />
+              <point x="2741.8247200263504" y="627.0" />
+              <point x="1973.733695652174" y="627.0" />
+              <point x="16.891304347826008" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.CommandSpy" target="nl.hotseflots.onabouwserver.Main">
+              <point x="30.5" y="14.5" />
+              <point x="3031.951086956522" y="448.0" />
+              <point x="3095.353705533597" y="448.0" />
+              <point x="3095.353705533597" y="667.0" />
+              <point x="1980.16847826087" y="667.0" />
+              <point x="23.32608695652175" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.BlockBreakEvent" target="nl.hotseflots.onabouwserver.modules.PlayerStats">
+              <point x="0.0" y="-14.5" />
+              <point x="495.00244976943395" y="468.0" />
+              <point x="428.26045372200224" y="468.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.SpawnManager" target="nl.hotseflots.onabouwserver.Main">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.BuildModeCommand" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="40.25" y="-14.5" />
+              <point x="1682.4035243741764" y="239.0" />
+              <point x="2327.7993577075104" y="239.0" />
+              <point x="-29.666666666666515" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.WelcomeMessage" target="nl.hotseflots.onabouwserver.utils.Messages">
+              <point x="0.0" y="-14.5" />
+              <point x="3155.451086956522" y="329.0" />
+              <point x="3267.458053359684" y="329.0" />
+              <point x="-4.949999999999818" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.CommandHistoryMenu" target="nl.hotseflots.onabouwserver.Main">
+              <point x="0.0" y="14.5" />
+              <point x="548.0104537220022" y="329.0" />
+              <point x="573.002449769434" y="329.0" />
+              <point x="573.002449769434" y="687.0" />
+              <point x="1930.2989130434785" y="687.0" />
+              <point x="-26.543478260869506" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.commands.BuildModeCommand">
+              <point x="-5.630434782608745" y="-14.5" />
+              <point x="1951.2119565217395" y="557.0" />
+              <point x="1642.1535243741764" y="557.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.PlayerCache" target="nl.hotseflots.onabouwserver.Main">
+              <point x="28.0" y="14.5" />
+              <point x="2539.3247200263504" y="607.0" />
+              <point x="1970.5163043478265" y="607.0" />
+              <point x="13.673913043478251" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode" target="nl.hotseflots.onabouwserver.Main">
+              <point x="-35.75" y="14.5" />
+              <point x="1373.5991765480894" y="159.0" />
+              <point x="876.5991765480894" y="159.0" />
+              <point x="876.5991765480894" y="647.0" />
+              <point x="1936.733695652174" y="647.0" />
+              <point x="-20.108695652173992" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.CommandSpy" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="-30.5" y="-14.5" />
+              <point x="2970.951086956522" y="119.0" />
+              <point x="2393.066024374177" y="119.0" />
+              <point x="35.59999999999991" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.PlayerInteractEvent">
+              <point x="-2.413043478260988" y="-14.5" />
+              <point x="1954.429347826087" y="537.0" />
+              <point x="1781.146739130435" y="537.0" />
+              <point x="1781.146739130435" y="468.0" />
+              <point x="1805.5285243741764" y="468.0" />
+              <point x="37.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.TwoFactorAuthCommand" target="nl.hotseflots.onabouwserver.utils.Messages">
+              <point x="0.0" y="-14.5" />
+              <point x="3487.4344202898556" y="79.0" />
+              <point x="3287.258053359684" y="79.0" />
+              <point x="14.849999999999909" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.BuildMode" target="nl.hotseflots.onabouwserver.Main">
+              <point x="-26.5" y="14.5" />
+              <point x="1382.8491765480894" y="587.0" />
+              <point x="1946.3858695652175" y="587.0" />
+              <point x="-10.456521739130494" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.EntityDamageEvent" target="nl.hotseflots.onabouwserver.Main">
+              <point x="-38.0" y="14.5" />
+              <point x="1222.3491765480894" y="468.0" />
+              <point x="1259.5448287220024" y="468.0" />
+              <point x="1259.5448287220024" y="607.0" />
+              <point x="1943.16847826087" y="607.0" />
+              <point x="-13.673913043478251" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="-15.282608695652243" y="-14.5" />
+              <point x="1941.559782608696" y="617.0" />
+              <point x="1173.8491765480894" y="617.0" />
+              <point x="1173.8491765480894" y="189.0" />
+              <point x="1393.0991765480894" y="189.0" />
+              <point x="-16.25" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.CommandHistoryCommand" target="nl.hotseflots.onabouwserver.utils.UUIDTool">
+              <point x="48.75" y="-14.5" />
+              <point x="146.25" y="468.0" />
+              <point x="195.358695652174" y="468.0" />
+              <point x="-37.5" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.commands.TwoFactorAuthCommand">
+              <point x="29.76086956521749" y="-14.5" />
+              <point x="1986.6032608695655" y="707.0" />
+              <point x="3441.6844202898556" y="707.0" />
+              <point x="-45.75" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.BlockPlaceEvent" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="33.25" y="-14.5" />
+              <point x="986.8491765480895" y="169.0" />
+              <point x="1380.0991765480894" y="169.0" />
+              <point x="-29.25" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerMovementEvent" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="41.25" y="-14.5" />
+              <point x="1986.2785243741764" y="259.0" />
+              <point x="2339.6660243741762" y="259.0" />
+              <point x="-17.800000000000182" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.PlayerStats" target="nl.hotseflots.onabouwserver.Main">
+              <point x="-30.0" y="14.5" />
+              <point x="398.26045372200224" y="458.0" />
+              <point x="233.00244976943395" y="458.0" />
+              <point x="233.00244976943395" y="717.0" />
+              <point x="1925.472826086957" y="717.0" />
+              <point x="-31.369565217391255" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.StaffModeCommand" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="39.75" y="-14.5" />
+              <point x="2166.7785243741764" y="269.0" />
+              <point x="2345.5993577075096" y="269.0" />
+              <point x="-11.866666666666788" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.StaffModeCommand" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="-39.75" y="-14.5" />
+              <point x="2087.2785243741764" y="169.0" />
+              <point x="1438.5991765480894" y="169.0" />
+              <point x="29.25" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerJoinEvent" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="-10.75" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.utils.UUIDTool" target="nl.hotseflots.onabouwserver.Main">
+              <point x="-12.5" y="14.5" />
+              <point x="220.358695652174" y="468.0" />
+              <point x="205.5" y="468.0" />
+              <point x="205.5" y="737.0" />
+              <point x="1922.255434782609" y="737.0" />
+              <point x="-34.58695652173901" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerQuitEvent" target="nl.hotseflots.onabouwserver.utils.Messages">
+              <point x="49.125" y="-14.5" />
+              <point x="2267.3410243741764" y="468.0" />
+              <point x="2274.6104619565226" y="468.0" />
+              <point x="2274.6104619565226" y="289.0" />
+              <point x="3227.8580533596837" y="289.0" />
+              <point x="-44.55000000000018" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.utils.Messages" target="nl.hotseflots.onabouwserver.Main">
+              <point x="34.65000000000009" y="14.5" />
+              <point x="3307.058053359684" y="59.0" />
+              <point x="3591.0431159420295" y="59.0" />
+              <point x="3591.0431159420295" y="737.0" />
+              <point x="1991.4293478260875" y="737.0" />
+              <point x="34.58695652173924" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerQuitEvent" target="nl.hotseflots.onabouwserver.Main">
+              <point x="32.75" y="14.5" />
+              <point x="2250.9660243741764" y="557.0" />
+              <point x="1962.472826086957" y="557.0" />
+              <point x="5.630434782608745" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.EntityDamageEvent" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="37.99999999999977" y="-14.5" />
+              <point x="1298.3491765480894" y="219.0" />
+              <point x="2315.9326910408436" y="219.0" />
+              <point x="-41.5333333333333" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.AsyncPlayerChatEvent">
+              <point x="26.543478260869506" y="-14.5" />
+              <point x="1983.3858695652175" y="687.0" />
+              <point x="3253.6844202898556" y="687.0" />
+              <point x="-40.75" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.CommandPreProcessEvent">
+              <point x="20.108695652173992" y="-14.5" />
+              <point x="1976.951086956522" y="647.0" />
+              <point x="2924.3247200263504" y="647.0" />
+              <point x="-47.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.AsyncPlayerChatEvent" target="nl.hotseflots.onabouwserver.modules.RankDetector">
+              <point x="20.375" y="-14.5" />
+              <point x="3314.8094202898556" y="468.0" />
+              <point x="3299.9344202898556" y="468.0" />
+              <point x="3299.9344202898556" y="99.0" />
+              <point x="3172.908053359684" y="99.0" />
+              <point x="30.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.InventoryClickEvent" target="nl.hotseflots.onabouwserver.Main">
+              <point x="37.5" y="14.5" />
+              <point x="696.002449769434" y="667.0" />
+              <point x="1933.5163043478265" y="667.0" />
+              <point x="-23.32608695652175" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.InventoryClickEvent" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="50.0" y="-14.5" />
+              <point x="708.502449769434" y="468.0" />
+              <point x="677.5991765480894" y="468.0" />
+              <point x="677.5991765480894" y="139.0" />
+              <point x="1360.5991765480894" y="139.0" />
+              <point x="-48.75" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.BlockPlaceEvent">
+              <point x="-18.5" y="-14.5" />
+              <point x="1938.342391304348" y="637.0" />
+              <point x="953.5991765480894" y="637.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.FreezeCommand" target="nl.hotseflots.onabouwserver.utils.Messages">
+              <point x="34.25" y="-14.5" />
+              <point x="2855.0747200263504" y="309.0" />
+              <point x="3247.658053359684" y="309.0" />
+              <point x="-24.75" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerJoinEvent" target="nl.hotseflots.onabouwserver.modules.WelcomeMessage">
+              <point x="53.75" y="-14.5" />
+              <point x="2421.9660243741764" y="468.0" />
+              <point x="3107.451086956522" y="468.0" />
+              <point x="-48.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.PlayerJoinEvent">
+              <point x="7.23913043478251" y="-14.5" />
+              <point x="1964.0815217391305" y="567.0" />
+              <point x="2335.9660243741764" y="567.0" />
+              <point x="-32.25" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="12.065217391304259" y="-14.5" />
+              <point x="1968.9076086956525" y="597.0" />
+              <point x="2444.8247200263504" y="597.0" />
+              <point x="2444.8247200263504" y="269.0" />
+              <point x="2369.332691040843" y="269.0" />
+              <point x="11.866666666666788" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.CommandPreProcessEvent" target="nl.hotseflots.onabouwserver.utils.Messages">
+              <point x="62.6666666666664" y="-14.5" />
+              <point x="3033.991386693017" y="458.0" />
+              <point x="3072.951086956522" y="458.0" />
+              <point x="3072.951086956522" y="319.0" />
+              <point x="3257.558053359684" y="319.0" />
+              <point x="-14.849999999999909" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.commands.StaffModeCommand">
+              <point x="2.413043478260761" y="-14.5" />
+              <point x="1959.255434782609" y="537.0" />
+              <point x="2127.0285243741764" y="537.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.BouwserverCommand" target="nl.hotseflots.onabouwserver.utils.UUIDTool">
+              <point x="-41.0" y="-14.5" />
+              <point x="284.50244976943395" y="438.0" />
+              <point x="245.358695652174" y="438.0" />
+              <point x="12.5" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.BuildMode" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="-26.5" y="-14.5" />
+              <point x="1382.8491765480894" y="209.0" />
+              <point x="1406.0991765480894" y="209.0" />
+              <point x="-3.25" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerJoinEvent" target="nl.hotseflots.onabouwserver.modules.PlayerCache">
+              <point x="32.25" y="-14.5" />
+              <point x="2400.4660243741764" y="458.0" />
+              <point x="2483.3247200263504" y="458.0" />
+              <point x="-28.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.CommandPreProcessEvent" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="-62.666666666666515" y="-14.5" />
+              <point x="2908.658053359684" y="458.0" />
+              <point x="2910.040493247695" y="458.0" />
+              <point x="2910.040493247695" y="129.0" />
+              <point x="2387.1326910408434" y="129.0" />
+              <point x="29.666666666666515" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.AsyncPlayerChatEvent" target="nl.hotseflots.onabouwserver.Main">
+              <point x="40.75" y="14.5" />
+              <point x="3335.1844202898556" y="697.0" />
+              <point x="1984.9945652173915" y="697.0" />
+              <point x="28.152173913043498" y="-14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.modules.PlayerStats" target="nl.hotseflots.onabouwserver.modules.CommandHistoryMenu">
+              <point x="0.0" y="-14.5" />
+              <point x="428.26045372200224" y="329.0" />
+              <point x="514.0104537220022" y="329.0" />
+              <point x="-34.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerInteractEvent" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="37.0" y="-14.5" />
+              <point x="1805.5285243741764" y="249.0" />
+              <point x="2333.7326910408437" y="249.0" />
+              <point x="-23.73333333333312" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.CommandPreProcessEvent" target="nl.hotseflots.onabouwserver.modules.CommandSpy">
+              <point x="0.0" y="-14.5" />
+              <point x="-30.5" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerJoinEvent" target="nl.hotseflots.onabouwserver.modules.PlayerStats">
+              <point x="-53.75" y="-14.5" />
+              <point x="2314.4660243741764" y="398.0" />
+              <point x="473.26045372200224" y="398.0" />
+              <point x="45.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.AsyncPlayerChatEvent" target="nl.hotseflots.onabouwserver.modules.WelcomeMessage">
+              <point x="-61.125" y="-14.5" />
+              <point x="3233.3094202898556" y="468.0" />
+              <point x="3203.451086956522" y="468.0" />
+              <point x="48.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.commands.FreezeCommand" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="-34.25" y="-14.5" />
+              <point x="2786.5747200263504" y="139.0" />
+              <point x="1458.0991765480894" y="139.0" />
+              <point x="48.75" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.AsyncPlayerChatEvent" target="nl.hotseflots.onabouwserver.utils.Messages">
+              <point x="61.125" y="-14.5" />
+              <point x="3355.5594202898556" y="468.0" />
+              <point x="3328.7024909420297" y="468.0" />
+              <point x="3328.7024909420297" y="89.0" />
+              <point x="3277.3580533596837" y="89.0" />
+              <point x="4.949999999999818" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.commands.BouwserverCommand">
+              <point x="-29.76086956521749" y="-14.5" />
+              <point x="1927.0815217391305" y="707.0" />
+              <point x="325.50244976943395" y="707.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.commands.FreezeCommand">
+              <point x="18.5" y="-14.5" />
+              <point x="1975.342391304348" y="637.0" />
+              <point x="2820.8247200263504" y="637.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.EntityDamageEvent" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="-38.00000000000023" y="-14.5" />
+              <point x="1222.3491765480894" y="199.0" />
+              <point x="1399.5991765480894" y="199.0" />
+              <point x="-9.75" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.PlayerQuitEvent">
+              <point x="4.021739130434753" y="-14.5" />
+              <point x="1960.864130434783" y="547.0" />
+              <point x="2185.4660243741764" y="547.0" />
+              <point x="-32.75" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.events.PlayerInteractEntityEvent">
+              <point x="-21.717391304347757" y="-14.5" />
+              <point x="1935.1250000000005" y="657.0" />
+              <point x="777.0991765480894" y="657.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.Main" target="nl.hotseflots.onabouwserver.commands.CommandHistoryCommand">
+              <point x="-36.195652173913004" y="-14.5" />
+              <point x="1920.646739130435" y="747.0" />
+              <point x="97.5" y="747.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.AsyncPlayerChatEvent" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="-20.375" y="-14.5" />
+              <point x="3274.0594202898556" y="458.0" />
+              <point x="3237.951086956522" y="458.0" />
+              <point x="3237.951086956522" y="109.0" />
+              <point x="2398.99935770751" y="109.0" />
+              <point x="41.5333333333333" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerDropEvent" target="nl.hotseflots.onabouwserver.utils.Options">
+              <point x="34.0" y="-14.5" />
+              <point x="1584.3491765480894" y="229.0" />
+              <point x="2321.866024374177" y="229.0" />
+              <point x="-35.59999999999991" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.PlayerQuitEvent" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="-16.375" y="-14.5" />
+              <point x="2201.8410243741764" y="468.0" />
+              <point x="2223.5910243741764" y="468.0" />
+              <point x="2223.5910243741764" y="159.0" />
+              <point x="1445.0991765480894" y="159.0" />
+              <point x="35.75" y="14.5" />
+            </edge>
+            <edge source="nl.hotseflots.onabouwserver.events.EntityPickUpItemEvent" target="nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode">
+              <point x="0.0" y="-14.5" />
+              <point x="1080.3491765480894" y="179.0" />
+              <point x="1386.5991765480894" y="179.0" />
+              <point x="-22.75" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.8" x="2515.0" y="400.875" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="178" column="157" selection-start-line="178" selection-start-column="157" selection-end-line="178" selection-end-column="157" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1469#1470#0" expanded="true" />
+            <element signature="e#1526#1527#0" expanded="true" />
+            <element signature="e#7196#7197#0" expanded="true" />
+            <element signature="e#7238#7239#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BouwserverCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -20,7 +20,9 @@ public enum Options
     MODULE_BUILDMODE(Main.getInstance().getConfig().getString("Modules.Buildmode.Module")),
     MODULE_STAFFMODE(Main.getInstance().getConfig().getString("Modules.Staffmode.Module")),
     MODULE_ANTILEAVEDECAY(Main.getInstance().getConfig().getString("Modules.ANTI-LEAVESDECAY.Module")),
-    MODULE_STAFFCHAT(Main.getInstance().getConfig().getString("Modules.STAFFMODE.Module"));
+    MODULE_STAFFCHAT(Main.getInstance().getConfig().getString("Modules.STAFFMODE.Module")),
+    MODULE_SPAWNMANAGER(Main.getInstance().getConfig().getString("Modules.SPAWNMANAGER.Module")),
+    MODULE_SPAWNMANAGER_SPAWNCOORDS(Main.getInstance().getConfig().getString("Modules.SPAWNMANAGER.SPAWN_COORDS"));
 
     private static Main main;
     private int intValue;

@@ -1,10 +1,8 @@
 package nl.hotseflots.onabouwserver.modules;
 
+import com.comphenix.protocol.PacketType;
 import nl.hotseflots.onabouwserver.Main;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -32,21 +30,21 @@ public class PlayerStats {
     /*
     Save the time in milliseconds that the player joined
      */
-    public static void setJoinTime(Player player) {
+    public static void setJoinTime(OfflinePlayer player) {
         joinTime.put(player.getUniqueId(), System.currentTimeMillis());
     }
 
     /*
     Get the time that the player joined
      */
-    public static Long getJoinTime(Player player) {
+    public static Long getJoinTime(OfflinePlayer player) {
         return joinTime.get(player.getUniqueId());
     }
 
     /*
     Set the played time
      */
-    public static void setPlayedTime(Player player) {
+    public static void setPlayedTime(OfflinePlayer player) {
         Long playedTimeInMs = (System.currentTimeMillis() - getJoinTime(player)) + getPlayedTime(player);
 
         /*
@@ -63,14 +61,14 @@ public class PlayerStats {
     /*
     Get the played time in milliseconds
      */
-    public static Long getPlayedTime(Player player) {
+    public static Long getPlayedTime(OfflinePlayer player) {
         return playedTime.get(player.getUniqueId());
     }
 
     /*
     Get the amount of broken blocks
      */
-    public static Integer getBrokenBlocks(Player player) {
+    public static Integer getBrokenBlocks(OfflinePlayer player) {
 
         if (brokenBlocksList.containsKey(player.getUniqueId())) {
             return brokenBlocksList.get(player.getUniqueId());
@@ -82,7 +80,7 @@ public class PlayerStats {
     /*
     Get the amount of placed blocks
      */
-    public static Integer getPlacedBlocks(Player player) {
+    public static Integer getPlacedBlocks(OfflinePlayer player) {
 
         if (placedBlocksList.containsKey(player.getUniqueId())) {
             return placedBlocksList.get(player.getUniqueId());
@@ -94,39 +92,43 @@ public class PlayerStats {
     /*
     Set the amount of broken blocks
      */
-    public static void setBrokenBlocks(Player player, int amount) {
+    public static void setBrokenBlocks(OfflinePlayer player, int amount) {
         brokenBlocksList.put(player.getUniqueId(), amount);
     }
 
     /*
     Set the amount of placed blocks
      */
-    public static void setPlacedBlocks(Player player, int amount) {
+    public static void setPlacedBlocks(OfflinePlayer player, int amount) {
         placedBlocksList.put(player.getUniqueId(), amount);
     }
 
     /*
     Create the inventory items
      */
-    public static void createItems(Player player) {
+    public static void createItems(OfflinePlayer Offlineplayer) {
 
-        /*
-        Set player stats
-         */
-        String hoursPlayed = PlayerStats.playedTimeToHours(player);
-        int blocksPlaced = PlayerStats.getPlacedBlocks(player);
-        int blocksBroken = PlayerStats.getBrokenBlocks(player);
-        int commandsPeformed = CommandHistoryMenu.getCommandAmount(player);
-        String pluginDateReleased = "10/03/2019 17:01:00";
+        if (!Offlineplayer.isOnline()) {
+            savePlayerStatsToCache(Offlineplayer);
+            setJoinTime(Offlineplayer);
+        }
+
+        String hoursPlayed = PlayerStats.playedTimeToHours(Offlineplayer);
+        int blocksPlaced = PlayerStats.getPlacedBlocks(Offlineplayer);
+        int blocksBroken = PlayerStats.getBrokenBlocks(Offlineplayer);
+        int commandsPeformed = CommandHistoryMenu.getCommandAmount(Offlineplayer);
+
+
+        String pluginDateReleased = "13/03/2019 20:37:24";
 
         /*
         Player stats
          */
         SkullMeta playerStatsItemMeta = (SkullMeta) playerStatsItem.getItemMeta();
-        playerStatsItemMeta.setDisplayName(ChatColor.GOLD + player.getName());
-        playerStatsItemMeta.setOwningPlayer(Bukkit.getOfflinePlayer(player.getUniqueId()));
+        playerStatsItemMeta.setDisplayName(ChatColor.GOLD + Offlineplayer.getName());
+        playerStatsItemMeta.setOwningPlayer(Bukkit.getOfflinePlayer(Offlineplayer.getUniqueId()));
         List<String> itemLore = new ArrayList<>();
-        itemLore.add(ChatColor.YELLOW + "UUID: " + ChatColor.GOLD + player.getUniqueId());
+        itemLore.add(ChatColor.YELLOW + "UUID: " + ChatColor.GOLD + Offlineplayer.getUniqueId());
         itemLore.add(ChatColor.YELLOW + "U hebt " + ChatColor.GOLD + blocksPlaced + ChatColor.YELLOW + " blokken geplaatst!");
         itemLore.add(ChatColor.YELLOW + "U hebt " + ChatColor.GOLD + blocksBroken + ChatColor.YELLOW + " blokken gebroken!");
         itemLore.add(ChatColor.YELLOW + "U hebt " + ChatColor.GOLD + commandsPeformed + ChatColor.YELLOW + " commando's uitgevoerd!");
@@ -141,9 +143,9 @@ public class PlayerStats {
         ItemMeta serverStatsItemItemMeta = serverStatsItem.getItemMeta();
         serverStatsItemItemMeta.setDisplayName(ChatColor.GOLD + "Onameril Bouwserver");
         itemLore.add(ChatColor.YELLOW + "IP: " + ChatColor.GOLD + "OnaBouwserver.nl");
-        itemLore.add(ChatColor.YELLOW + "Versie: " + ChatColor.GOLD + player.getServer().getVersion());
+        itemLore.add(ChatColor.YELLOW + "Versie: " + ChatColor.GOLD + Bukkit.getServer().getVersion());
         itemLore.add(ChatColor.YELLOW + "Werelden: ");
-        for (World world : player.getServer().getWorlds()) {
+        for (World world : Bukkit.getServer().getWorlds()) {
             itemLore.add(ChatColor.YELLOW + "     - " + ChatColor.GOLD + world.getName());
         }
         serverStatsItemItemMeta.setLore(itemLore);
@@ -166,12 +168,20 @@ public class PlayerStats {
     /*
     Create the inventory so it is viewable for the player
      */
-    public static void createInvenory(Player player) {
+    public static void createInvenory(Player sender, OfflinePlayer target) {
 
+        /*
+        If Player is offline
+         */
+        if (!target.isOnline()) {
+            PlayerStats.playedTime.put(target.getUniqueId(), Long.parseLong(Main.getInstance().getPlayerCache().getString("Data." + target.getUniqueId().toString() + ".PLAYED_MILISECONDS")));
+            PlayerStats.setBrokenBlocks(target, (int) Main.getInstance().getPlayerCache().get("Data." + target.getUniqueId().toString() + ".BLOCKS_BROKEN"));
+            PlayerStats.setPlacedBlocks(target, (int) Main.getInstance().getPlayerCache().get("Data." + target.getUniqueId().toString() + ".BLOCKS_PLACED"));
+        }
         /*
         Create the itemes for the inventory
          */
-        createItems(player);
+        createItems(target);
 
         /*
         Assign the inventory instance to the variabel
@@ -189,7 +199,7 @@ public class PlayerStats {
         Open the bouwserver inventory so it is
         viewable for the player
          */
-        player.openInventory(bouwServerInventory);
+        sender.openInventory(bouwServerInventory);
     }
 
     /*
@@ -224,7 +234,7 @@ public class PlayerStats {
     /*
     Retrieve the PlayerStats from playercache.yml to the Storage
      */
-    public static void savePlayerStatsToCache(Player player) {
+    public static void savePlayerStatsToCache(OfflinePlayer player) {
         Bukkit.getScheduler().runTaskLaterAsynchronously(Main.getInstance(), new Runnable() {
             @Override
             public void run() {
@@ -239,7 +249,8 @@ public class PlayerStats {
     Convert the played miliseconds into a
     hour:minute:second time-structure
      */
-    public static String playedTimeToHours(Player player) {
+    public static String playedTimeToHours(OfflinePlayer player) {
+
         setPlayedTime(player);
         Long millis = getPlayedTime(player);
         return String.format("%02d:%02d:%02d",
