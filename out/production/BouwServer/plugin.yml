@@ -7,29 +7,36 @@ depend:
   - PermissionsEx
 commands:
   bouwserver:
+    permission-message: &cJe hebt geen toegang tot deze commando! Helaes pindakaas!
     aliases: bs
   2fa:
     description: Setup 2FA for the player
+    permission-message: &cJe hebt geen toegang tot deze commando! Helaes pindakaas!
   staffmode:
     description: Enter staffmode
     usage: /staffmode
     permission: bouwserver.commands.staffmode
+    permission-message: &cJe hebt geen toegang tot deze commando! Helaes pindakaas!
     aliases:
       - sm
   buildmode:
     description: Enter buildmode
     permission: bouwserver.commands.buildmode
+    permission-message: &cJe hebt geen toegang tot deze commando! Helaes pindakaas!
     aliases:
       - bm
   freeze:
     description: Freeze player
     permission: bouwserver.commands.freeze
+    permission-message: &cJe hebt geen toegang tot deze commando! Helaes pindakaas!
   unfreeze:
     description: Unfreeze player
     permission: bouwserver.commands.unfreeze
+    permission-message: &cJe hebt geen toegang tot deze commando! Helaes pindakaas!
   commandhistory:
     description: See history of commands from player
     permission: bouwserver.commands.commandhistory
+    permission-message: &cJe hebt geen toegang tot deze commando! Helaes pindakaas!
     aliases:
       - cmhistory
       - cmh

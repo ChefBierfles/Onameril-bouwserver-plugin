@@ -2,6 +2,7 @@ package nl.hotseflots.onabouwserver.modules;
 
 import com.comphenix.protocol.PacketType;
 import nl.hotseflots.onabouwserver.Main;
+import nl.hotseflots.onabouwserver.utils.UUIDTool;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -10,22 +11,25 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.security.KeyStore;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class PlayerStats {
 
     public static ItemStack playerStatsItem = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
     public static ItemStack serverStatsItem = new ItemStack(Material.GOLD_PICKAXE);
     public static ItemStack pluginStatsItem = new ItemStack(Material.NAME_TAG);
+    public static ItemStack timePlayedLabelItem = new ItemStack(Material.WATCH);
+    public static ItemStack blocksBrokenLabelItem = new ItemStack(Material.DIAMOND_PICKAXE);
+    public static ItemStack blocksPlacedLabelItem = new ItemStack(Material.BRICK);
     private static HashMap<UUID, Integer> placedBlocksList = new HashMap<>();
     private static HashMap<UUID, Integer> brokenBlocksList = new HashMap<>();
     private static HashMap<UUID, Long> joinTime = new HashMap<>();
     private static HashMap<UUID, Long> playedTime = new HashMap<>();
     private static Inventory bouwServerInventory;
+    private static Inventory getTop10Inventory;
 
     /*
     Save the time in milliseconds that the player joined
@@ -119,7 +123,7 @@ public class PlayerStats {
         int commandsPeformed = CommandHistoryMenu.getCommandAmount(Offlineplayer);
 
 
-        String pluginDateReleased = "13/03/2019 20:37:24";
+        String pluginDateReleased = "23/03/2019 23:33:53";
 
         /*
         Player stats
@@ -163,6 +167,54 @@ public class PlayerStats {
         pluginStatsItemMeta.setLore(itemLore);
         pluginStatsItem.setItemMeta(pluginStatsItemMeta);
         itemLore.clear();
+    }
+
+    public static void createLeaderboardInventory(Player sender) {
+        /*
+        Get data Async since we are aquiring alot of data
+         */
+        Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                /*
+                Load data of all players
+                */
+
+                HashMap<UUID, Long> playedTime = new HashMap<>();
+                HashMap<UUID, Integer> blocksPlaced = new HashMap<>();
+                HashMap<UUID, Integer> blocksBroken = new HashMap<>();
+
+                for (String uuid : Main.getInstance().getPlayerCache().getConfigurationSection("Data").getKeys(false)) {
+                    playedTime.put(UUID.fromString(uuid),  Long.parseLong(Main.getInstance().getPlayerCache().getString("Data." + uuid + ".PLAYED_MILISECONDS")));
+                    blocksPlaced.put(UUID.fromString(uuid), (int) Main.getInstance().getPlayerCache().get("Data." + uuid + ".BLOCKS_PLACED"));
+                    blocksBroken.put(UUID.fromString(uuid), (int) Main.getInstance().getPlayerCache().get("Data." + uuid + ".BLOCKS_BROKEN"));
+                }
+
+                /*
+                Sort hashmaps
+                */
+                HashMap<UUID, Long> sortedPlayedTime = playedTime.entrySet().stream()
+                        .sorted((Map.Entry.<UUID, Long>comparingByValue().reversed()))
+                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+                HashMap<UUID, Integer> sortedBlocksBroken = blocksBroken.entrySet().stream()
+                        .sorted((Map.Entry.<UUID, Integer>comparingByValue().reversed()))
+                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+                HashMap<UUID, Integer> sortedBlocksPlaced = blocksPlaced.entrySet().stream()
+                        .sorted((Map.Entry.<UUID, Integer>comparingByValue().reversed()))
+                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+                /*
+                Go back into sync
+                 */
+                Bukkit.getScheduler().runTask(Main.getInstance(), new Runnable() {
+                    @Override
+                    public void run() {
+                        sender.openInventory(getTop10Inventory);
+                    }
+                });
+            }
+        });
     }
 
     /*
@@ -234,7 +286,8 @@ public class PlayerStats {
     /*
     Retrieve the PlayerStats from playercache.yml to the Storage
      */
-    public static void savePlayerStatsToCache(OfflinePlayer player) {
+    public static void  savePlayerStatsToCache(OfflinePlayer player) {
+
         Bukkit.getScheduler().runTaskLaterAsynchronously(Main.getInstance(), new Runnable() {
             @Override
             public void run() {

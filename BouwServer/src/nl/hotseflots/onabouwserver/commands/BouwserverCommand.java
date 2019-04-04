@@ -2,7 +2,6 @@ package nl.hotseflots.onabouwserver.commands;
 
 import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.modules.PlayerStats;
-import nl.hotseflots.onabouwserver.modules.StaffUtils.StaffMode;
 import nl.hotseflots.onabouwserver.utils.UUIDTool;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,10 +10,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
 
 public class BouwserverCommand implements CommandExecutor {
 
@@ -48,7 +43,7 @@ public class BouwserverCommand implements CommandExecutor {
                 if (strings.length > 1) {
                     OfflinePlayer target;
                     try {
-                        target = Bukkit.getOfflinePlayer(UUIDTool.getUUIDFromPlayerName(strings[1]));
+                        target = Bukkit.getOfflinePlayer(UUIDTool.getUUIDFromPlayerName(strings[1].toLowerCase()));
                     } catch (NullPointerException exc) {
                         sender.sendMessage(ChatColor.RED + "Speler niet gevonden in onze database!");
                         return false;
@@ -60,10 +55,17 @@ public class BouwserverCommand implements CommandExecutor {
                             return true;
                         }
                     }
-                } else {
+                } else if (strings.length == 1) {
                     if (strings[0].equalsIgnoreCase("stats")) {
                         if (sender.hasPermission("bouwserver.commands.stats")) {
                             PlayerStats.createInvenory(sender, sender);
+                            return true;
+                        }
+                    }
+
+                    if (strings[0].equalsIgnoreCase("leaderboard")) {
+                        if (sender.hasPermission("bouwserver.commands.leaderboard")) {
+                            PlayerStats.createLeaderboardInventory(sender);
                             return true;
                         }
                     }
@@ -74,6 +76,11 @@ public class BouwserverCommand implements CommandExecutor {
                             Main.getInstance().reloadConfig();
                             commandSender.sendMessage(ChatColor.GREEN + "Config file van de Bouwserver plugin is succesvol herladen!");
                         }
+                        return true;
+                    }
+                } else if (strings.length == 0) {
+                    if (sender.hasPermission("bouwserver.commands.stats")) {
+                        PlayerStats.createInvenory(sender, sender);
                         return true;
                     }
                 }

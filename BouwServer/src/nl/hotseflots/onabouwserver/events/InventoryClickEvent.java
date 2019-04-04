@@ -48,6 +48,9 @@ public class InventoryClickEvent implements Listener {
             if (event.getClickedInventory().getName().equals(ChatColor.GOLD + "" + ChatColor.BOLD + "Onameril Bouwserver Plugin")) {
                 event.setCancelled(true);
                 return;
+            } else if (event.getClickedInventory().getName().equalsIgnoreCase(ChatColor.GOLD + "" + ChatColor.BOLD + "Leaderboard")) {
+                event.setCancelled(true);
+                return;
             } else if (event.getClickedInventory().getName().equals(ChatColor.DARK_GRAY + "(Most recent" + ChatColor.GOLD + "" + ChatColor.BOLD + " > " + ChatColor.RESET + ChatColor.DARK_GRAY + "Oldest)")) {
                 if (CommandHistoryMenu.dates.size() != 0) {
                     if (event.getCurrentItem().isSimilar(CommandHistoryMenu.nextButtonItem)) {
