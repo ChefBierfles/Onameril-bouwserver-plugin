@@ -22,7 +22,7 @@ public enum Messages
     MCAUTH_SETUP_CODE("Messages.TwoFA_SETUP_MSG"),
     MCAUTH_QRMAP_NAME("Messages.TwoFA_QRMAP_NAME"),
     SERVER_CLOSING_MSG("Messages.SERVERCLOSING_MSG"),
-    STAFF_CHAT_FORMAT("");
+    STAFF_CHAT_FORMAT("Messages.STAFF_CHAT_FORMAT");
 
     private static Main main;
     private String path;
