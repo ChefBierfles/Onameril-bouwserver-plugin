@@ -23,6 +23,7 @@ public class AsyncPlayerChatEvent implements Listener {
 
     @EventHandler
     public void onAsyncPlayerChatEvent(org.bukkit.event.player.AsyncPlayerChatEvent event) {
+
         /*
         Check if the player talked in staffmode
          */
