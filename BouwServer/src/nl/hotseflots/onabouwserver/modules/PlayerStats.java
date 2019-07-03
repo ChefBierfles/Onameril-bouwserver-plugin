@@ -123,7 +123,7 @@ public class PlayerStats {
         int commandsPeformed = CommandHistoryMenu.getCommandAmount(Offlineplayer);
 
 
-        String pluginDateReleased = "23/03/2019 23:33:53";
+        String pluginDateReleased = "03/07/2019 19:19:00";
 
         /*
         Player stats

@@ -1,66 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="OnamerilBouwServer.jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5982b3ef-2cd5-498b-adc6-76a83ec0c916" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/BouwServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/BouwServer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/RankDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/RankDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/commands/BouwserverCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/commands/BuildModeCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/commands/CommandHistoryCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/commands/FreezeCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/commands/StaffModeCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/commands/TwoFactorAuthCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent$1$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/AsyncPlayerChatEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/BlockBreakEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/BlockPlaceEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/CommandPreProcessEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/EntityDamageEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/EntityPickUpItemEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/InventoryClickEvent$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/InventoryClickEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/LeavesDecayEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerDropEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerInteractEntityEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerInteractEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerJoinEvent$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerJoinEvent$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerJoinEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerMovementEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/events/PlayerQuitEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/BuildMode$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/BuildMode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/CommandHistoryMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/CommandSpy$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/CommandSpy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/PlayerCache$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/PlayerCache.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/PlayerStats$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/PlayerStats$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/PlayerStats$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/PlayerStats$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/PlayerStats$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/PlayerStats.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/RankDetector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/SpawnManager$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/SpawnManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffMode$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/StaffUtils/StaffMode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/TwoFactorAuth/AuthenticationDetails.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/TwoFactorAuth/QRMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/TwoFactorAuth/TOTP.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/TwoFactorAuth/TwoFA.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/WelcomeMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/modules/WelcomeMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/utils/Messages.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/utils/Options.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BouwServer/nl/hotseflots/onabouwserver/utils/UUIDTool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BouwServer/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BouwServer/src/plugin.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,13 +31,17 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/config.yml">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-798" />
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/plugin.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-158" />
+            <state relative-caret-position="51">
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -122,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BouwserverCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="67" column="49" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
+            <state relative-caret-position="171">
+              <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,15 +84,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="290" column="26" lean-forward="true" selection-start-line="290" selection-start-column="26" selection-end-line="290" selection-end-column="26" />
+            <state relative-caret-position="142">
+              <caret line="125" column="56" selection-start-line="125" selection-start-column="56" selection-end-line="125" selection-end-column="56" />
               <folding>
                 <element signature="e#15248#15249#0" expanded="true" />
                 <element signature="e#15290#15291#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2855">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -155,6 +117,7 @@
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BouwserverCommand.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/RankDetector.java" />
         <option value="$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java" />
+        <option value="$PROJECT_DIR$/BouwServer/src/plugin.yml" />
       </list>
     </option>
   </component>
@@ -265,7 +228,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562174169605" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562174418824" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Jars/ProtocolLib.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.1536" />
@@ -293,12 +256,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562172502399</updated>
-      <workItem from="1562172507503" duration="1659000" />
+      <workItem from="1562172507503" duration="1902000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1659000" />
+    <option name="totallyTimeSpent" value="1902000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -311,6 +274,7 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
@@ -359,14 +323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/plugin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-158" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BouwServer/src/config.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/utils/Options.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -374,10 +330,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2855">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/commands/BouwserverCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="67" column="49" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
+        <state relative-caret-position="171">
+          <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -386,12 +349,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BouwServer/src/nl/hotseflots/onabouwserver/modules/PlayerStats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="290" column="26" lean-forward="true" selection-start-line="290" selection-start-column="26" selection-end-line="290" selection-end-column="26" />
+        <state relative-caret-position="142">
+          <caret line="125" column="56" selection-start-line="125" selection-start-column="56" selection-end-line="125" selection-end-column="56" />
           <folding>
             <element signature="e#15248#15249#0" expanded="true" />
             <element signature="e#15290#15291#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-798" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BouwServer/src/plugin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
         </state>
       </provider>
     </entry>
