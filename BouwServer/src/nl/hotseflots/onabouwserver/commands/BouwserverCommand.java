@@ -63,12 +63,13 @@ public class BouwserverCommand implements CommandExecutor {
                         }
                     }
 
-                    if (strings[0].equalsIgnoreCase("leaderboard")) {
-                        if (sender.hasPermission("bouwserver.commands.leaderboard")) {
-                            PlayerStats.createLeaderboardInventory(sender);
-                            return true;
-                        }
-                    }
+                    // Veroorzaakt op het moment te veel lagg (Inefficient systeem)
+//                    if (strings[0].equalsIgnoreCase("leaderboard")) {
+//                        if (sender.hasPermission("bouwserver.commands.leaderboard")) {
+//                            PlayerStats.createLeaderboardInventory(sender);
+//                            return true;
+//                        }
+//                    }
 
                     if (strings[0].equalsIgnoreCase("reload")) {
                         if (sender.hasPermission("bouwserver.commands.reload")) {

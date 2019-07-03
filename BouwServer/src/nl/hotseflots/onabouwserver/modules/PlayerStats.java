@@ -1,6 +1,5 @@
 package nl.hotseflots.onabouwserver.modules;
 
-import com.comphenix.protocol.PacketType;
 import nl.hotseflots.onabouwserver.Main;
 import nl.hotseflots.onabouwserver.utils.UUIDTool;
 import org.bukkit.*;
