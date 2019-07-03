@@ -20,6 +20,8 @@ public class RankDetector {
                 return "Admin";
             } else if (group.contains("Moderator")) {
                 return "Moderator";
+            } else if (group.contains("Onameril+")) {
+                return "Onameril+";
             } else if (group.contains("Onameril")) {
                 return "Onameril";
             } else if (group.contains("Rando")) {

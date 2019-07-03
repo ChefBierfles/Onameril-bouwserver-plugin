@@ -173,158 +173,144 @@ public class PlayerStats {
         /*
         Get data Async since we are aquiring alot of data
          */
-        Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), new Runnable() {
-            @Override
-            public void run() {
                 /*
                 Load data of all players
                 */
 
-                HashMap<UUID, Long> playedTime = new HashMap<>();
-                HashMap<UUID, Integer> blocksPlaced = new HashMap<>();
-                HashMap<UUID, Integer> blocksBroken = new HashMap<>();
+        HashMap<UUID, Long> playedTime = new HashMap<>();
+        HashMap<UUID, Integer> blocksPlaced = new HashMap<>();
+        HashMap<UUID, Integer> blocksBroken = new HashMap<>();
 
-                for (String uuid : Main.getInstance().getPlayerCache().getConfigurationSection("Data").getKeys(false)) {
-                    playedTime.put(UUID.fromString(uuid),  Long.parseLong(Main.getInstance().getPlayerCache().getString("Data." + uuid + ".PLAYED_MILISECONDS")));
-                    blocksPlaced.put(UUID.fromString(uuid), (int) Main.getInstance().getPlayerCache().get("Data." + uuid + ".BLOCKS_PLACED"));
-                    blocksBroken.put(UUID.fromString(uuid), (int) Main.getInstance().getPlayerCache().get("Data." + uuid + ".BLOCKS_BROKEN"));
-                }
+        for (String uuid : Main.getInstance().getPlayerCache().getConfigurationSection("Data").getKeys(false)) {
+            playedTime.put(UUID.fromString(uuid), Long.parseLong(Main.getInstance().getPlayerCache().getString("Data." + uuid + ".PLAYED_MILISECONDS")));
+            blocksPlaced.put(UUID.fromString(uuid), (int) Main.getInstance().getPlayerCache().get("Data." + uuid + ".BLOCKS_PLACED"));
+            blocksBroken.put(UUID.fromString(uuid), (int) Main.getInstance().getPlayerCache().get("Data." + uuid + ".BLOCKS_BROKEN"));
+        }
 
                 /*
                 Sort hashmaps
                 */
-                HashMap<UUID, Long> sortedPlayedTime = playedTime.entrySet().stream()
-                        .sorted((Map.Entry.<UUID, Long>comparingByValue().reversed()))
-                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        HashMap<UUID, Long> sortedPlayedTime = playedTime.entrySet().stream()
+                .sorted((Map.Entry.<UUID, Long>comparingByValue().reversed()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
-                HashMap<UUID, Integer> sortedBlocksBroken = blocksBroken.entrySet().stream()
-                        .sorted((Map.Entry.<UUID, Integer>comparingByValue().reversed()))
-                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        HashMap<UUID, Integer> sortedBlocksBroken = blocksBroken.entrySet().stream()
+                .sorted((Map.Entry.<UUID, Integer>comparingByValue().reversed()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
-                HashMap<UUID, Integer> sortedBlocksPlaced = blocksPlaced.entrySet().stream()
-                        .sorted((Map.Entry.<UUID, Integer>comparingByValue().reversed()))
-                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-
-
-                ItemMeta playedTimeLabelMeta = timePlayedLabelItem.getItemMeta();
-                playedTimeLabelMeta.setDisplayName(ChatColor.GOLD + "Gespeelde tijd");
-                timePlayedLabelItem.setItemMeta(playedTimeLabelMeta);
-
-                ItemMeta placedBlocksLabelMEta = blocksPlacedLabelItem.getItemMeta();
-                placedBlocksLabelMEta.setDisplayName(ChatColor.GOLD + "Geplaatste blokken");
-                blocksPlacedLabelItem.setItemMeta(placedBlocksLabelMEta);
-
-                ItemMeta blocksBrokenLabelMeta = blocksBrokenLabelItem.getItemMeta();
-                blocksBrokenLabelMeta.setDisplayName(ChatColor.GOLD + "Gebroken blokken");
-                blocksBrokenLabelItem.setItemMeta(blocksBrokenLabelMeta);
-
-                getTop10Inventory = Bukkit.createInventory(null, 54, ChatColor.GOLD + "" + ChatColor.BOLD + "Leaderboard");
-
-                getTop10Inventory.setItem(0, timePlayedLabelItem);
-                getTop10Inventory.setItem(9, timePlayedLabelItem);
-                getTop10Inventory.setItem(18, blocksPlacedLabelItem);
-                getTop10Inventory.setItem(27, blocksPlacedLabelItem);
-                getTop10Inventory.setItem(36, blocksBrokenLabelItem);
-                getTop10Inventory.setItem(45, blocksBrokenLabelItem);
-
-                int i = 1;
-                for(UUID key : sortedPlayedTime.keySet()) {
-
-                    if (i == 9) {
-                        i = 10;
-                    }
-
-                    if (i == 18) {
-                        break;
-                    }
-
-                    OfflinePlayer player = Bukkit.getOfflinePlayer(key);
-                    ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
-                    SkullMeta headMeta = (SkullMeta) head.getItemMeta();
-                    headMeta.setOwningPlayer(player);
-                    headMeta.setDisplayName(ChatColor.GOLD + "#" + i + ": " + ChatColor.YELLOW + player.getName());
-                    List<String> lore = new ArrayList<>();
-                    Long millis = sortedPlayedTime.get(key);
-                    lore.add(ChatColor.GOLD + "Gespeeld: " + ChatColor.YELLOW + String.format("%02d:%02d:%02d",
-                            TimeUnit.MILLISECONDS.toHours(millis),
-                            TimeUnit.MILLISECONDS.toMinutes(millis) -
-                                    TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
-                            TimeUnit.MILLISECONDS.toSeconds(millis) -
-                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis))));
-                    headMeta.setLore(lore);
-                    head.setItemMeta(headMeta);
-                    getTop10Inventory.setItem(i, head);
-
-                    i++;
-                }
-
-                for(UUID key : sortedBlocksPlaced.keySet()) {
-
-                    if (i == 27) {
-                        i = 28;
-                    }
-
-                    if (i == 18) {
-                        i = 19;
-                    }
-
-                    if (i == 36) {
-                        break;
-                    }
-
-                    OfflinePlayer player = Bukkit.getOfflinePlayer(key);
-                    ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
-                    SkullMeta headMeta = (SkullMeta) head.getItemMeta();
-                    headMeta.setOwningPlayer(player);
-                    headMeta.setDisplayName(ChatColor.GOLD + "#" + (i - 18) + ": " + ChatColor.YELLOW + player.getName());
-                    List<String> lore = new ArrayList<>();
-                    lore.add(ChatColor.GOLD + "Blokken geplaatst: " + ChatColor.YELLOW + sortedBlocksPlaced.get(key));
-                    headMeta.setLore(lore);
-                    head.setItemMeta(headMeta);
-                    getTop10Inventory.setItem(i, head);
-                    i++;
-                }
-
-                for (UUID key : sortedBlocksBroken.keySet()) {
-
-                    if (i == 45) {
-                        i = 46;
-                    }
-
-                    if (i == 36) {
-                        i = 37;
-                    }
-
-                    if (i == 54) {
-                        break;
-                    }
-
-                    OfflinePlayer player = Bukkit.getOfflinePlayer(key);
-                    ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
-                    SkullMeta headMeta = (SkullMeta) head.getItemMeta();
-                    headMeta.setOwningPlayer(player);
-                    headMeta.setDisplayName(ChatColor.GOLD + "#" + (i - 36) + ": " + ChatColor.YELLOW + player.getName());
-                    List<String> lore = new ArrayList<>();
-                    lore.add(ChatColor.GOLD + "Blokken gebroken: " + ChatColor.YELLOW + sortedBlocksBroken.get(key));
-                    headMeta.setLore(lore);
-                    head.setItemMeta(headMeta);
-                    getTop10Inventory.setItem(i, head);
-                    i++;
-                }
+        HashMap<UUID, Integer> sortedBlocksPlaced = blocksPlaced.entrySet().stream()
+                .sorted((Map.Entry.<UUID, Integer>comparingByValue().reversed()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
 
-                /*
-                Go back into sync
-                 */
-                Bukkit.getScheduler().runTask(Main.getInstance(), new Runnable() {
-                    @Override
-                    public void run() {
+        ItemMeta playedTimeLabelMeta = timePlayedLabelItem.getItemMeta();
+        playedTimeLabelMeta.setDisplayName(ChatColor.GOLD + "Gespeelde tijd");
+        timePlayedLabelItem.setItemMeta(playedTimeLabelMeta);
 
-                        sender.openInventory(getTop10Inventory);
-                    }
-                });
+        ItemMeta placedBlocksLabelMEta = blocksPlacedLabelItem.getItemMeta();
+        placedBlocksLabelMEta.setDisplayName(ChatColor.GOLD + "Geplaatste blokken");
+        blocksPlacedLabelItem.setItemMeta(placedBlocksLabelMEta);
+
+        ItemMeta blocksBrokenLabelMeta = blocksBrokenLabelItem.getItemMeta();
+        blocksBrokenLabelMeta.setDisplayName(ChatColor.GOLD + "Gebroken blokken");
+        blocksBrokenLabelItem.setItemMeta(blocksBrokenLabelMeta);
+
+        getTop10Inventory = Bukkit.createInventory(null, 54, ChatColor.GOLD + "" + ChatColor.BOLD + "Leaderboard");
+
+        getTop10Inventory.setItem(0, timePlayedLabelItem);
+        getTop10Inventory.setItem(9, timePlayedLabelItem);
+        getTop10Inventory.setItem(18, blocksPlacedLabelItem);
+        getTop10Inventory.setItem(27, blocksPlacedLabelItem);
+        getTop10Inventory.setItem(36, blocksBrokenLabelItem);
+        getTop10Inventory.setItem(45, blocksBrokenLabelItem);
+
+        int i = 1;
+        for (UUID key : sortedPlayedTime.keySet()) {
+
+            if (i == 9) {
+                i = 10;
             }
-        });
+
+            if (i == 18) {
+                break;
+            }
+
+            OfflinePlayer player = Bukkit.getOfflinePlayer(key);
+            ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+            SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+            headMeta.setOwningPlayer(player);
+            headMeta.setDisplayName(ChatColor.GOLD + "#" + i + ": " + ChatColor.YELLOW + player.getName());
+            List<String> lore = new ArrayList<>();
+            Long millis = sortedPlayedTime.get(key);
+            lore.add(ChatColor.GOLD + "Gespeeld: " + ChatColor.YELLOW + String.format("%02d:%02d:%02d",
+                    TimeUnit.MILLISECONDS.toHours(millis),
+                    TimeUnit.MILLISECONDS.toMinutes(millis) -
+                            TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
+                    TimeUnit.MILLISECONDS.toSeconds(millis) -
+                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis))));
+            headMeta.setLore(lore);
+            head.setItemMeta(headMeta);
+            getTop10Inventory.setItem(i, head);
+
+            i++;
+        }
+
+        for (UUID key : sortedBlocksPlaced.keySet()) {
+
+            if (i == 27) {
+                i = 28;
+            }
+
+            if (i == 18) {
+                i = 19;
+            }
+
+            if (i == 36) {
+                break;
+            }
+
+            OfflinePlayer player = Bukkit.getOfflinePlayer(key);
+            ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+            SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+            headMeta.setOwningPlayer(player);
+            headMeta.setDisplayName(ChatColor.GOLD + "#" + (i - 18) + ": " + ChatColor.YELLOW + player.getName());
+            List<String> lore = new ArrayList<>();
+            lore.add(ChatColor.GOLD + "Blokken geplaatst: " + ChatColor.YELLOW + sortedBlocksPlaced.get(key));
+            headMeta.setLore(lore);
+            head.setItemMeta(headMeta);
+            getTop10Inventory.setItem(i, head);
+            i++;
+        }
+
+        for (UUID key : sortedBlocksBroken.keySet()) {
+
+            if (i == 45) {
+                i = 46;
+            }
+
+            if (i == 36) {
+                i = 37;
+            }
+
+            if (i == 54) {
+                break;
+            }
+
+            OfflinePlayer player = Bukkit.getOfflinePlayer(key);
+            ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+            SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+            headMeta.setOwningPlayer(player);
+            headMeta.setDisplayName(ChatColor.GOLD + "#" + (i - 36) + ": " + ChatColor.YELLOW + player.getName());
+            List<String> lore = new ArrayList<>();
+            lore.add(ChatColor.GOLD + "Blokken gebroken: " + ChatColor.YELLOW + sortedBlocksBroken.get(key));
+            headMeta.setLore(lore);
+            head.setItemMeta(headMeta);
+            getTop10Inventory.setItem(i, head);
+            i++;
+        }
+
+
+        sender.openInventory(getTop10Inventory);
     }
 
     /*
@@ -388,7 +374,8 @@ public class PlayerStats {
                 PlayerStats.brokenBlocksList.remove(player.getUniqueId());
                 try {
                     Main.getInstance().getPlayerCache().save(Main.getInstance().getPlayerCacheFile());
-                } catch (IOException exc) {}
+                } catch (IOException exc) {
+                }
             }
         });
     }
@@ -396,7 +383,7 @@ public class PlayerStats {
     /*
     Retrieve the PlayerStats from playercache.yml to the Storage
      */
-    public static void  savePlayerStatsToCache(OfflinePlayer player) {
+    public static void savePlayerStatsToCache(OfflinePlayer player) {
 
         Bukkit.getScheduler().runTaskLaterAsynchronously(Main.getInstance(), new Runnable() {
             @Override
@@ -427,11 +414,11 @@ public class PlayerStats {
     /*
     Interval to save the player stats to the playercache.yml
      */
-    public static void savePlayerStatsInterval(int interval){
+    public static void savePlayerStatsInterval(int interval) {
         Bukkit.getScheduler().scheduleAsyncRepeatingTask(Main.getInstance(), new Runnable() {
             @Override
             public void run() {
-                for (Player players: Bukkit.getOnlinePlayers()) {
+                for (Player players : Bukkit.getOnlinePlayers()) {
                     Main.getInstance().getPlayerCache().set("Data." + players.getUniqueId().toString() + ".BLOCKS_BROKEN", PlayerStats.getBrokenBlocks(players));
                     Main.getInstance().getPlayerCache().set("Data." + players.getUniqueId().toString() + ".BLOCKS_PLACED", PlayerStats.getPlacedBlocks(players));
                     PlayerStats.setPlayedTime(players);
@@ -439,7 +426,9 @@ public class PlayerStats {
 
                     try {
                         Main.getInstance().getPlayerCache().save(Main.getInstance().getPlayerCacheFile());
-                    } catch (IOException exc) { exc.printStackTrace(); }
+                    } catch (IOException exc) {
+                        exc.printStackTrace();
+                    }
                 }
             }
         }, 20 * interval, 20 * interval);
