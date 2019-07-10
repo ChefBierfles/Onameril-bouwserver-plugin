@@ -45,7 +45,7 @@ public class TwoFactorAuthCommand implements CommandExecutor {
                 TwoFA.attemptDataLoad(player.getUniqueId());
 
                 if (TwoFA.hasTwofactorauth(player.getUniqueId())) {
-                    TwoFA.unloadAuthenticationDetails(player.getUniqueId());
+                    //TwoFA.unloadAuthenticationDetails(player.getUniqueId());
                     player.sendMessage(Messages.MCAUTH_SETUP_ALREADY_ENABLED.getMessage());
                     return true;
                 }
